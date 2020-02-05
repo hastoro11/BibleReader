@@ -14,6 +14,20 @@
 		8C116E7323E9EC5A0010859D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C116E7223E9EC5A0010859D /* Assets.xcassets */; };
 		8C116E7623E9EC5A0010859D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C116E7523E9EC5A0010859D /* Preview Assets.xcassets */; };
 		8C116E7923E9EC5A0010859D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C116E7723E9EC5A0010859D /* LaunchScreen.storyboard */; };
+		8C116EBE23E9EF2C0010859D /* Vers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116EBD23E9EF2C0010859D /* Vers.swift */; };
+		8C116EC023E9EF370010859D /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116EBF23E9EF370010859D /* UserSettings.swift */; };
+		8C116EC223E9EF430010859D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116EC123E9EF430010859D /* TitleView.swift */; };
+		8C116EC423E9EF4C0010859D /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116EC323E9EF4C0010859D /* BodyView.swift */; };
+		8C116EC623E9EF580010859D /* ChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116EC523E9EF580010859D /* ChapterView.swift */; };
+		8C116EC823E9EF650010859D /* ChapterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116EC723E9EF650010859D /* ChapterViewModel.swift */; };
+		8C9F0C8723E9F40A00D40B83 /* Example.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C8623E9F40A00D40B83 /* Example.json */; };
+		8C9F0C8923E9F43700D40B83 /* CrimsonPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C8823E9F43700D40B83 /* CrimsonPro-Light.ttf */; };
+		8C9F0C8B23E9F45300D40B83 /* CormorantGaramond-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C8A23E9F45300D40B83 /* CormorantGaramond-Light.ttf */; };
+		8C9F0C8D23E9F45F00D40B83 /* Maitree-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C8C23E9F45F00D40B83 /* Maitree-Light.ttf */; };
+		8C9F0C8F23E9F56D00D40B83 /* CormorantGaramond-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C8E23E9F56D00D40B83 /* CormorantGaramond-Bold.ttf */; };
+		8C9F0C9123E9F57900D40B83 /* Maitree-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C9023E9F57900D40B83 /* Maitree-Bold.ttf */; };
+		8C9F0C9423E9F65F00D40B83 /* ChapterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F0C9323E9F65F00D40B83 /* ChapterSettingView.swift */; };
+		8C9F0C9523E9FD1F00D40B83 /* CrimsonPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C9223E9F58400D40B83 /* CrimsonPro-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +40,20 @@
 		8C116E7523E9EC5A0010859D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8C116E7823E9EC5A0010859D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C116E7A23E9EC5A0010859D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C116EBD23E9EF2C0010859D /* Vers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vers.swift; path = "../../../BibleReader_ copy/BibleReader/Chapter/Vers.swift"; sourceTree = "<group>"; };
+		8C116EBF23E9EF370010859D /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSettings.swift; path = "../../../BibleReader_ copy/BibleReader/Chapter/UserSettings.swift"; sourceTree = "<group>"; };
+		8C116EC123E9EF430010859D /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleView.swift; path = "../../../BibleReader_ copy/BibleReader/Chapter/TitleView.swift"; sourceTree = "<group>"; };
+		8C116EC323E9EF4C0010859D /* BodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BodyView.swift; path = "../../../BibleReader_ copy/BibleReader/Chapter/BodyView.swift"; sourceTree = "<group>"; };
+		8C116EC523E9EF580010859D /* ChapterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChapterView.swift; path = "../../../BibleReader_ copy/BibleReader/Chapter/ChapterView.swift"; sourceTree = "<group>"; };
+		8C116EC723E9EF650010859D /* ChapterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChapterViewModel.swift; path = "../../../BibleReader_ copy/BibleReader/Chapter/ChapterViewModel.swift"; sourceTree = "<group>"; };
+		8C9F0C8623E9F40A00D40B83 /* Example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Example.json; sourceTree = "<group>"; };
+		8C9F0C8823E9F43700D40B83 /* CrimsonPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CrimsonPro-Light.ttf"; sourceTree = "<group>"; };
+		8C9F0C8A23E9F45300D40B83 /* CormorantGaramond-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Light.ttf"; sourceTree = "<group>"; };
+		8C9F0C8C23E9F45F00D40B83 /* Maitree-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Maitree-Light.ttf"; sourceTree = "<group>"; };
+		8C9F0C8E23E9F56D00D40B83 /* CormorantGaramond-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Bold.ttf"; sourceTree = "<group>"; };
+		8C9F0C9023E9F57900D40B83 /* Maitree-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Maitree-Bold.ttf"; sourceTree = "<group>"; };
+		8C9F0C9223E9F58400D40B83 /* CrimsonPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CrimsonPro-Bold.ttf"; sourceTree = "<group>"; };
+		8C9F0C9323E9F65F00D40B83 /* ChapterSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterSettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +86,13 @@
 		8C116E6823E9EC520010859D /* BibleReader */ = {
 			isa = PBXGroup;
 			children = (
+				8C116E9123E9ED130010859D /* Fonts */,
+				8C116E8223E9ECF30010859D /* Chapter */,
 				8C116E6923E9EC520010859D /* AppDelegate.swift */,
 				8C116E6B23E9EC520010859D /* SceneDelegate.swift */,
 				8C116E7023E9EC520010859D /* ContentView.swift */,
 				8C116E7223E9EC5A0010859D /* Assets.xcassets */,
+				8C9F0C8623E9F40A00D40B83 /* Example.json */,
 				8C116E7723E9EC5A0010859D /* LaunchScreen.storyboard */,
 				8C116E7A23E9EC5A0010859D /* Info.plist */,
 				8C116E6D23E9EC520010859D /* BibleReader.xcdatamodeld */,
@@ -76,6 +107,33 @@
 				8C116E7523E9EC5A0010859D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8C116E8223E9ECF30010859D /* Chapter */ = {
+			isa = PBXGroup;
+			children = (
+				8C116EC123E9EF430010859D /* TitleView.swift */,
+				8C116EC323E9EF4C0010859D /* BodyView.swift */,
+				8C116EC723E9EF650010859D /* ChapterViewModel.swift */,
+				8C116EBF23E9EF370010859D /* UserSettings.swift */,
+				8C116EBD23E9EF2C0010859D /* Vers.swift */,
+				8C116EC523E9EF580010859D /* ChapterView.swift */,
+				8C9F0C9323E9F65F00D40B83 /* ChapterSettingView.swift */,
+			);
+			path = Chapter;
+			sourceTree = "<group>";
+		};
+		8C116E9123E9ED130010859D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8C9F0C8C23E9F45F00D40B83 /* Maitree-Light.ttf */,
+				8C9F0C9023E9F57900D40B83 /* Maitree-Bold.ttf */,
+				8C9F0C8A23E9F45300D40B83 /* CormorantGaramond-Light.ttf */,
+				8C9F0C8E23E9F56D00D40B83 /* CormorantGaramond-Bold.ttf */,
+				8C9F0C8823E9F43700D40B83 /* CrimsonPro-Light.ttf */,
+				8C9F0C9223E9F58400D40B83 /* CrimsonPro-Bold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,9 +194,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9F0C8723E9F40A00D40B83 /* Example.json in Resources */,
 				8C116E7923E9EC5A0010859D /* LaunchScreen.storyboard in Resources */,
+				8C9F0C8F23E9F56D00D40B83 /* CormorantGaramond-Bold.ttf in Resources */,
+				8C9F0C8B23E9F45300D40B83 /* CormorantGaramond-Light.ttf in Resources */,
 				8C116E7623E9EC5A0010859D /* Preview Assets.xcassets in Resources */,
+				8C9F0C8923E9F43700D40B83 /* CrimsonPro-Light.ttf in Resources */,
 				8C116E7323E9EC5A0010859D /* Assets.xcassets in Resources */,
+				8C9F0C9123E9F57900D40B83 /* Maitree-Bold.ttf in Resources */,
+				8C9F0C8D23E9F45F00D40B83 /* Maitree-Light.ttf in Resources */,
+				8C9F0C9523E9FD1F00D40B83 /* CrimsonPro-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,10 +214,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C116EC823E9EF650010859D /* ChapterViewModel.swift in Sources */,
 				8C116E6A23E9EC520010859D /* AppDelegate.swift in Sources */,
+				8C116EC023E9EF370010859D /* UserSettings.swift in Sources */,
+				8C116EC623E9EF580010859D /* ChapterView.swift in Sources */,
+				8C116EC423E9EF4C0010859D /* BodyView.swift in Sources */,
+				8C116EBE23E9EF2C0010859D /* Vers.swift in Sources */,
+				8C116EC223E9EF430010859D /* TitleView.swift in Sources */,
 				8C116E6F23E9EC520010859D /* BibleReader.xcdatamodeld in Sources */,
 				8C116E7123E9EC520010859D /* ContentView.swift in Sources */,
 				8C116E6C23E9EC520010859D /* SceneDelegate.swift in Sources */,
+				8C9F0C9423E9F65F00D40B83 /* ChapterSettingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

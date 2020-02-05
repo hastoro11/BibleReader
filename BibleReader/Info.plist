@@ -56,5 +56,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Maitree-Light.ttf</string>
+		<string>Maitree-Bold.ttf</string>
+		<string>CormorantGaramond-Light.ttf</string>
+		<string>CormorantGaramond-Bold.ttf</string>
+		<string>CrimsonPro-Light.ttf</string>
+		<string>CrimsonPro-Bold.ttf</string>
+	</array>
 </dict>
 </plist>

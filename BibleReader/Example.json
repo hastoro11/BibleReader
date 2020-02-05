@@ -1,0 +1,295 @@
+{
+    "keres": {
+        "feladat": "idezet",
+        "hivatkozas": "Kiv 35",
+        "forma": "json"
+    },
+    "valasz": {
+        "versek": [
+            {
+                "szoveg": "Azután összegyűjtötte Mózes Izráel fiainak egész közösségét, és ezt mondta nekik: Ezek azok az igék, amelyekről azt parancsolta az ÚR, hogy meg kell tennetek:",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203500100,
+                    "szep": "2Móz 35,1"
+                }
+            },
+            {
+                "szoveg": "Hat napon át végezzétek munkátokat, de a hetedik napot tartsátok szentnek, az ÚRnak szentelt nyugalom nagy napja legyen az! Meg kell halnia mindenkinek, aki munkát végez ezen a napon!",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203500200,
+                    "szep": "2Móz 35,2"
+                }
+            },
+            {
+                "szoveg": "Lakóhelyeteken sehol se gyújtsatok tüzet szombaton!",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203500300,
+                    "szep": "2Móz 35,3"
+                }
+            },
+            {
+                "szoveg": "Azután ezt mondta Mózes Izráel fiai egész közösségének: Ezt parancsolta az ÚR:",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203500400,
+                    "szep": "2Móz 35,4"
+                }
+            },
+            {
+                "szoveg": "Gyűjtsetek felajánlást magatok között az ÚRnak! Mindenki, akit arra indít a szíve, hozzon adományokat az ÚRnak: aranyat, ezüstöt és rezet,",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203500500,
+                    "szep": "2Móz 35,5"
+                }
+            },
+            {
+                "szoveg": "kék és piros bíbort, karmazsin fonalat és lenfonalat, kecskeszőrt,",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203500600,
+                    "szep": "2Móz 35,6"
+                }
+            },
+            {
+                "szoveg": "vörösre festett kosbőrt, delfinbőrt és akáciafát,",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203500700,
+                    "szep": "2Móz 35,7"
+                }
+            },
+            {
+                "szoveg": "lámpaolajat, balzsamot a felkenéshez való olajhoz és a jó illatú illatáldozathoz,",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203500800,
+                    "szep": "2Móz 35,8"
+                }
+            },
+            {
+                "szoveg": "és ónixköveket és berakásra való drágaköveket az éfódhoz és hósenhez.<br>",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203500900,
+                    "szep": "2Móz 35,9"
+                }
+            },
+            {
+                "szoveg": "Aki csak hozzáértő ember közöttetek, jöjjön ide, és készítse el mindazt, amit megparancsolt az ÚR:",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203501000,
+                    "szep": "2Móz 35,10"
+                }
+            },
+            {
+                "szoveg": "a hajlékot, annak sátortetejét és takaróját, kapcsait, deszkáit, reteszeit, oszlopait és talpait,",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203501100,
+                    "szep": "2Móz 35,11"
+                }
+            },
+            {
+                "szoveg": "a ládát és annak rúdjait a födéllel együtt, a függőkárpitot,",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203501200,
+                    "szep": "2Móz 35,12"
+                }
+            },
+            {
+                "szoveg": "az asztalt, annak rúdjait, egész fölszerelését és a szent kenyereket,",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203501300,
+                    "szep": "2Móz 35,13"
+                }
+            },
+            {
+                "szoveg": "a lámpatartót a világításhoz, annak fölszerelését és mécseseit meg a lámpaolajat,",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203501400,
+                    "szep": "2Móz 35,14"
+                }
+            },
+            {
+                "szoveg": "az illatáldozati oltárt és annak rúdjait, a fölkenéshez való olajat és a jó illatú füstölőszereket, a bejárati függönyt a hajlék bejáratához,",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203501500,
+                    "szep": "2Móz 35,15"
+                }
+            },
+            {
+                "szoveg": "az égőáldozati oltárt, annak rézrácsozatát, rúdjait és egész fölszerelését, a medencét és annak állványát,",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203501600,
+                    "szep": "2Móz 35,16"
+                }
+            },
+            {
+                "szoveg": "az udvar szőnyegfalait, oszlopait és talpait meg az udvar kapujának függönyét,",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203501700,
+                    "szep": "2Móz 35,17"
+                }
+            },
+            {
+                "szoveg": "a hajlék cövekeit, az udvar cövekeit és a hozzájuk való köteleket,",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203501800,
+                    "szep": "2Móz 35,18"
+                }
+            },
+            {
+                "szoveg": "a díszes ruhákat a szentélyben végzendő szolgálathoz: Áron főpap szent ruháit és fiainak papi ruháit!",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203501900,
+                    "szep": "2Móz 35,19"
+                }
+            },
+            {
+                "szoveg": "Ekkor eltávozott Mózes elől Izráel egész közössége,",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203502000,
+                    "szep": "2Móz 35,20"
+                }
+            },
+            {
+                "szoveg": "majd visszajött mindenki, akit a szíve arra indított, és a lelke arra ösztönzött, és elhozta az ÚRnak szánt felajánlását a kijelentés sátrának elkészítéséhez, az ott végzendő szolgálathoz és a szent ruhákhoz.<br>",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203502100,
+                    "szep": "2Móz 35,21"
+                }
+            },
+            {
+                "szoveg": "Eljöttek a férfiak és az asszonyok, mindenki, akit a szíve arra ösztönzött, és hoztak kapcsokat, fülbevalókat, gyűrűket, nyakláncokat és mindenféle arany ékszert. Mindenki ajánlott föl valamilyen aranyból készült ajándékot az ÚRnak.",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203502200,
+                    "szep": "2Móz 35,22"
+                }
+            },
+            {
+                "szoveg": "Minden férfi aszerint, hogy mije volt, hozott kék és piros bíbort, karmazsin fonalat és lenfonalat, kecskeszőrt, továbbá vörösre festett kosbőrt és delfinbőrt.",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203502300,
+                    "szep": "2Móz 35,23"
+                }
+            },
+            {
+                "szoveg": "Aki ezüstöt vagy rezet tudott felajánlani, az is elhozta felajánlását az ÚRnak; akinek akáciafája volt, azt hozta el a különböző istentiszteleti eszközökhöz.<br>",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203502400,
+                    "szep": "2Móz 35,24"
+                }
+            },
+            {
+                "szoveg": "Mindazok az asszonyok, akik értettek hozzá, saját kezükkel megfonták és megfonva hozták el a kék és piros bíbort, a karmazsin fonalat és lenfonalat.",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203502500,
+                    "szep": "2Móz 35,25"
+                }
+            },
+            {
+                "szoveg": "Mindazok az asszonyok pedig, akiket a szívük arra indított, és értettek hozzá, megfonták a kecskeszőrt.<br>",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203502600,
+                    "szep": "2Móz 35,26"
+                }
+            },
+            {
+                "szoveg": "A vezető emberek pedig ónixköveket és berakásra alkalmas köveket hoztak az éfódhoz és hósenhez,",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203502700,
+                    "szep": "2Móz 35,27"
+                }
+            },
+            {
+                "szoveg": "valamint balzsamot és olajat a lámpához, a felkenéshez való olajhoz és jó illatú füstölőszerekhez.",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203502800,
+                    "szep": "2Móz 35,28"
+                }
+            },
+            {
+                "szoveg": "Mindazok az izráeliek, férfiak és asszonyok, akiket a szívük arra ösztönzött, hogy adakozzanak a különféle eszközökre, amelyek elkészítését Mózes által elrendelte az ÚR, önkéntes adományokat hoztak az ÚRnak.",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203502900,
+                    "szep": "2Móz 35,29"
+                }
+            },
+            {
+                "szoveg": "Akkor ezt mondta Mózes Izráel fiainak: Nézzétek! Az ÚR név szerint elhívta Becalélt, Húr fiának, Úrínak a fiát Júda törzséből.",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203503000,
+                    "szep": "2Móz 35,30"
+                }
+            },
+            {
+                "szoveg": "Betöltötte őt isteni lélekkel, bölcsességgel, értelemmel és képességgel mindenféle munkára,",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203503100,
+                    "szep": "2Móz 35,31"
+                }
+            },
+            {
+                "szoveg": "hogy terveket készítsen az arany, az ezüst és a réz feldolgozására,",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203503200,
+                    "szep": "2Móz 35,32"
+                }
+            },
+            {
+                "szoveg": "kövek vésésére és berakására, fafaragásra és mindenféle tervezőmunka elvégzésére.",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203503300,
+                    "szep": "2Móz 35,33"
+                }
+            },
+            {
+                "szoveg": "Azzal a képességgel is felruházta, hogy tanítson a Dán törzséből való Oholíábbal, Ahíszámák fiával együtt.",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203503400,
+                    "szep": "2Móz 35,34"
+                }
+            },
+            {
+                "szoveg": "Nagy hozzáértéssel ajándékozta meg őket, hogy el tudjanak készíteni mindenféle fa- és fémmunkát, művészi szövést és hímzést kék és piros bíborból, karmazsin fonálból és lenfonálból meg a takácsmunkát: hogy elvégezzenek mindenféle munkát, és elkészítsék hozzájuk a terveket.",
+                "jegyzetek": [],
+                "hely": {
+                    "gepi": 10203503500,
+                    "szep": "2Móz 35,35"
+                }
+            }
+        ],
+        "forditas": {
+            "nev": "Magyar Bibliatársulat újfordítású Bibliája (2014)",
+            "rov": "RUF"
+        }
+    }
+}
