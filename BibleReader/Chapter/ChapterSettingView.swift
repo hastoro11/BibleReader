@@ -16,7 +16,7 @@ struct ChapterSettingView: View {
         ZStack(alignment: .top) {
             Color.white
                 .edgesIgnoringSafeArea(.all)
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
                 HStack {
                     Spacer()
                     RoundedRectangle(cornerRadius: 2, style: RoundedCornerStyle.circular)
@@ -58,7 +58,7 @@ struct ChapterSettingView: View {
                         }
                     }
                 }
-                .padding()
+                .padding()                
                 
                 HStack {
                     Text("Betűméret")
@@ -90,7 +90,59 @@ struct ChapterSettingView: View {
                     }.foregroundColor(.black)
                 }
                 .padding()
-                                
+                      
+                HStack {
+                    Text("Olvasás")
+                        .font(.system(size: 22))
+                        .frame(width: 150, alignment: .leading)
+                    
+                    Text("Folyamatos")
+                        .font(.subheadline)
+                        .padding(8)
+                        .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(self.settings.reading == .continuous ? 0.2 : 0.0)))
+                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(self.settings.reading == .continuous ? Color.black : Color.gray, lineWidth: self.settings.reading == .continuous ? 2 : 0.5))
+                        .padding(.trailing, 12)
+                        .onTapGesture {
+                            self.settings.reading = .continuous
+                        }
+                    
+                    Text("Versenként")
+                        .font(.subheadline)
+                        .padding(8)
+                        .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(self.settings.reading == .vers ? 0.2 : 0.0)))
+                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(self.settings.reading == .vers ? Color.black : Color.gray, lineWidth: self.settings.reading == .vers ? 2 : 0.5))
+                        .onTapGesture {
+                            self.settings.reading = .vers
+                        }
+                }
+                .padding()
+                
+                HStack {
+                    Text("Igeversek")
+                        .font(.system(size: 22))
+                        .frame(width: 150, alignment: .leading)
+                    
+                    Text("Igen")
+                        .font(.subheadline)
+                        .padding(8)
+                        .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(self.settings.showVerses ? 0.2 : 0.0)))
+                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(self.settings.showVerses ? Color.black : Color.gray, lineWidth: self.settings.showVerses ? 2 : 0.5))
+                        .padding(.trailing, 12)
+                        .onTapGesture {
+                            self.settings.showVerses = true
+                        }
+                    
+                    Text("Nem")
+                        .font(.subheadline)
+                        .padding(8)
+                        .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(!self.settings.showVerses ? 0.2 : 0.0)))
+                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(!self.settings.showVerses ? Color.black : Color.gray, lineWidth: !self.settings.showVerses ? 2 : 0.5))
+                        .padding(.trailing, 12)
+                        .onTapGesture {
+                            self.settings.showVerses = false
+                        }
+                }
+                .padding()
             }
         }
         .offset(x: 0, y: dragAmount.height)
