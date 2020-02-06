@@ -27,35 +27,40 @@ struct ChapterSettingView: View {
             }
         })
         
-        return ZStack(alignment: .top) {
-            Color.white
-                .edgesIgnoringSafeArea(.all)
-            VStack(alignment: .leading, spacing: 0) {
-                HStack {
-                    Spacer()
-                    RoundedRectangle(cornerRadius: 2, style: RoundedCornerStyle.circular)
-                        .fill(Color.gray)
-                        .frame(width: 150, height: 4)
+        return GeometryReader { geo in
+            ZStack(alignment: .top) {
+                Color(UIColor.systemBackground)
+                    .edgesIgnoringSafeArea(.all)
+                
+                VStack(alignment: .leading, spacing: 0) {
+                    HStack {
+                        Spacer()
+                        RoundedRectangle(cornerRadius: 2, style: RoundedCornerStyle.circular)
+                            .fill(Color.gray)
+                            .frame(width: 150, height: 4)
+                            .padding()
+                        Spacer()
+                    }
+                    .gesture(dragGesture)
+                        
+                    FontTypeSettingsView(fontType: self.$settings.fontType)
                         .padding()
-                    Spacer()
-                }
-                .gesture(dragGesture)
                     
-                FontTypeSettingsView(fontType: $settings.fontType)
-                    .padding()
-                
-                FontSizeSettingsView(fontSize: $settings.fontsize)
-                    .padding()
-                      
-                ReadingSettingsView(reading: $settings.reading)
-                    .padding()
-                
-                VersIndexSettingsView(showVerses: $settings.showVerses)
-                    .padding()
+                    FontSizeSettingsView(fontSize: self.$settings.fontsize)
+                        .padding()
+                          
+                    ReadingSettingsView(reading: self.$settings.reading)
+                        .padding()
+                    
+                    VersIndexSettingsView(showVerses: self.$settings.showVerses)
+                        .padding()
+                }
             }
+            .offset(x: 0, y: self.dragAmount.height)
+            .animation(.spring())
         }
-        .offset(x: 0, y: dragAmount.height)
-        .animation(.spring())
+        
+        
     }
 }
 
