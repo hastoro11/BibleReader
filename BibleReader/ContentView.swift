@@ -10,7 +10,25 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        TabView {
+            ChapterView().tabItem {
+                Image(systemName: "book")
+                Text("Biblia")
+            }
+            .environmentObject(ChapterViewModel())
+            
+            Text("Kedvencek").tabItem {
+                Image(systemName: "star")
+                Text("Kedvencek")
+            }
+            
+            Text("Jegyzetek").tabItem {
+                Image(systemName: "doc.text")
+                Text("Jegyzetek")
+            }
+        }
+        .edgesIgnoringSafeArea(.top)
+        .accentColor(.black)
     }
 }
 
