@@ -192,7 +192,7 @@ struct Betu {
 }
 
 var betuk = [
-    Betu(name: "CormorantGaramond-Light", size: 24, fontType: FontType.cormorant),
+    Betu(name: "Avenir-Light", size: 22, fontType: FontType.avenir),
     Betu(name: "CrimsonPro-Light", size: 24, fontType: FontType.crimson),
     Betu(name: "Maitree-Light", size: 20, fontType: FontType.maitree),
 ]

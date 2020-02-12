@@ -27,7 +27,7 @@ struct ContentView: View {
                 Text("Jegyzetek")
             }
         }
-        .edgesIgnoringSafeArea(.top)
+//        .edgesIgnoringSafeArea(.top)
         .accentColor(.black)
     }
 }
