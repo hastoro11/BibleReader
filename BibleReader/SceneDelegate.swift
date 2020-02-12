@@ -26,7 +26,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            .environmentObject(UserSettings())
         
         let booksView = BooksView()
-
+        for fontFamily in UIFont.familyNames {
+            for fontName in UIFont.fontNames(forFamilyName: fontFamily) {
+                print("\(fontName)")
+            }
+        }
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
         let contentView = ContentView().environment(\.managedObjectContext, context)
@@ -35,7 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: booksView)
+            window.rootViewController = UIHostingController(rootView: contentView)
             self.window = window
             window.makeKeyAndVisible()
         }
