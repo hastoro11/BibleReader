@@ -24,13 +24,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let chapterView = ChapterView()
 //            .environmentObject(ChapterViewModel())
 //            .environmentObject(UserSettings())
-        
-        let booksView = BooksView()
-        for fontFamily in UIFont.familyNames {
-            for fontName in UIFont.fontNames(forFamilyName: fontFamily) {
-                print("\(fontName)")
-            }
-        }
+                
+//        for fontFamily in UIFont.familyNames {
+//            for fontName in UIFont.fontNames(forFamilyName: fontFamily) {
+//                print("\(fontName)")
+//            }
+//        }
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
         let contentView = ContentView().environment(\.managedObjectContext, context)

@@ -11,9 +11,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {        
         TabView {
-            ChapterView().tabItem {
+            BooksView().tabItem {
                 Image(systemName: "book")
-                Text("Biblia")
+                Text("Könyvek")
+            }
+            
+            ChapterView().tabItem {
+                Image(systemName: "doc.plaintext")
+                Text("Olvasás")
             }
             .environmentObject(ChapterViewModel())
             

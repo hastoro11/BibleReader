@@ -20,83 +20,98 @@ struct BooksView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     var height: CGFloat = 50
     var books = Biblia_RUF.books
-    var oldTestament = Biblia_RUF.books.filter({$0.covenant == .old}).chunks(4)
-    var newTestament = Biblia_RUF.books.filter({$0.covenant == .new}).chunks(4)
+    var oldTestament = Biblia_RUF.books.filter({$0.covenant == .old}).chunks(6)
+    var newTestament = Biblia_RUF.books.filter({$0.covenant == .new}).chunks(6)
     
     var body: some View {
         GeometryReader { geo in
-            VStack {
-                Text("Magyar Bibliatársulat újfordítású Bibliája (2014)")
-                    .bold()
-                    .font(.system(size: 18))
-                    .padding(.vertical, 16)
-                    .multilineTextAlignment(.center)
-                    
-                HStack {
-                    Text("Ószövetség")
-                        .font(.headline)
-                    Spacer()
-                }
-                .padding(.bottom, 8)
-                
-                VStack(alignment: .leading, spacing: 8) {
-                    ForEach(0..<self.oldTestament.count, id:\.self) { chunk in
-                        HStack(spacing: 0) {
-                            ForEach(self.oldTestament[chunk], id:\.name) { book in
-                                Group {
-                                    Text(book.shortName)
-                                        .font(.footnote)
-                                        .padding(12)
-                                        .background(RoundedRectangle(cornerRadius: 5).fill(Color(UIColor.label)))
-                                        .foregroundColor(Color(UIColor.systemBackground))
-                                        .shadow(radius: 5)
-                                        .padding(.trailing)
-                                    
-                                }
-                                
-                            }
-                            Spacer()
-                        }
+            ScrollView {
+                VStack {
+                    HStack {
+                        Button(action: {}, label: {
+                            InitialView(char: "B", color: .black)
+                        })
+                        
+                        Text("Magyar Bibliatársulat újfordítású Bibliája (2014)")
+                            .font(.secondaryTitle)
+                            .multilineTextAlignment(.center)
                     }
+                        
+                   Divider()
                     
-                }
-                
-                HStack {
-                    Text("Újszövetség")
-                        .font(.headline)
-                    Spacer()
-                }
-                .padding(.vertical, 8)
-                
-                
-                VStack(alignment:.leading, spacing: 8) {
+                    HStack {
+                        InitialView(char: "Ó", color: Color("Blue"))
+                        Text("Ószövetség")
+                            .font(.secondaryTitle)
+                        Spacer()
+                    }
+                    .padding([.leading, .bottom])
                     
-                    ForEach(0..<self.newTestament.count, id:\.self) { chunk in
-                        HStack {
-                            ForEach(self.newTestament[chunk], id:\.name) { book in
-                                Group {
-                                    if !(book.index + 1).isMultiple(of: 4) {
-                                        Text(book.shortName)
-                                            .border(Color.red)
-                                        Spacer()
-                                    } else {
-                                        Text(book.shortName)
-                                            .border(Color.red)
+                    VStack(alignment: .center, spacing: 10) {
+                        ForEach(self.oldTestament.indices, id:\.self) { chunk in
+                            HStack {
+                                ForEach(self.oldTestament[chunk], id:\.name) { book in
+                                    Button(action: {}) {
+                                        Text(book.abbreviation)
+                                            .font(.secondaryTitle)
+                                            .frame(width: (geo.size.width - 60) / 6, height: 44)
+                                            .foregroundColor(.black)
+                                            .background(Color.black.opacity(0.1))
+                                            .background(RoundedRectangle(cornerRadius: 2).stroke(Color("Blue"), lineWidth: 2))
+                                            .cornerRadius(2)
                                     }
                                 }
                             }
                         }
                     }
+                    
+                    HStack {
+                        InitialView(char: "Ú", color: Color("Red"))
+                        Text("Újszövetség")
+                            .font(.secondaryTitle)
+                        Spacer()
+                    }
+                    .padding()
+                
+                    VStack(alignment: .center, spacing: 10) {
+                        ForEach(self.newTestament.indices, id:\.self) { chunk in
+                            HStack {
+                                ForEach(self.newTestament[chunk], id:\.name) { book in
+                                    Button(action: {}) {
+                                        Text(book.abbreviation)
+                                            .font(.secondaryTitle)
+                                            .frame(width: (geo.size.width - 60) / 6, height: 44)
+                                            .foregroundColor(.black)
+                                            .background(Color.black.opacity(0.1))
+                                            .background(RoundedRectangle(cornerRadius: 2).stroke(Color("Red"), lineWidth: 2))
+                                            .cornerRadius(2)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .padding(.bottom)
                 }
-                Spacer()
+                
             }
-            .padding()
         }
         
     }
     
     init() {
         
+    }
+}
+
+struct InitialView: View {
+    var char: String
+    var color: Color
+    var body: some View {
+        Text(char)
+            .foregroundColor(.white)
+            .font(.secondaryTitle)
+            .frame(width: 28, height: 28)
+            .background(Circle().fill(color))
     }
 }
 
