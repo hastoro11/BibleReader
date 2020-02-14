@@ -18,6 +18,8 @@ struct InitialView: View {
             .font(.secondaryTitle)
             .frame(width: size, height: size)
             .background(Circle().fill(color))
+            .lineLimit(1)
+            .allowsTightening(true)
     }
 }
 

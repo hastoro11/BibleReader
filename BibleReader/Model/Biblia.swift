@@ -12,7 +12,7 @@ enum Covenant {
     case old, new
 }
 
-struct Book {
+struct Book: Identifiable {
     var index: Int
     var covenant: Covenant
     var name: String
@@ -20,6 +20,10 @@ struct Book {
     var abbreviation: String
     var search: String
     var chapters: Int
+    
+    var id: Int {
+        return index
+    }
 }
 
 struct Biblia_RUF {
@@ -45,7 +49,7 @@ struct Biblia_RUF {
         Book(index: 18, covenant: .old, name: "Zsoltárok könyve", shortName: "Zsoltárok", abbreviation: "Zsolt", search: "Zsolt", chapters: 150),
         Book(index: 19, covenant: .old, name: "Példabeszédek könyve", shortName: "Példabeszédek", abbreviation: "Péld", search: "Peld", chapters: 31),
         Book(index: 20, covenant: .old, name: "Prédikátor könyve", shortName: "Prédikátor", abbreviation: "Préd", search: "Pred", chapters: 12),
-        Book(index: 21, covenant: .old, name: "Énekek éneke", shortName: "Énekek", abbreviation: "Énekek", search: "En", chapters: 8),
+        Book(index: 21, covenant: .old, name: "Énekek éneke", shortName: "Énekek", abbreviation: "Ének", search: "En", chapters: 8),
         Book(index: 22, covenant: .old, name: "Ézsaiás könyve", shortName: "Ézsaiás", abbreviation: "Ézs", search: "Iz", chapters: 66),
         Book(index: 23, covenant: .old, name: "Jeremiás könyve", shortName: "Jeremiás", abbreviation: "Jer", search: "Jer", chapters: 52),
         Book(index: 24, covenant: .old, name: "Jeremiás siralmai", shortName: "JerSir", abbreviation: "JerSir", search: "Siralm", chapters: 5),
@@ -53,11 +57,11 @@ struct Biblia_RUF {
         Book(index: 26, covenant: .old, name: "Dániel könyve", shortName: "Dániel", abbreviation: "Dán", search: "Dan", chapters: 12),
         Book(index: 27, covenant: .old, name: "Hóseás könyve", shortName: "Hóseás", abbreviation: "Hós", search: "Oz", chapters: 14),
         Book(index: 28, covenant: .old, name: "Jóel könyve", shortName: "Jóel", abbreviation: "Jóel", search: "Jo", chapters: 4),
-        Book(index: 29, covenant: .old, name: "Ámósz könyve", shortName: "Ámosz", abbreviation: "Ámósz", search: "Am", chapters: 9),
+        Book(index: 29, covenant: .old, name: "Ámósz könyve", shortName: "Ámosz", abbreviation: "Ám", search: "Am", chapters: 9),
         Book(index: 30, covenant: .old, name: "Abdiás könyve", shortName: "Abdiás", abbreviation: "And", search: "Abd", chapters: 1),
         Book(index: 31, covenant: .old, name: "Jónás könyve", shortName: "Jónás", abbreviation: "Jónás", search: "Jon", chapters: 4),
-        Book(index: 32, covenant: .old, name: "Mikeás könyve", shortName: "Mikeás", abbreviation: "Mikeás", search: "Mik", chapters: 7),
-        Book(index: 33, covenant: .old, name: "Náhum könyve", shortName: "Náhum", abbreviation: "Náhum", search: "Nah", chapters: 3),
+        Book(index: 32, covenant: .old, name: "Mikeás könyve", shortName: "Mikeás", abbreviation: "Mik", search: "Mik", chapters: 7),
+        Book(index: 33, covenant: .old, name: "Náhum könyve", shortName: "Náhum", abbreviation: "Náh", search: "Nah", chapters: 3),
         Book(index: 34, covenant: .old, name: "Habakuk könyve", shortName: "Habakuk", abbreviation: "Hab", search: "Hab", chapters: 3),
         Book(index: 35, covenant: .old, name: "Zofóniás könyve", shortName: "Zofóniás", abbreviation: "Zof", search: "Szof", chapters: 3),
         Book(index: 36, covenant: .old, name: "Haggeus könyve", shortName: "Haggeus", abbreviation: "Hagg", search: "Agg", chapters: 2),
@@ -65,9 +69,9 @@ struct Biblia_RUF {
         Book(index: 38, covenant: .old, name: "Malakiás könyve", shortName: "Malakiás", abbreviation: "Mal", search: "Mal", chapters: 3),
         Book(index: 0, covenant: .new, name: "Máté evangéliuma", shortName: "Máté", abbreviation: "Máté", search: "Mt", chapters: 28),
         Book(index: 1, covenant: .new, name: "Márk evangéliuma", shortName: "Márk", abbreviation: "Márk", search: "Mk", chapters: 16),
-        Book(index: 2, covenant: .new, name: "Lukács evangéliuma", shortName: "Lukács", abbreviation: "Lukács", search: "Lk", chapters: 24),
-        Book(index: 3, covenant: .new, name: "János evangéliuma", shortName: "János", abbreviation: "János", search: "Jn", chapters: 21),
-        Book(index: 4, covenant: .new, name: "Az apostolok cselekedetei", shortName: "ApCsel", abbreviation: "ApCsel", search: "Csel", chapters: 28),
+        Book(index: 2, covenant: .new, name: "Lukács evangéliuma", shortName: "Lukács", abbreviation: "Luk", search: "Lk", chapters: 24),
+        Book(index: 3, covenant: .new, name: "János evangéliuma", shortName: "János", abbreviation: "Ján", search: "Jn", chapters: 21),
+        Book(index: 4, covenant: .new, name: "Az apostolok cselekedetei", shortName: "ApCsel", abbreviation: "ApCs", search: "Csel", chapters: 28),
         Book(index: 5, covenant: .new, name: "Pál levele a rómaiakhoz", shortName: "Róma", abbreviation: "Róma", search: "Rom", chapters: 16),
         Book(index: 6, covenant: .new, name: "Pál 1. levele a korinthusiakhoz", shortName: "1Kor", abbreviation: "1Kor", search: "1Kor", chapters: 16),
         Book(index: 7, covenant: .new, name: "Pál 2. levele a korinthusiakhoz", shortName: "2Kor", abbreviation: "2Kor", search: "2Kor", chapters: 13),

@@ -14,7 +14,7 @@ struct TitleView: View {
     
     var body: some View {
         HStack {
-            InitialView(char: "2Móz", color: .black, size: 44)
+            InitialView(char: "Mik", color: .black, size: 44)
                 .padding(.trailing, 16)
 
             InitialView(char: "35", color: Color("Green"), size: 44)
