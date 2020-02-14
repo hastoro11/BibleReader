@@ -22,7 +22,7 @@ struct BodyView: View {
             if settings.showVerses {
                 resultText = resultText + indexText
             }
-            let szovegText = Text("\(result.valasz.versek[index.offset].szoveg) ")
+            let szovegText = Text("\(result.valasz.versek[index.offset].szoveg.removedHTMLTags) ")
                 .font(self.settings.fontType.value)
                 
             resultText = resultText + szovegText
@@ -48,7 +48,7 @@ struct BodyView: View {
                                     Text(self.settings.showVerses ? "\(index + 1) " : "")
                                         .font(self.settings.fontType.value)
                                         .fontWeight(.bold)
-                                        + Text(self.result.valasz.versek[index].szoveg)
+                                        + Text(self.result.valasz.versek[index].szoveg.removedHTMLTags)
                                             .font(self.settings.fontType.value)
                                 }
                                 .padding(.bottom, 4)
