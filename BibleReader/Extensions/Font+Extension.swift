@@ -26,6 +26,10 @@ extension Font {
         return self.custom("Fira Sans Light", size: 24)
     }
     
+    static var smallTitle: Font {
+        return self.custom("Fira Sans Medium", size: 12)
+    }
+    
     static var secondaryTitle: Font {
         return self.custom("Fira Sans Medium", size: 16)
     }

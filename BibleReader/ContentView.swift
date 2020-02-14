@@ -9,28 +9,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var selectedTab = 0
     var body: some View {        
-        TabView {
+        TabView(selection: $selectedTab) {
             BooksView().tabItem {
                 Image(systemName: "book")
                 Text("Könyvek")
-            }
+            }.tag(0)
             
-            ChapterView().tabItem {
+            ChapterView(selectedTab: $selectedTab).tabItem {
                 Image(systemName: "doc.plaintext")
                 Text("Olvasás")
             }
+            .tag(1)
             .environmentObject(ChapterViewModel())
             
             Text("Kedvencek").tabItem {
                 Image(systemName: "star")
                 Text("Kedvencek")
             }
+            .tag(2)
             
             Text("Jegyzetek").tabItem {
                 Image(systemName: "doc.text")
                 Text("Jegyzetek")
             }
+            .tag(3)
         }
 //        .edgesIgnoringSafeArea(.top)
         .accentColor(.black)
