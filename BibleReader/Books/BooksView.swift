@@ -56,7 +56,7 @@ struct BooksView: View {
                             }
                             .padding([.leading, .bottom, .top])
                             
-                            VStack(alignment: .center, spacing: 10) {
+                            VStack(alignment: .leading, spacing: 10) {
                                 ForEach(self.oldTestament.indices, id:\.self) { chunk in
                                     HStack {
                                         ForEach(self.oldTestament[chunk], id:\.name) { book in
@@ -85,7 +85,7 @@ struct BooksView: View {
                             }
                             .padding()
                             
-                            VStack(alignment: .center, spacing: 10) {
+                            VStack(alignment: .leading, spacing: 10) {
                                 ForEach(self.newTestament.indices, id:\.self) { chunk in
                                     HStack {
                                         ForEach(self.newTestament[chunk], id:\.name) { book in
@@ -111,7 +111,7 @@ struct BooksView: View {
             }
             .padding(.top)
             .sheet(item: self.$selectedBook) { book in
-                Text(book.name)
+                ChapterNumberView(book: book)
             }
         }
         
