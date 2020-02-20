@@ -9,15 +9,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: ChapterViewModel
     @State var selectedTab = 0
     var body: some View {        
         TabView(selection: $selectedTab) {
-            BooksView().tabItem {
+            BooksView(viewModel: viewModel, selectedTab: $selectedTab).tabItem {
                 Image(systemName: "book")
                 Text("Könyvek")
             }.tag(0)
             
-            ChapterView(selectedTab: $selectedTab).tabItem {
+            ChapterView(viewModel: viewModel, selectedTab: $selectedTab).tabItem {
                 Image(systemName: "doc.plaintext")
                 Text("Olvasás")
             }

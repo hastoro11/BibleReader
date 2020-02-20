@@ -11,13 +11,14 @@ import SwiftUI
 struct TitleView: View {
     @Binding var showSettings: Bool
     @Binding var selectedTab: Int
-    
+    var book: Book
+    var chapter: Int
     var body: some View {
         HStack {
-            InitialView(char: "Mik", color: .black, size: 44)
+            InitialView(char: book.abbreviation, color: .black, size: 44)
                 .padding(.trailing, 16)
 
-            InitialView(char: "35", color: Color("Green"), size: 44)
+            InitialView(char: "\(chapter)", color: Color("Green"), size: 44)
 
             Spacer()
             

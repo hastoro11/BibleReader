@@ -17,7 +17,6 @@
 		8C116E7323E9EC5A0010859D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C116E7223E9EC5A0010859D /* Assets.xcassets */; };
 		8C116E7623E9EC5A0010859D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C116E7523E9EC5A0010859D /* Preview Assets.xcassets */; };
 		8C116E7923E9EC5A0010859D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C116E7723E9EC5A0010859D /* LaunchScreen.storyboard */; };
-		8C116EBE23E9EF2C0010859D /* Vers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116EBD23E9EF2C0010859D /* Vers.swift */; };
 		8C116EC223E9EF430010859D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116EC123E9EF430010859D /* TitleView.swift */; };
 		8C116EC423E9EF4C0010859D /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116EC323E9EF4C0010859D /* BodyView.swift */; };
 		8C116EC623E9EF580010859D /* ChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116EC523E9EF580010859D /* ChapterView.swift */; };
@@ -40,6 +39,9 @@
 		8C9F0C9123E9F57900D40B83 /* Maitree-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C9023E9F57900D40B83 /* Maitree-Bold.ttf */; };
 		8C9F0C9423E9F65F00D40B83 /* ChapterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F0C9323E9F65F00D40B83 /* ChapterSettingView.swift */; };
 		8C9F0C9523E9FD1F00D40B83 /* CrimsonPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C9223E9F58400D40B83 /* CrimsonPro-Bold.ttf */; };
+		8CC8C66423FED69A00FEBE78 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8C66323FED69A00FEBE78 /* Response.swift */; };
+		8CC8C66623FED73700FEBE78 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8C66523FED73700FEBE78 /* Error.swift */; };
+		8CC8C66823FED74D00FEBE78 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8C66723FED74D00FEBE78 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +57,6 @@
 		8C116E7523E9EC5A0010859D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8C116E7823E9EC5A0010859D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C116E7A23E9EC5A0010859D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C116EBD23E9EF2C0010859D /* Vers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vers.swift; sourceTree = "<group>"; };
 		8C116EC123E9EF430010859D /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		8C116EC323E9EF4C0010859D /* BodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
 		8C116EC523E9EF580010859D /* ChapterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChapterView.swift; path = "../../../BibleReader_ copy/BibleReader/Chapter/ChapterView.swift"; sourceTree = "<group>"; };
@@ -78,6 +79,9 @@
 		8C9F0C9023E9F57900D40B83 /* Maitree-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Maitree-Bold.ttf"; sourceTree = "<group>"; };
 		8C9F0C9223E9F58400D40B83 /* CrimsonPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CrimsonPro-Bold.ttf"; sourceTree = "<group>"; };
 		8C9F0C9323E9F65F00D40B83 /* ChapterSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterSettingView.swift; sourceTree = "<group>"; };
+		8CC8C66323FED69A00FEBE78 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		8CC8C66523FED73700FEBE78 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		8CC8C66723FED74D00FEBE78 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 				8C8C00FD23ED6467005C2EB6 /* Extensions */,
 				8C116E9123E9ED130010859D /* Fonts */,
 				8C8C00F523ED40F0005C2EB6 /* Model */,
+				8CC8C66223FED66100FEBE78 /* API */,
 				8C8C00F823ED4C27005C2EB6 /* Books */,
 				8C116E8223E9ECF30010859D /* Chapter */,
 				8C116E7023E9EC520010859D /* ContentView.swift */,
@@ -215,9 +220,18 @@
 			children = (
 				8C116EC123E9EF430010859D /* TitleView.swift */,
 				8C116EC323E9EF4C0010859D /* BodyView.swift */,
-				8C116EBD23E9EF2C0010859D /* Vers.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8CC8C66223FED66100FEBE78 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8CC8C66323FED69A00FEBE78 /* Response.swift */,
+				8CC8C66523FED73700FEBE78 /* Error.swift */,
+				8CC8C66723FED74D00FEBE78 /* API.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,14 +320,16 @@
 				8C09FF4D23F7026E003AD3DF /* TopRoundedShape.swift in Sources */,
 				8C116EC823E9EF650010859D /* ChapterViewModel.swift in Sources */,
 				8C116E6A23E9EC520010859D /* AppDelegate.swift in Sources */,
+				8CC8C66423FED69A00FEBE78 /* Response.swift in Sources */,
 				8C7C59E623F858DA00B85FCE /* ChapterNumberView.swift in Sources */,
 				8C09FF4923F67E12003AD3DF /* CommonViews.swift in Sources */,
 				8C8C00FA23ED4C3C005C2EB6 /* BooksView.swift in Sources */,
+				8CC8C66623FED73700FEBE78 /* Error.swift in Sources */,
 				8C8C00FF23ED647A005C2EB6 /* Array+Extension.swift in Sources */,
 				8C116EC623E9EF580010859D /* ChapterView.swift in Sources */,
 				8C116EC423E9EF4C0010859D /* BodyView.swift in Sources */,
 				8C09FF4B23F6DA08003AD3DF /* String+Extension.swift in Sources */,
-				8C116EBE23E9EF2C0010859D /* Vers.swift in Sources */,
+				8CC8C66823FED74D00FEBE78 /* API.swift in Sources */,
 				8C116EC223E9EF430010859D /* TitleView.swift in Sources */,
 				8C116E6F23E9EC520010859D /* BibleReader.xcdatamodeld in Sources */,
 				8C8C014F23F458D0005C2EB6 /* Font+Extension.swift in Sources */,

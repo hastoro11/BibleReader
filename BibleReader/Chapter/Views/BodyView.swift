@@ -10,19 +10,17 @@ import SwiftUI
 
 struct BodyView: View {
     @EnvironmentObject var settings: UserSettings
-    var title: String
-    var subtitle: String
-    var result: Result
+    @ObservedObject var viewModel: ChapterViewModel
     var ContinuousText: Text {
         var resultText = Text("")            
-        for index in result.valasz.versek.enumerated() {
+        for index in viewModel.versek.enumerated() {
             let indexText = Text("\(index.offset + 1) ")
                 .font(self.settings.fontType.value)
                 .fontWeight(.bold)
             if settings.showVerses {
                 resultText = resultText + indexText
             }
-            let szovegText = Text("\(result.valasz.versek[index.offset].szoveg.removedHTMLTags) ")
+            let szovegText = Text("\(viewModel.versek[index.offset].szoveg.removedHTMLTags) ")
                 .font(self.settings.fontType.value)
                 
             resultText = resultText + szovegText
@@ -34,21 +32,21 @@ struct BodyView: View {
         VStack {
             ScrollView {
                 VStack {
-                    Text(title)
+                    Text(self.viewModel.book.name)
                         .font(.custom("Fira Sans Bold", size: 30))
                         .lineSpacing(1.4)
-                    Text(subtitle)
+                    Text("\(self.viewModel.chapter). fejezet")
                         .font(.custom("Fira Sans Medium", size: 24))
                         .lineSpacing(1.4)
                         .padding(.bottom, 32)
-                    if result.valasz.versek.count > 0 {
+                    if self.viewModel.versek.count > 0 {
                         VStack(alignment: .leading) {
                             if settings.reading == .vers {
-                                ForEach(0..<result.valasz.versek.count, id:\.self) { index in
+                                ForEach(0..<self.viewModel.versek.count, id:\.self) { index in
                                     Text(self.settings.showVerses ? "\(index + 1) " : "")
                                         .font(self.settings.fontType.value)
                                         .fontWeight(.bold)
-                                        + Text(self.result.valasz.versek[index].szoveg.removedHTMLTags)
+                                        + Text(self.viewModel.versek[index].szoveg.removedHTMLTags)
                                             .font(self.settings.fontType.value)
                                 }
                                 .padding(.bottom, 4)
@@ -74,24 +72,24 @@ struct BodyView: View {
     func getContinuous() -> NSMutableAttributedString {
         
         let attributedString = NSMutableAttributedString(string: "")
-        for index in result.valasz.versek.enumerated() {
+        for index in self.viewModel.versek.enumerated() {
             
             let indexFontDescriptor = UIFontDescriptor(fontAttributes: [UIFontDescriptor.AttributeName.family: "Fira Sans Regular"])
             indexFontDescriptor.withSymbolicTraits(.traitBold)
             let szovegFontDescriptor = UIFontDescriptor(fontAttributes: [UIFontDescriptor.AttributeName.family : "Fira Sans Regular"])
             attributedString.append(NSAttributedString(string: "\(index.offset )", attributes: [NSAttributedString.Key.font : UIFont(descriptor: indexFontDescriptor, size: settings.fontsize)]))
-            attributedString.append(NSAttributedString(string: "\(result.valasz.versek[index.offset].szoveg) ", attributes: [NSAttributedString.Key.font : UIFont(descriptor: szovegFontDescriptor, size: settings.fontsize)]))
+            attributedString.append(NSAttributedString(string: "\(self.viewModel.versek[index.offset].szoveg) ", attributes: [NSAttributedString.Key.font : UIFont(descriptor: szovegFontDescriptor, size: settings.fontsize)]))
         }
         
         return attributedString
     }
 }
 
-struct BodyView_Preview: PreviewProvider {
-
-    static var previews: some View {
-        BodyView(title: "Mózes 2. könyve", subtitle: "35. fejezet", result: ChapterViewModel().result)
-    }
-}
+//struct BodyView_Preview: PreviewProvider {
+//
+//    static var previews: some View {
+//        BodyView(title: "Mózes 2. könyve", subtitle: "35. fejezet", result: ChapterViewModel().result)
+//    }
+//}
 
 

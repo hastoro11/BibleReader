@@ -10,7 +10,8 @@ import SwiftUI
 
 struct BooksView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    
+    var viewModel: ChapterViewModel
+    @Binding var selectedTab: Int
     @State var selectedBook: Book?
     
     var books = Biblia_RUF.books
@@ -35,17 +36,12 @@ struct BooksView: View {
                                     .font(.smallTitle)
                                     .foregroundColor(.gray)
                             }
-                            
                             Spacer()
-                            
                         }
                         .padding(.leading)
                         .padding(.top, 10)
                         .padding(.bottom, 35)
-                        
                         .background(TopRoundedShape(cornerRadius: 20).stroke(Color.black, lineWidth: 1))
-                        
-                        
                         
                         VStack {
                             HStack {
@@ -111,15 +107,11 @@ struct BooksView: View {
             }
             .padding(.top)
             .sheet(item: self.$selectedBook) { book in
-                ChapterNumberView(book: book)
+                ChapterNumberView(selectedTab: self.$selectedTab, vm: self.viewModel, book: book)
             }
         }
         
-    }
-    
-    init() {
-        
-    }
+    }    
 }
 
 struct BookButton: View {
@@ -139,8 +131,8 @@ struct BookButton: View {
 }
 
 
-struct BooksView_Previews: PreviewProvider {
-    static var previews: some View {
-        BooksView()
-    }
-}
+//struct BooksView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BooksView()
+//    }
+//}

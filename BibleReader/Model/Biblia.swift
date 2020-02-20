@@ -48,7 +48,7 @@ struct Biblia_RUF {
         Book(index: 17, covenant: .old, name: "Jób könyve", shortName: "Jób", abbreviation: "Jób", search: "Job", chapters: 42),
         Book(index: 18, covenant: .old, name: "Zsoltárok könyve", shortName: "Zsoltárok", abbreviation: "Zsolt", search: "Zsolt", chapters: 150),
         Book(index: 19, covenant: .old, name: "Példabeszédek könyve", shortName: "Példabeszédek", abbreviation: "Péld", search: "Peld", chapters: 31),
-        Book(index: 20, covenant: .old, name: "Prédikátor könyve", shortName: "Prédikátor", abbreviation: "Préd", search: "Pred", chapters: 12),
+        Book(index: 20, covenant: .old, name: "Prédikátor könyve", shortName: "Prédikátor", abbreviation: "Préd", search: "Préd", chapters: 12),
         Book(index: 21, covenant: .old, name: "Énekek éneke", shortName: "Énekek", abbreviation: "Ének", search: "En", chapters: 8),
         Book(index: 22, covenant: .old, name: "Ézsaiás könyve", shortName: "Ézsaiás", abbreviation: "Ézs", search: "Iz", chapters: 66),
         Book(index: 23, covenant: .old, name: "Jeremiás könyve", shortName: "Jeremiás", abbreviation: "Jer", search: "Jer", chapters: 52),
