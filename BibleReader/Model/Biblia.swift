@@ -7,6 +7,30 @@
 //
 
 import Foundation
+import SwiftUI
+
+enum Translation: String, CaseIterable, CustomStringConvertible{
+
+    case RUF, KG
+    
+    var description: String {
+        switch self {
+        case .RUF:
+            return "Magyar Bibliatársulat újfordítású Bibliája (2014)"
+        case .KG:
+            return "Károli Gáspár revideált fordítása"
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .RUF:
+            return Color("Blue")
+        case .KG:
+            return .black
+        }
+    }
+}
 
 enum Covenant {
     case old, new
@@ -25,7 +49,7 @@ struct Book: Identifiable {
     }
 }
 
-struct Biblia_RUF {
+struct Biblia {
     static var books: [Book] = [
         Book(index: 0, covenant: .old, name: "Mózes 1. könyve", shortName: "1Mózes", abbreviation: "1Móz",  chapters: 50),
         Book(index: 1, covenant: .old, name: "Mózes 2. könyve", shortName: "2Mózes", abbreviation: "2Móz", chapters: 40),

@@ -11,8 +11,10 @@ import SwiftUI
 struct ChapterNumberView: View {
     @Environment(\.presentationMode) var presentationMode
     @Binding var selectedTab: Int
-    var vm: BibleViewModel
-    var book: Book
+    var viewModel: BibleViewModel
+    var book: Book {
+        return viewModel.book
+    }
     var chapters: Int {
         return book.chapters
     }
@@ -39,7 +41,7 @@ struct ChapterNumberView: View {
                                         Group {
                                             if row * self.cols + col <= self.chapters {
                                                 Button(action: {
-                                                    self.vm.fetchChapter(forBook: self.book, andChapter: row * self.cols + col)
+                                                    self.viewModel.fetchChapter(forBook: self.book, andChapter: row * self.cols + col)
                                                     self.presentationMode.wrappedValue.dismiss()
                                                     self.selectedTab = 1
                                                 }) {
