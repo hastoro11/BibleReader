@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var viewModel: ChapterViewModel
+    @EnvironmentObject var viewModel: BibleViewModel
     @State var selectedTab = 0
     var body: some View {        
         TabView(selection: $selectedTab) {
@@ -23,7 +23,7 @@ struct ContentView: View {
                 Text("Olvasás")
             }
             .tag(1)
-            .environmentObject(ChapterViewModel())
+            .environmentObject(BibleViewModel())
             
             Text("Kedvencek").tabItem {
                 Image(systemName: "star")

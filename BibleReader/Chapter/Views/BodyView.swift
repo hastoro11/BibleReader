@@ -10,7 +10,7 @@ import SwiftUI
 
 struct BodyView: View {
     @EnvironmentObject var settings: UserSettings
-    @ObservedObject var viewModel: ChapterViewModel
+    @ObservedObject var viewModel: BibleViewModel
     var ContinuousText: Text {
         var resultText = Text("")            
         for index in viewModel.versek.enumerated() {
@@ -51,8 +51,7 @@ struct BodyView: View {
                                 }
                                 .padding(.bottom, 4)
                                 .padding(.horizontal, 20)
-                                .lineSpacing(9)
-                                                      
+                                .lineSpacing(9)  
                             } else {
                                 VStack {
                                     ContinuousText
@@ -65,8 +64,11 @@ struct BodyView: View {
                         }
                     }
                 }
+                .frame(maxWidth: .infinity)
             }
+            
         }
+        
     }
     
     func getContinuous() -> NSMutableAttributedString {

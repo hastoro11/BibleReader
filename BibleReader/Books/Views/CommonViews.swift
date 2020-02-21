@@ -13,7 +13,7 @@ struct InitialView: View {
     var color: Color
     var size: CGFloat
     var body: some View {
-        Text(char)
+        Text(String(char.prefix(4)))
             .foregroundColor(.white)
             .font(.secondaryTitle)
             .frame(width: size, height: size)

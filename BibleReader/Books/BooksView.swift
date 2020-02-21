@@ -10,7 +10,7 @@ import SwiftUI
 
 struct BooksView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    var viewModel: ChapterViewModel
+    var viewModel: BibleViewModel
     @Binding var selectedTab: Int
     @State var selectedBook: Book?
     
@@ -119,7 +119,7 @@ struct BookButton: View {
     var width: CGFloat
     var color: Color
     var body: some View {
-        Text(text)
+        Text(String(text.prefix(6)))
             .font(.secondaryTitle)
             .frame(width: (width - 60) / 6, height: 44)
             .foregroundColor(.black)

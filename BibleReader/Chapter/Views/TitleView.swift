@@ -17,6 +17,7 @@ struct TitleView: View {
         HStack {
             InitialView(char: book.abbreviation, color: .black, size: 44)
                 .padding(.trailing, 16)
+                .multilineTextAlignment(.center)
 
             InitialView(char: "\(chapter)", color: Color("Green"), size: 44)
 
