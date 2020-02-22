@@ -41,7 +41,7 @@ struct ChapterNumberView: View {
                                         Group {
                                             if row * self.cols + col <= self.chapters {
                                                 Button(action: {
-                                                    self.viewModel.fetchChapter(forBook: self.book, andChapter: row * self.cols + col)
+                                                    self.viewModel.chapter = row * self.cols + col
                                                     self.presentationMode.wrappedValue.dismiss()
                                                     self.selectedTab = 1
                                                 }) {

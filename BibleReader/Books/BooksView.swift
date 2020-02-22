@@ -25,29 +25,31 @@ struct BooksView: View {
                 VStack {
                     ScrollView(.vertical, showsIndicators: false){
                         VStack {
-                            HStack {
-                                Button(action: {
-                                    withAnimation(.easeInOut) {
-                                        self.showTranslation.toggle()
-                                    }
-                                }, label: {
-                                    InitialView(char: self.viewModel.translation.rawValue, color: self.viewModel.translation.color, size: 36)
-                                })
-                                
-                                VStack(alignment: .leading) {
-                                    Text(self.viewModel.translation.description)
-                                        .font(.smallTitle)
-                                    
-                                    Text("(Váltás)")
-                                        .font(.smallTitle)
-                                        .foregroundColor(.gray)
+                            
+                            Button(action: {
+                                withAnimation(.easeInOut) {
+                                    self.showTranslation.toggle()
                                 }
-                                Spacer()
-                            }
-                            .padding(.leading)
-                            .padding(.top, 10)
-                            .padding(.bottom, 35)
-                            .background(TopRoundedShape(cornerRadius: 20).stroke(Color.black, lineWidth: 1))
+                            }, label: {
+                                HStack {
+                                    InitialView(char: self.viewModel.translation.rawValue, color: self.viewModel.translation.color, size: 36)
+                                    
+                                    VStack(alignment: .leading) {
+                                        Text(self.viewModel.translation.description)
+                                            .font(.smallTitle)
+                                        
+                                        Text("(Váltás)")
+                                            .font(.smallTitle)
+                                            .foregroundColor(.gray)
+                                    }
+                                    Spacer()
+                                }
+                            })
+                                
+                                .padding(.leading)
+                                .padding(.top, 10)
+                                .padding(.bottom, 35)
+                                .background(TopRoundedShape(cornerRadius: 20).stroke(Color.black, lineWidth: 1))
                             
                             VStack {
                                 HStack {
@@ -105,7 +107,7 @@ struct BooksView: View {
                                 
                             }
                             .background(TopRoundedShape(cornerRadius: 20).fill(Color.white))
-                        .offset(x: 0, y: -40)
+                            .offset(x: 0, y: -40)
                             
                             
                             
@@ -114,7 +116,7 @@ struct BooksView: View {
                     }
                 }
                 .padding(.top)
-            
+                    
                 .sheet(isPresented: self.$showNumbersView) {
                     ChapterNumberView(selectedTab: self.$selectedTab, viewModel: self.viewModel)
                 }

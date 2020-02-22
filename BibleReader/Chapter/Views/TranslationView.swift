@@ -43,13 +43,13 @@ struct TranslationView: View {
                 
                 ForEach(Translation.allCases, id:\.self) { tr in
                     Button(action: {
-                        self.viewModel.translation = tr
+                        self.viewModel.translation = tr                        
                         withAnimation(.easeInOut) {
                             self.showTranslation = false
                         }
                     }, label: {
                         HStack {
-                            InitialView(char: tr.rawValue, color: tr.color, size: 36)
+                            InitialView(char: tr.rawValue, color: tr.color, size: 44)
                             Text(tr.description)
                                 .font(.secondaryTitle)
                             Spacer()
