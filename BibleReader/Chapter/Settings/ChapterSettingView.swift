@@ -42,19 +42,17 @@ struct ChapterSettingView: View {
                         Spacer()
                     }
                     .gesture(dragGesture)
-                        
-                    FontTypeSettingsView(fontType: self.$settings.fontType)
-                        .padding()
                     
-                    FontSizeSettingsView(fontSize: self.$settings.fontsize)
-                        .padding()
+                    FontSizeSettingsView(fontType: self.$settings.fontType)
+                        .padding(10)
                           
                     ReadingSettingsView(reading: self.$settings.reading)
-                        .padding()
+                        .padding(10)
                     
                     VersIndexSettingsView(showVerses: self.$settings.showVerses)
-                        .padding()
+                        .padding(10)
                 }
+                .padding(.leading)
             }
             .offset(x: 0, y: self.dragAmount.height)
             .animation(.spring())
@@ -64,61 +62,60 @@ struct ChapterSettingView: View {
     }
 }
 
-struct FontTypeSettingsView: View {
+struct FontSizeSettingsView: View {
     @Binding var fontType: FontType
     var body: some View {
         HStack {
-            Text("Betűtípus")
-                .font(.system(size: 20))
-                .frame(width: 120, alignment: .leading)
-            
-            ForEach(betuk, id:\.name) { betu in
-                HStack {
-                    Text("Aa")
-                        .font(.custom(betu.name, size: betu.size))
-                        .frame(width: 50, height: 35)
-                        .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(self.fontType == betu.fontType ? 0.2 : 0.0)))
-                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(self.fontType == betu.fontType ? Color.black : Color.gray, lineWidth: self.fontType == betu.fontType ? 1 : 0.5))
-                        .padding(.trailing, 24)
-                        .onTapGesture {
-                            self.fontType = betu.fontType
-                    }
-                }
-            }
-        }
-    }
-}
-
-struct FontSizeSettingsView: View {
-    @Binding var fontSize: CGFloat
-    var body: some View {
-        HStack {
             Text("Betűméret")
-                .font(.system(size: 20))
+                .font(.custom("Fira Sans Medium", size:16))
                 .frame(width: 120, alignment: .leading)
             
             HStack {
-                Button(action: {
-                    self.fontSize = max(18, self.fontSize - 2)
-                }, label: {
-                    Text("-")
-                        .font(.title)
-                })
-                    .frame(width: 50, height: 35)
-                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.black, lineWidth: 1))
+                
+                Text("Aa")
+                    .font(.smallBody)
+                    .padding(8)
+                    .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(self.fontType == .small ? 0.2 : 0.0)))
+                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(self.fontType == .small ? Color.black : Color.gray, lineWidth: self.fontType == .small ? 1 : 0.5))
+                    .padding(.trailing, 12)
+                    .onTapGesture {
+                        self.fontType = .small
+                    }
+                
+                Text("Aa")
+                .font(.body)
+                .padding(8)
+                .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(self.fontType == .medium ? 0.2 : 0.0)))
+                .overlay(RoundedRectangle(cornerRadius: 8).stroke(self.fontType == .medium ? Color.black : Color.gray, lineWidth: self.fontType == .medium ? 1 : 0.5))
+                .padding(.trailing, 12)
+                .onTapGesture {
+                    self.fontType = .medium
+                }
+                
+                Text("Aa")
+                .font(.bigBody)
+                .padding(8)
+                    .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(self.fontType == .big ? 0.2 : 0.0)))
+                .overlay(RoundedRectangle(cornerRadius: 8).stroke(self.fontType == .big ? Color.black : Color.gray, lineWidth: self.fontType == .big ? 1 : 0.5))
+                .padding(.trailing, 12)
+                .onTapGesture {
+                    self.fontType = .big
+                }
                 
                 
-                Text(String(format: "%g", Double(fontSize)))
-                    .frame(width: 30)
-                    .padding(.horizontal)
-                Button(action: {
-                    self.fontSize = min(32, self.fontSize + 2)
-                }, label: {
-                    Text("+")
-                        .font(.title)
-                })
-                    .frame(width: 50, height: 35)
-                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.black, lineWidth: 1))
+                Text("Aa")
+                .font(.tallBody)
+                .padding(8)
+                    .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(self.fontType == .tall ? 0.2 : 0.0)))
+                .overlay(RoundedRectangle(cornerRadius: 8).stroke(self.fontType == .tall ? Color.black : Color.gray, lineWidth: self.fontType == .tall ? 1 : 0.5))
+                .padding(.trailing, 12)
+                .onTapGesture {
+                    self.fontType = .tall
+                }
+                
+                
+                
+                
             }.foregroundColor(.black)
         }
     }
@@ -129,11 +126,11 @@ struct ReadingSettingsView: View {
     var body: some View {
         HStack {
             Text("Olvasás")
-                .font(.system(size: 20))
+                .font(.custom("Fira Sans Medium", size: 16))
                 .frame(width: 120, alignment: .leading)
             
             Text("Folyamatos")
-                .font(.subheadline)
+                .font(.custom("Fira Sans Regular", size: 14))
                 .padding(8)
                 .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(self.reading == .continuous ? 0.2 : 0.0)))
                 .overlay(RoundedRectangle(cornerRadius: 8).stroke(self.reading == .continuous ? Color.black : Color.gray, lineWidth: self.reading == .continuous ? 1 : 0.5))
@@ -143,7 +140,7 @@ struct ReadingSettingsView: View {
             }
             
             Text("Versenként")
-                .font(.subheadline)
+                .font(.custom("Fira Sans Regular", size: 14))
                 .padding(8)
                 .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(self.reading == .vers ? 0.2 : 0.0)))
                 .overlay(RoundedRectangle(cornerRadius: 8).stroke(self.reading == .vers ? Color.black : Color.gray, lineWidth: self.reading == .vers ? 1 : 0.5))
@@ -159,11 +156,11 @@ struct VersIndexSettingsView: View {
     var body: some View {
         HStack {
             Text("Igeversek")
-                .font(.system(size: 20))
+                .font(.custom("Fira Sans Medium", size: 16))
                 .frame(width: 120, alignment: .leading)
             
             Text("Igen")
-                .font(.subheadline)
+                .font(.custom("Fira Sans Regular", size: 14))
                 .padding(8)
                 .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(self.showVerses ? 0.2 : 0.0)))
                 .overlay(RoundedRectangle(cornerRadius: 8).stroke(self.showVerses ? Color.black : Color.gray, lineWidth: self.showVerses ? 1 : 0.5))
@@ -173,7 +170,7 @@ struct VersIndexSettingsView: View {
                 }
             
             Text("Nem")
-                .font(.subheadline)
+                .font(.custom("Fira Sans Regular", size: 14))
                 .padding(8)
                 .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(!self.showVerses ? 0.2 : 0.0)))
                 .overlay(RoundedRectangle(cornerRadius: 8).stroke(!self.showVerses ? Color.black : Color.gray, lineWidth: !self.showVerses ? 1 : 0.5))
@@ -188,11 +185,11 @@ struct VersIndexSettingsView: View {
 struct Betu {
     var name: String
     var size: CGFloat
-    var fontType: FontType
+//    var fontType: FontType
 }
 
-var betuk = [
-    Betu(name: "Avenir-Light", size: 22, fontType: FontType.avenir),
-    Betu(name: "CrimsonPro-Light", size: 24, fontType: FontType.crimson),
-    Betu(name: "Maitree-Light", size: 20, fontType: FontType.maitree),
-]
+//var betuk = [
+//    Betu(name: "Avenir-Light", size: 22, fontType: FontType.avenir),
+//    Betu(name: "CrimsonPro-Light", size: 24, fontType: FontType.crimson),
+//    Betu(name: "Maitree-Light", size: 20, fontType: FontType.maitree),
+//]

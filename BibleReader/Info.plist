@@ -64,6 +64,10 @@
 		<string>CormorantGaramond-Bold.ttf</string>
 		<string>CrimsonPro-Light.ttf</string>
 		<string>CrimsonPro-Bold.ttf</string>
+		<string>FiraSans-Bold.ttf</string>
+		<string>FiraSans-Light.ttf</string>
+		<string>FiraSans-Medium.ttf</string>
+		<string>FiraSans-Regular.ttf</string>
 	</array>
 </dict>
 </plist>

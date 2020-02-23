@@ -9,31 +9,41 @@
 import SwiftUI
 
 struct ContentView: View {
+    var viewModel: BibleViewModel
+    @State var selectedTab = 0
     var body: some View {        
-        TabView {
-            ChapterView().tabItem {
+        TabView(selection: $selectedTab) {
+            BooksView(viewModel: viewModel, selectedTab: $selectedTab).tabItem {
                 Image(systemName: "book")
-                Text("Biblia")
+                Text("Könyvek")
+            }.tag(0)
+            
+            ChapterView(viewModel: viewModel, selectedTab: $selectedTab).tabItem {
+                Image(systemName: "doc.plaintext")
+                Text("Olvasás")
             }
-            .environmentObject(ChapterViewModel())
+            .tag(1)
+            .environmentObject(BibleViewModel())
             
             Text("Kedvencek").tabItem {
                 Image(systemName: "star")
                 Text("Kedvencek")
             }
+            .tag(2)
             
             Text("Jegyzetek").tabItem {
                 Image(systemName: "doc.text")
                 Text("Jegyzetek")
             }
+            .tag(3)
         }
 //        .edgesIgnoringSafeArea(.top)
         .accentColor(.black)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
