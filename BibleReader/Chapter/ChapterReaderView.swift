@@ -9,40 +9,63 @@
 import SwiftUI
 
 struct ChapterView: View {
-    @EnvironmentObject var vm: ChapterViewModel
+    
     @EnvironmentObject var settings: UserSettings
-    @State var hideTitleBar = false
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @ObservedObject var viewModel: BibleViewModel
+    @State var hideBars: Bool = false
     @State var showSettings = false
+    @State var showTranslation = false
+    @Binding var selectedTab: Int
+    // now
     var body: some View {
-        VStack {
-            if !hideTitleBar {
-                TitleView(showSettings: $showSettings)
-            }
-            ZStack {
-                BodyView(title: "Mózes 2. könyve", subtitle: "35. fejezet", result: vm.result)
-                    .padding(.top, hideTitleBar ? 10 : 0)
-                    .onTapGesture {
-                        withAnimation() {
-                            self.hideTitleBar.toggle()
+        
+        return GeometryReader { geo in
+            VStack {
+                if !self.hideBars {
+                    TitleView(showSettings: self.$showSettings,showTranslations: self.$showTranslation, selectedTab: self.$selectedTab, viewModel: self.viewModel)
+                }
+                ZStack {
+                    BodyView(viewModel: self.viewModel)
+                        .padding(.top, self.hideBars ? 10 : 0)
+                        .onTapGesture {
+                            withAnimation() {
+                                self.hideBars.toggle()
+                            }
+                        }
+                    
+                    VStack {
+                        Spacer()
+                        if self.showSettings {
+                            ChapterSettingView(showSettings: self.$showSettings)
+                                .frame(width: geo.size.width, height: self.horizontalSizeClass == .compact ? 220 : 220)
+                                .transition(.move(edge: .bottom))
                         }
                     }
-                
-                VStack {
-                    if showSettings {
-                        SettingsView()
-                            .transition(.move(edge: .bottom))
+                    
+                    VStack {
+                        
+                        Spacer()
+                        if self.showTranslation {
+                            TranslationView(showTranslation: self.$showTranslation, viewModel: self.viewModel)
+                                .frame(width: geo.size.width, height: self.horizontalSizeClass == .compact ? 220 : 220)
+                                .transition(.move(edge: .bottom))
+                        }
                     }
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.black.opacity(0.5))
+                            .frame(width: 100, height: 100)
+                        LoaderView(isLoading: self.viewModel.isLoading)
+                    }
+                    .opacity(self.viewModel.isLoading ? 1.0 : 0.0)
+                    .animation(.easeInOut)
+                    
                 }
-                
-            }
+            }            
+            .background(Color.black.opacity(self.showSettings || self.showTranslation ? 0.2 : 0.0).edgesIgnoringSafeArea(.all))
         }
-        .background(Color.black.opacity(showSettings ? 0.2 : 0.0).edgesIgnoringSafeArea(.all))
         
-    }
-}
-
-struct ChapterView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChapterView()
-    }
+    }    
 }

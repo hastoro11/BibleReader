@@ -19,8 +19,6 @@
 		8C116E7923E9EC5A0010859D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C116E7723E9EC5A0010859D /* LaunchScreen.storyboard */; };
 		8C116EC223E9EF430010859D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116EC123E9EF430010859D /* TitleView.swift */; };
 		8C116EC423E9EF4C0010859D /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116EC323E9EF4C0010859D /* BodyView.swift */; };
-		8C116EC623E9EF580010859D /* ChapterReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116EC523E9EF580010859D /* ChapterReaderView.swift */; };
-		8C116EC823E9EF650010859D /* BibleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116EC723E9EF650010859D /* BibleViewModel.swift */; };
 		8C59042D24005AD900C78DA9 /* TranslationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59042C24005AD900C78DA9 /* TranslationView.swift */; };
 		8C66EAFF23FFD26400B6F0AB /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C66EAFE23FFD26400B6F0AB /* LoaderView.swift */; };
 		8C7C59E623F858DA00B85FCE /* ChapterNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C59E523F858DA00B85FCE /* ChapterNumberView.swift */; };
@@ -44,6 +42,8 @@
 		8CC8C66423FED69A00FEBE78 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8C66323FED69A00FEBE78 /* Response.swift */; };
 		8CC8C66623FED73700FEBE78 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8C66523FED73700FEBE78 /* Error.swift */; };
 		8CC8C66823FED74D00FEBE78 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8C66723FED74D00FEBE78 /* API.swift */; };
+		8CE64A222402649C00933D7C /* BibleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE64A202402649C00933D7C /* BibleViewModel.swift */; };
+		8CE64A232402649C00933D7C /* ChapterReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE64A212402649C00933D7C /* ChapterReaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,8 +61,6 @@
 		8C116E7A23E9EC5A0010859D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C116EC123E9EF430010859D /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		8C116EC323E9EF4C0010859D /* BodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
-		8C116EC523E9EF580010859D /* ChapterReaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChapterReaderView.swift; path = "../../../BibleReader_ copy/BibleReader/Chapter/ChapterReaderView.swift"; sourceTree = "<group>"; };
-		8C116EC723E9EF650010859D /* BibleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BibleViewModel.swift; path = "../../../BibleReader_ copy/BibleReader/Chapter/BibleViewModel.swift"; sourceTree = "<group>"; };
 		8C59042C24005AD900C78DA9 /* TranslationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationView.swift; sourceTree = "<group>"; };
 		8C66EAFE23FFD26400B6F0AB /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		8C7C59E523F858DA00B85FCE /* ChapterNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterNumberView.swift; sourceTree = "<group>"; };
@@ -86,6 +84,8 @@
 		8CC8C66323FED69A00FEBE78 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		8CC8C66523FED73700FEBE78 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		8CC8C66723FED74D00FEBE78 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		8CE64A202402649C00933D7C /* BibleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleViewModel.swift; sourceTree = "<group>"; };
+		8CE64A212402649C00933D7C /* ChapterReaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterReaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,10 +158,10 @@
 		8C116E8223E9ECF30010859D /* Chapter */ = {
 			isa = PBXGroup;
 			children = (
+				8CE64A202402649C00933D7C /* BibleViewModel.swift */,
+				8CE64A212402649C00933D7C /* ChapterReaderView.swift */,
 				8C8C015723F5B9AF005C2EB6 /* Views */,
 				8C8C015023F5B8BE005C2EB6 /* Settings */,
-				8C116EC723E9EF650010859D /* BibleViewModel.swift */,
-				8C116EC523E9EF580010859D /* ChapterReaderView.swift */,
 			);
 			path = Chapter;
 			sourceTree = "<group>";
@@ -325,7 +325,6 @@
 				8C8C00F723ED420B005C2EB6 /* Biblia.swift in Sources */,
 				8C66EAFF23FFD26400B6F0AB /* LoaderView.swift in Sources */,
 				8C09FF4D23F7026E003AD3DF /* TopRoundedShape.swift in Sources */,
-				8C116EC823E9EF650010859D /* BibleViewModel.swift in Sources */,
 				8C116E6A23E9EC520010859D /* AppDelegate.swift in Sources */,
 				8CC8C66423FED69A00FEBE78 /* Response.swift in Sources */,
 				8C7C59E623F858DA00B85FCE /* ChapterNumberView.swift in Sources */,
@@ -334,10 +333,11 @@
 				8C8C00FA23ED4C3C005C2EB6 /* BooksView.swift in Sources */,
 				8CC8C66623FED73700FEBE78 /* Error.swift in Sources */,
 				8C8C00FF23ED647A005C2EB6 /* Array+Extension.swift in Sources */,
-				8C116EC623E9EF580010859D /* ChapterReaderView.swift in Sources */,
+				8CE64A222402649C00933D7C /* BibleViewModel.swift in Sources */,
 				8C116EC423E9EF4C0010859D /* BodyView.swift in Sources */,
 				8C09FF4B23F6DA08003AD3DF /* String+Extension.swift in Sources */,
 				8CC8C66823FED74D00FEBE78 /* API.swift in Sources */,
+				8CE64A232402649C00933D7C /* ChapterReaderView.swift in Sources */,
 				8C116EC223E9EF430010859D /* TitleView.swift in Sources */,
 				8C116E6F23E9EC520010859D /* BibleReader.xcdatamodeld in Sources */,
 				8C8C014F23F458D0005C2EB6 /* Font+Extension.swift in Sources */,
