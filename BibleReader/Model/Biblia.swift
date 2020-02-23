@@ -30,6 +30,15 @@ enum Translation: String, CaseIterable, CustomStringConvertible{
             return .black
         }
     }
+    
+    var books: [Book] {
+        switch self {
+        case .RUF:
+            return Biblia.books
+        case .KG:
+            return Biblia.books
+        }
+    }
 }
 
 enum Covenant {
