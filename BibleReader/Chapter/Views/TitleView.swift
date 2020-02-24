@@ -52,7 +52,7 @@ struct TitleView: View {
                     
                 }
             }, label: {
-                InitialView(char: "\(translation.rawValue)", color: Color("Blue"), size: 44)
+                InitialView(char: "\(translation.rawValue)", color: translation.color, size: 44)
             })
                 .padding(.horizontal, 16)
             
@@ -64,7 +64,7 @@ struct TitleView: View {
                     }
                 }
             }, label: {
-                ButtonView(icon: "gear", color: Color("Red"))
+                ButtonView(icon: "gear", color: Color.gray)
             })
         }
         .padding(.top, 10)

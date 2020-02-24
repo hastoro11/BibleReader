@@ -125,7 +125,7 @@ struct BookList: View {
                             Button(action: {
                                 self.tapOnBook(book)
                             }) {
-                                BookButton(text: book.abbreviation, width: self.width, color: Color("Green"))
+                                BookButton(text: book.abbreviation, width: self.width, color: self.color)
                             }
                         }
                     }
