@@ -39,6 +39,7 @@ struct BodyView: View {
                         .font(.custom("Fira Sans Medium", size: 24))
                         .lineSpacing(1.4)
                         .padding(.bottom, 32)
+                        .allowsTightening(true)
                     if self.viewModel.versek.count > 0 {
                         VStack(alignment: .leading) {
                             if settings.reading == .vers {

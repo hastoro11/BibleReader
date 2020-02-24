@@ -49,13 +49,14 @@ struct TranslationView: View {
                         }
                     }, label: {
                         HStack {
-                            InitialView(char: tr.rawValue, color: tr.color, size: 44)
+                            InitialView(char: tr.rawValue, color: tr.color, size: 36)
                             Text(tr.description)
                                 .font(.secondaryTitle)
                             Spacer()
                         }
                     })
-                .padding()
+                        .padding(.horizontal)
+                        .padding(.vertical, 4)
                 }
                 
                 

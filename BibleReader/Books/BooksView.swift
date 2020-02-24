@@ -61,7 +61,7 @@ struct BooksView: View {
                     Spacer()
                     if self.showTranslation {
                         TranslationView(showTranslation: self.$showTranslation, viewModel: self.viewModel)
-                            .frame(width: geo.size.width, height: self.horizontalSizeClass == .compact ? 220 : 220)
+                            .frame(width: geo.size.width, height: self.horizontalSizeClass == .compact ? 250 : 250)
                             .transition(.move(edge: .bottom))
                     }
                 }

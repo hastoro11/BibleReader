@@ -17,7 +17,7 @@ struct ChapterView: View {
     @State var showSettings = false
     @State var showTranslation = false
     @Binding var selectedTab: Int
-    // now
+    
     var body: some View {
         
         return GeometryReader { geo in
@@ -65,6 +65,9 @@ struct ChapterView: View {
                 }
             }            
             .background(Color.black.opacity(self.showSettings || self.showTranslation ? 0.2 : 0.0).edgesIgnoringSafeArea(.all))
+            .alert(item: self.$viewModel.error) { (error) -> Alert in
+                Alert(title: Text("Error"), message: Text(error.description), dismissButton: .default(Text("OK")))
+            }
         }
         
     }    

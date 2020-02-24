@@ -8,8 +8,12 @@
 
 import Foundation
 
-enum BibleError: Error, CustomStringConvertible {
-    case network, parsing, unknown
+enum BibleError: Error, CustomStringConvertible, Identifiable {
+    var id: String {
+        self.description
+    }
+    
+    case network, parsing, translating(String), unknown
     
     var description: String {
         switch self {
@@ -17,6 +21,8 @@ enum BibleError: Error, CustomStringConvertible {
             return "Kapcsolódási hiba"
         case .parsing:
             return "Konvertálási hiba"
+        case .translating(let book):
+            return "Ez a fordítás nem tartalmazza: \"\(book)\""
         case .unknown:
             return "Ismeretlen hiba"
         }
