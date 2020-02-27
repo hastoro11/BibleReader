@@ -8,9 +8,12 @@
 
 import SwiftUI
 
+var colors = ["yellow", "purple", "blue", "green", "gray"]
+
 struct ContextMenuView: View {
     @Binding var showContextMenu: Bool
-    var colors = [Color("P_Yellow"), Color("P_Purple"), Color("P_Blue"), Color("P_Green")]
+    var vers: Versek!
+    @ObservedObject var viewModel: BibleViewModel
     var body: some View {        
         VStack {
             HStack(spacing: 10) {
@@ -27,21 +30,18 @@ struct ContextMenuView: View {
                     .frame(width: 1, height: 44)
                 
                 ForEach(colors, id:\.self) { color in
-                    Button(action: {}, label: {
+                    Button(action: {
+                        self.viewModel.addVersToFavorites(vers: self.vers, color: color)
+                        withAnimation {
+                            self.showContextMenu = false
+                        }
+                    }, label: {
                         Circle()
-                        .fill(color)
+                            .fill(Color("P_\(color.capitalized)"))
                     })
                     .frame(width: 44)
                 }
-                Rectangle()
-                    .fill(Color.gray)
-                    .frame(width: 1, height: 44)
-                
-                Button(action: {
-                }, label: {
-                    Image(systemName: "star")
-                        .font(.title)
-                })                
+                                   
             }                        
         }
         .padding(4)
@@ -50,7 +50,8 @@ struct ContextMenuView: View {
 }
 
 struct ContextMenuView_Previews: PreviewProvider {
+    var vers = Versek(szoveg: "Azután összegyűjtötte Mózes Izráel fiainak egész közösségét, és ezt mondta nekik: Ezek azok az igék, amelyekről azt parancsolta az ÚR, hogy meg kell tennetek:", hely: Hely(gepi: 10203500100, szep: "2Móz 35,1"))
     static var previews: some View {
-        ContextMenuView(showContextMenu: .constant(true)).previewLayout(.fixed(width: 350, height: 100))
+        ContextMenuView(showContextMenu: .constant(true), viewModel: BibleViewModel()).previewLayout(.fixed(width: 350, height: 100))
     }
 }

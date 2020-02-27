@@ -20,6 +20,15 @@ class BibleViewModel: ObservableObject {
     @Published var translation = Translation.RUF
     @Published var error: BibleError?
     
+    @Published var favorites = [Versek]()
+    @Published var yellows = [Versek]()
+    @Published var purples = [Versek]()
+    @Published var blues = [Versek]()
+    @Published var greens = [Versek]()
+    @Published var grays = [Versek]()
+    
+    var colors = ["yellow", "purple", "blue", "green", "gray"]
+
     var cancellables = Set<AnyCancellable>()
     
     init() {
@@ -40,6 +49,106 @@ class BibleViewModel: ObservableObject {
             })
             .store(in: &cancellables)
         
+    }
+    
+    func addVersToFavorites(vers: Versek, color: String) {
+        self.removeVersFromAll(vers: vers)
+        switch color {
+        case "yellow":
+            self.yellows.append(vers)
+        case "purple":
+            self.purples.append(vers)
+        case "blue":
+            self.blues.append(vers)
+        case "green":
+            self.greens.append(vers)
+        case "gray":
+            self.grays.append(vers)
+        default:
+            break
+        }
+    }
+    
+    private func removeVersFromAll(vers: Versek) {
+        self.yellows.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
+        self.purples.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
+        self.blues.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
+        self.greens.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
+        self.grays.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
+    }
+    
+    func saveFiles() {
+        for color in colors {
+            guard let fileUrl = self.getUrl(forFile: color) else {return}
+            
+            do {
+                switch color {
+                case "yellow":
+                    let data = try JSONEncoder().encode(self.yellows)
+                    try data.write(to: fileUrl)
+                case "purple":
+                    let data = try JSONEncoder().encode(self.purples)
+                    try data.write(to: fileUrl)
+                case "blue":
+                    let data = try JSONEncoder().encode(self.blues)
+                    try data.write(to: fileUrl)
+                case "green":
+                    let data = try JSONEncoder().encode(self.greens)
+                    try data.write(to: fileUrl)
+                case "gray":
+                    let data = try JSONEncoder().encode(self.grays)
+                    try data.write(to: fileUrl)
+                default:
+                    break
+                }
+            } catch {
+                fatalError("Error loading: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func loadFiles() {
+        for color in colors {
+            guard let fileUrl = self.getUrl(forFile: color) else {return}
+            do {
+                let data = try Data(contentsOf: fileUrl)
+                if !data.isEmpty {
+                    let versek = try JSONDecoder().decode([Versek].self, from: data)
+                    switch color {
+                    case "yellow":
+                        self.yellows = versek
+                    case "purple":
+                        self.purples = versek
+                    case "blue":
+                        self.blues = versek
+                    case "green":
+                        self.greens = versek
+                    case "gray":
+                        self.grays = versek
+                    default:
+                        break
+                    }
+                }
+            } catch {
+                fatalError("Error loading: \(error.localizedDescription)")
+            }
+        }
+        
+    }
+    
+    private func getUrl(forFile file: String) -> URL? {
+        
+        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        print(documents)
+        let fileUrl = documents
+            .appendingPathComponent(file.capitalized)
+            .appendingPathExtension("json")
+        
+        if !FileManager.default.fileExists(atPath: fileUrl.path) {
+            FileManager.default.createFile(atPath: fileUrl.path, contents: nil, attributes: nil)
+        }
+        
+        return fileUrl
     }
     
     private func checkTranslationAndBook(tr: Translation, book: Book) -> Bool {
@@ -91,5 +200,6 @@ class BibleViewModel: ObservableObject {
             })
             .store(in: &cancellables)
     }
+    
 }
     

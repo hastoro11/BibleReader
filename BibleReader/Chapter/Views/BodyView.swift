@@ -13,6 +13,9 @@ struct BodyView: View {
     @ObservedObject var viewModel: BibleViewModel
     @Binding var hideBars: Bool
     @Binding var showContextMenu: Bool
+    
+    @State var selectedVers: Versek?
+    
     var ContinuousText: Text {
         var resultText = Text("")            
         for index in viewModel.versek.enumerated() {
@@ -51,16 +54,18 @@ struct BodyView: View {
                                             Text(self.settings.showVerses ? "\(index + 1) " : "")
                                                 .font(self.settings.fontType.value)
                                                 .fontWeight(.bold)
-                                                + Text(self.viewModel.versek[index].szoveg.removedHTMLTags)
+                                                    + Text(self.viewModel.versek[index].szoveg.removedHTMLTags)
                                                     .font(self.settings.fontType.value)
                                         }
+                                        .frame(maxWidth: .infinity, alignment: Alignment.leading)
+                                        .background(self.getBackgroundColor(vers: self.viewModel.versek[index])?.opacity(0.6))
                                         .onTapGesture {
                                             withAnimation(.easeInOut) {
                                                 self.hideBars.toggle()
                                             }
                                         }
-                                        .onLongPressGesture {
-                                            withAnimation(.easeInOut) {
+                                        .onLongPressGesture {                                    withAnimation(.easeInOut) {
+                                                self.selectedVers = self.viewModel.versek[index]
                                                 self.showContextMenu.toggle()
                                             }
                                         }
@@ -86,11 +91,26 @@ struct BodyView: View {
                 
             }
             
-                        
-                ContextMenuView(showContextMenu: self.$showContextMenu)        .frame(width: 350, height: 65)
-                    .background(Color.white)
-                    .offset(x: self.showContextMenu ? 0 : UIScreen.main.bounds.width)
-            
+            ContextMenuView(showContextMenu: self.$showContextMenu, vers: self.selectedVers, viewModel: self.viewModel)
+                .frame(width: 350, height: 65)
+                .background(Color.white)
+                .offset(x: self.showContextMenu ? 0 : UIScreen.main.bounds.width)
+        }
+    }
+    
+    func getBackgroundColor(vers: Versek) -> Color? {
+        if self.viewModel.yellows.contains(vers) {
+            return Color("P_Yellow")
+        } else if self.viewModel.purples.contains(vers) {
+            return Color("P_Purple")
+        } else if self.viewModel.blues.contains(vers) {
+            return Color("P_Blue")
+        } else if self.viewModel.greens.contains(vers) {
+            return Color("P_Green")
+        } else if self.viewModel.grays.contains(vers) {
+            return Color("P_Gray")
+        } else {
+            return nil
         }
     }
     

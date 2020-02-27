@@ -68,6 +68,12 @@ struct Versek: Codable {
     }
 }
 
+extension Versek: Equatable {
+    static func == (lhs: Versek, rhs: Versek) -> Bool {
+        return lhs.hely.gepi == rhs.hely.gepi
+    }
+}
+
 // MARK: - Hely
 struct Hely: Codable {
     let gepi: Int
