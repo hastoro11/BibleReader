@@ -16,6 +16,7 @@ struct ChapterView: View {
     @State var hideBars: Bool = false
     @State var showSettings = false
     @State var showTranslation = false
+    @State var showContextMenu = false
     @Binding var selectedTab: Int
     
     var body: some View {
@@ -26,13 +27,8 @@ struct ChapterView: View {
                     TitleView(showSettings: self.$showSettings,showTranslations: self.$showTranslation, selectedTab: self.$selectedTab, viewModel: self.viewModel)
                 }
                 ZStack {
-                    BodyView(viewModel: self.viewModel)
-                        .padding(.top, self.hideBars ? 10 : 0)
-                        .onTapGesture {
-                            withAnimation() {
-                                self.hideBars.toggle()
-                            }
-                        }
+                    BodyView(viewModel: self.viewModel, hideBars: self.$hideBars, showContextMenu: self.$showContextMenu)
+                        .padding(.top, self.hideBars ? 10 : 0)                        
                     
                     VStack {
                         Spacer()
@@ -48,7 +44,7 @@ struct ChapterView: View {
                         Spacer()
                         if self.showTranslation {
                             TranslationView(showTranslation: self.$showTranslation, viewModel: self.viewModel)
-                                .frame(width: geo.size.width, height: self.horizontalSizeClass == .compact ? 220 : 220)
+                                .frame(width: geo.size.width, height: self.horizontalSizeClass == .compact ? 220 : 220)                                
                                 .transition(.move(edge: .bottom))
                         }
                     }
@@ -64,10 +60,10 @@ struct ChapterView: View {
                     
                 }
             }            
-            .background(Color.black.opacity(self.showSettings || self.showTranslation ? 0.2 : 0.0).edgesIgnoringSafeArea(.all))
+            .background(Color.black.opacity(self.showSettings || self.showTranslation || self.showContextMenu ? 0.2 : 0.0).edgesIgnoringSafeArea(.all))
             .alert(item: self.$viewModel.error) { (error) -> Alert in
                 Alert(title: Text("Error"), message: Text(error.description), dismissButton: .default(Text("OK")))
-            }
+            }            
         }
         
     }    

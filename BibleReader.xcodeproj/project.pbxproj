@@ -44,6 +44,7 @@
 		8CC8C66823FED74D00FEBE78 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8C66723FED74D00FEBE78 /* API.swift */; };
 		8CE64A222402649C00933D7C /* BibleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE64A202402649C00933D7C /* BibleViewModel.swift */; };
 		8CE64A232402649C00933D7C /* ChapterReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE64A212402649C00933D7C /* ChapterReaderView.swift */; };
+		8CE64A252404468500933D7C /* ContextMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE64A242404468500933D7C /* ContextMenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		8CC8C66723FED74D00FEBE78 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		8CE64A202402649C00933D7C /* BibleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleViewModel.swift; sourceTree = "<group>"; };
 		8CE64A212402649C00933D7C /* ChapterReaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterReaderView.swift; sourceTree = "<group>"; };
+		8CE64A242404468500933D7C /* ContextMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 				8C116EC123E9EF430010859D /* TitleView.swift */,
 				8C116EC323E9EF4C0010859D /* BodyView.swift */,
 				8C59042C24005AD900C78DA9 /* TranslationView.swift */,
+				8CE64A242404468500933D7C /* ContextMenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				8C8C014F23F458D0005C2EB6 /* Font+Extension.swift in Sources */,
 				8C116E7123E9EC520010859D /* ContentView.swift in Sources */,
 				8C8C015623F5B964005C2EB6 /* UserSettings.swift in Sources */,
+				8CE64A252404468500933D7C /* ContextMenuView.swift in Sources */,
 				8C116E6C23E9EC520010859D /* SceneDelegate.swift in Sources */,
 				8C9F0C9423E9F65F00D40B83 /* ChapterSettingView.swift in Sources */,
 			);
