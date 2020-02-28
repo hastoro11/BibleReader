@@ -25,7 +25,7 @@ struct ContentView: View {
             .tag(1)
             .environmentObject(BibleViewModel())
             
-            Text("Kedvencek").tabItem {
+            Favorites().tabItem {
                 Image(systemName: "star")
                 Text("Kedvencek")
             }

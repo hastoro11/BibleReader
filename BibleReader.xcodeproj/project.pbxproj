@@ -39,6 +39,7 @@
 		8C9F0C9123E9F57900D40B83 /* Maitree-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C9023E9F57900D40B83 /* Maitree-Bold.ttf */; };
 		8C9F0C9423E9F65F00D40B83 /* ChapterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F0C9323E9F65F00D40B83 /* ChapterSettingView.swift */; };
 		8C9F0C9523E9FD1F00D40B83 /* CrimsonPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C9223E9F58400D40B83 /* CrimsonPro-Bold.ttf */; };
+		8CA7BB4F2408F10C00AF49F3 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA7BB4E2408F10C00AF49F3 /* Favorites.swift */; };
 		8CC8C66423FED69A00FEBE78 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8C66323FED69A00FEBE78 /* Response.swift */; };
 		8CC8C66623FED73700FEBE78 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8C66523FED73700FEBE78 /* Error.swift */; };
 		8CC8C66823FED74D00FEBE78 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8C66723FED74D00FEBE78 /* API.swift */; };
@@ -82,6 +83,7 @@
 		8C9F0C9023E9F57900D40B83 /* Maitree-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Maitree-Bold.ttf"; sourceTree = "<group>"; };
 		8C9F0C9223E9F58400D40B83 /* CrimsonPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CrimsonPro-Bold.ttf"; sourceTree = "<group>"; };
 		8C9F0C9323E9F65F00D40B83 /* ChapterSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterSettingView.swift; sourceTree = "<group>"; };
+		8CA7BB4E2408F10C00AF49F3 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		8CC8C66323FED69A00FEBE78 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		8CC8C66523FED73700FEBE78 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		8CC8C66723FED74D00FEBE78 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				8C8C00F523ED40F0005C2EB6 /* Model */,
 				8C8C00FD23ED6467005C2EB6 /* Extensions */,
 				8CC8C66223FED66100FEBE78 /* API */,
+				8CA7BB4B2408F0E000AF49F3 /* Favorites */,
 				8C8C00F823ED4C27005C2EB6 /* Books */,
 				8C116E8223E9ECF30010859D /* Chapter */,
 				8C116E7023E9EC520010859D /* ContentView.swift */,
@@ -231,6 +234,14 @@
 				8CE64A242404468500933D7C /* ContextMenuView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8CA7BB4B2408F0E000AF49F3 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				8CA7BB4E2408F10C00AF49F3 /* Favorites.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		8CC8C66223FED66100FEBE78 /* API */ = {
@@ -333,6 +344,7 @@
 				8C7C59E623F858DA00B85FCE /* ChapterNumberView.swift in Sources */,
 				8C09FF4923F67E12003AD3DF /* CommonViews.swift in Sources */,
 				8C59042D24005AD900C78DA9 /* TranslationView.swift in Sources */,
+				8CA7BB4F2408F10C00AF49F3 /* Favorites.swift in Sources */,
 				8C8C00FA23ED4C3C005C2EB6 /* BooksView.swift in Sources */,
 				8CC8C66623FED73700FEBE78 /* Error.swift in Sources */,
 				8C8C00FF23ED647A005C2EB6 /* Array+Extension.swift in Sources */,

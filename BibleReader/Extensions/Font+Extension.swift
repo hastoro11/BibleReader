@@ -33,4 +33,8 @@ extension Font {
     static var secondaryTitle: Font {
         return self.custom("Fira Sans Medium", size: 16)
     }
+    
+    static var boldTitle: Font {
+        return self.custom("Fira Sans Bold", size: 18)
+    }
 }

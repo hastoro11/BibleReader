@@ -68,6 +68,12 @@ struct Versek: Codable {
     }
 }
 
+extension Versek: Identifiable {
+    var id: String {
+        self.szoveg
+    }
+}
+
 extension Versek: Equatable {
     static func == (lhs: Versek, rhs: Versek) -> Bool {
         return lhs.hely.gepi == rhs.hely.gepi
