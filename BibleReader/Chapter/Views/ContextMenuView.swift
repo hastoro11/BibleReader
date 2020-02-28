@@ -31,7 +31,7 @@ struct ContextMenuView: View {
                 
                 ForEach(colors, id:\.self) { color in
                     Button(action: {
-                        self.viewModel.addVersToFavorites(vers: self.vers, color: color)
+                        self.viewModel.markVers(self.vers, color: color)
                         withAnimation {
                             self.showContextMenu = false
                         }
@@ -41,7 +41,21 @@ struct ContextMenuView: View {
                     })
                     .frame(width: 44)
                 }
-                                   
+                
+                Button(action: {
+                    self.viewModel.removeVersMarking(vers: self.vers)
+                    withAnimation {
+                        self.showContextMenu = false
+                    }
+                }, label: {
+                    ZStack {
+                        Circle()
+                            .stroke(Color.black)
+                        Text("X")
+                    }
+                })                     
+                .frame(width: 44, height: 44)
+            
             }                        
         }
         .padding(4)
@@ -52,6 +66,6 @@ struct ContextMenuView: View {
 struct ContextMenuView_Previews: PreviewProvider {
     var vers = Versek(szoveg: "Azután összegyűjtötte Mózes Izráel fiainak egész közösségét, és ezt mondta nekik: Ezek azok az igék, amelyekről azt parancsolta az ÚR, hogy meg kell tennetek:", hely: Hely(gepi: 10203500100, szep: "2Móz 35,1"))
     static var previews: some View {
-        ContextMenuView(showContextMenu: .constant(true), viewModel: BibleViewModel()).previewLayout(.fixed(width: 350, height: 100))
+        ContextMenuView(showContextMenu: .constant(true), viewModel: BibleViewModel()).previewLayout(.fixed(width: 370, height: 100))
     }
 }

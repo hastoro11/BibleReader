@@ -92,7 +92,7 @@ struct BodyView: View {
             }
             
             ContextMenuView(showContextMenu: self.$showContextMenu, vers: self.selectedVers, viewModel: self.viewModel)
-                .frame(width: 350, height: 65)
+                .frame(width: 375, height: 65)
                 .background(Color.white)
                 .offset(x: self.showContextMenu ? 0 : UIScreen.main.bounds.width)
         }

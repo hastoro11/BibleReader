@@ -19,8 +19,7 @@ class BibleViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var translation = Translation.RUF
     @Published var error: BibleError?
-    
-    @Published var favorites = [Versek]()
+        
     @Published var yellows = [Versek]()
     @Published var reds = [Versek]()
     @Published var blues = [Versek]()
@@ -28,6 +27,8 @@ class BibleViewModel: ObservableObject {
     @Published var grays = [Versek]()
     
     var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]
+    
+    var fileService = FileService()
 
     var cancellables = Set<AnyCancellable>()
     
@@ -48,11 +49,11 @@ class BibleViewModel: ObservableObject {
                 }
             })
             .store(in: &cancellables)
-        
+        loadFiles()
     }
     
-    func addVersToFavorites(vers: Versek, color: String) {
-        self.removeVersFromAll(vers: vers)
+    func markVers(_ vers: Versek, color: String) {
+        self.removeVersMarkingFromAll(vers: vers)
         switch color {
         case "Yellow":
             self.yellows.append(vers)
@@ -67,9 +68,10 @@ class BibleViewModel: ObservableObject {
         default:
             break
         }
+        saveFiles()
     }
     
-    private func removeVersFromAll(vers: Versek) {
+   private func removeVersMarkingFromAll(vers: Versek) {
         self.yellows.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
         self.reds.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
         self.blues.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
@@ -77,74 +79,22 @@ class BibleViewModel: ObservableObject {
         self.grays.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
     }
     
+    func removeVersMarking(vers: Versek) {
+        self.removeVersMarkingFromAll(vers: vers)
+        saveFiles()
+    }
+    
     func saveFiles() {
-        for color in colors {
-            guard let fileUrl = self.getUrl(forFile: color) else {return}
-            var data = Data()
-            do {
-                switch color {
-                case "Yellow":
-                    data = try JSONEncoder().encode(self.yellows)
-                case "Red":
-                    data = try JSONEncoder().encode(self.reds)
-                case "Blue":
-                    data = try JSONEncoder().encode(self.blues)
-                case "Green":
-                    data = try JSONEncoder().encode(self.greens)
-                case "Gray":
-                    data = try JSONEncoder().encode(self.grays)
-                default:
-                    break
-                }
-                try data.write(to: fileUrl)
-            } catch {
-                fatalError("Error loading: \(error.localizedDescription)")
-            }
-        }
+        fileService.saveFiles(lists: [self.yellows, self.reds, self.blues, self.greens, self.grays])
     }
     
     func loadFiles() {
-        for color in colors {
-            guard let fileUrl = self.getUrl(forFile: color) else {return}
-            do {
-                let data = try Data(contentsOf: fileUrl)
-                if !data.isEmpty {
-                    let versek = try JSONDecoder().decode([Versek].self, from: data)
-                    switch color {
-                    case "Yellow":
-                        self.yellows = versek
-                    case "Red":
-                        self.reds = versek
-                    case "Blue":
-                        self.blues = versek
-                    case "Green":
-                        self.greens = versek
-                    case "Gray":
-                        self.grays = versek
-                    default:
-                        break
-                    }
-                }
-            } catch {
-                fatalError("Error loading: \(error.localizedDescription)")
-            }
-        }
-        
-    }
-    
-    private func getUrl(forFile file: String) -> URL? {
-        
-        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        print(documents)
-        let fileUrl = documents
-            .appendingPathComponent(file.capitalized)
-            .appendingPathExtension("json")
-        
-        if !FileManager.default.fileExists(atPath: fileUrl.path) {
-            FileManager.default.createFile(atPath: fileUrl.path, contents: nil, attributes: nil)
-        }
-        
-        return fileUrl
+        let lists = fileService.loadFiles()
+        self.yellows = lists[0]
+        self.reds = lists[1]
+        self.blues = lists[2]
+        self.greens = lists[3]
+        self.grays = lists[4]
     }
     
     private func checkTranslationAndBook(tr: Translation, book: Book) -> Bool {

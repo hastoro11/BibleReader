@@ -18,21 +18,14 @@ var versek = [
 ]
 
 struct Favorites: View {
+    var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]    
+    @ObservedObject var viewModel: BibleViewModel
     var body: some View {
-        
         List {
-            Section(header: Header(title: "Red", color: "Red")) {
-                ForEach(versek) { vers in
-                    VersBody(vers: vers)
-                }
-            }
-            Section(header: Header(title: "Blue", color: "Blue")) {
-                ForEach(versek) { vers in
-                    VersBody(vers: vers)
-                }
-            }
             
-            
+            ForEach(colors.indices, id:\.self) { index in
+                self.createList(color: self.colors[index])
+            }
             
         }
         .listStyle(PlainListStyle())
@@ -42,6 +35,35 @@ struct Favorites: View {
         }
     }
     
+    func createList(color: String) -> some View {
+        var list: [Versek] {
+            switch color {
+            case "Yellow":
+                return viewModel.yellows
+            case "Red":
+                return viewModel.reds
+            case "Blue":
+                return viewModel.blues
+            case "Green":
+                return viewModel.greens
+            case "Gray":
+                return viewModel.grays
+            default:
+                return []
+            }
+        }
+        
+        return Group {
+            if !list.isEmpty {
+                Section(header: Header(title: color, color: color)) {
+                    ForEach(list) { vers in
+                        VersBody(vers: vers)
+                    }
+                }
+            }
+        }
+        
+    }
 }
 
 struct Header: View {
@@ -52,9 +74,9 @@ struct Header: View {
             .font(.boldTitle)
             .foregroundColor(.white)
             .frame(width: UIScreen.main.bounds.width, height: 50, alignment: .center)
-            .background(TopRoundedShape(cornerRadius: 20).fill(Color(color)))
+            .background(TopRoundedShape(cornerRadius: 8).fill(Color(color)))
+            .padding([.top, .bottom])
             .background(Color.white)
-            
         
     }
 }
@@ -83,6 +105,6 @@ struct VersBody: View{
 
 struct Favorites_Previews: PreviewProvider {
     static var previews: some View {
-        Favorites()
+        VersBody(vers: versek[0])
     }
 }
