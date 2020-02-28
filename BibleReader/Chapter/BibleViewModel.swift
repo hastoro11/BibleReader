@@ -22,12 +22,12 @@ class BibleViewModel: ObservableObject {
     
     @Published var favorites = [Versek]()
     @Published var yellows = [Versek]()
-    @Published var purples = [Versek]()
+    @Published var reds = [Versek]()
     @Published var blues = [Versek]()
     @Published var greens = [Versek]()
     @Published var grays = [Versek]()
     
-    var colors = ["yellow", "purple", "blue", "green", "gray"]
+    var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]
 
     var cancellables = Set<AnyCancellable>()
     
@@ -54,15 +54,15 @@ class BibleViewModel: ObservableObject {
     func addVersToFavorites(vers: Versek, color: String) {
         self.removeVersFromAll(vers: vers)
         switch color {
-        case "yellow":
+        case "Yellow":
             self.yellows.append(vers)
-        case "purple":
-            self.purples.append(vers)
-        case "blue":
+        case "Red":
+            self.reds.append(vers)
+        case "Blue":
             self.blues.append(vers)
-        case "green":
+        case "Green":
             self.greens.append(vers)
-        case "gray":
+        case "Gray":
             self.grays.append(vers)
         default:
             break
@@ -71,7 +71,7 @@ class BibleViewModel: ObservableObject {
     
     private func removeVersFromAll(vers: Versek) {
         self.yellows.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
-        self.purples.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
+        self.reds.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
         self.blues.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
         self.greens.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
         self.grays.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
@@ -80,27 +80,23 @@ class BibleViewModel: ObservableObject {
     func saveFiles() {
         for color in colors {
             guard let fileUrl = self.getUrl(forFile: color) else {return}
-            
+            var data = Data()
             do {
                 switch color {
-                case "yellow":
-                    let data = try JSONEncoder().encode(self.yellows)
-                    try data.write(to: fileUrl)
-                case "purple":
-                    let data = try JSONEncoder().encode(self.purples)
-                    try data.write(to: fileUrl)
-                case "blue":
-                    let data = try JSONEncoder().encode(self.blues)
-                    try data.write(to: fileUrl)
-                case "green":
-                    let data = try JSONEncoder().encode(self.greens)
-                    try data.write(to: fileUrl)
-                case "gray":
-                    let data = try JSONEncoder().encode(self.grays)
-                    try data.write(to: fileUrl)
+                case "Yellow":
+                    data = try JSONEncoder().encode(self.yellows)
+                case "Red":
+                    data = try JSONEncoder().encode(self.reds)
+                case "Blue":
+                    data = try JSONEncoder().encode(self.blues)
+                case "Green":
+                    data = try JSONEncoder().encode(self.greens)
+                case "Gray":
+                    data = try JSONEncoder().encode(self.grays)
                 default:
                     break
                 }
+                try data.write(to: fileUrl)
             } catch {
                 fatalError("Error loading: \(error.localizedDescription)")
             }
@@ -115,15 +111,15 @@ class BibleViewModel: ObservableObject {
                 if !data.isEmpty {
                     let versek = try JSONDecoder().decode([Versek].self, from: data)
                     switch color {
-                    case "yellow":
+                    case "Yellow":
                         self.yellows = versek
-                    case "purple":
-                        self.purples = versek
-                    case "blue":
+                    case "Red":
+                        self.reds = versek
+                    case "Blue":
                         self.blues = versek
-                    case "green":
+                    case "Green":
                         self.greens = versek
-                    case "gray":
+                    case "Gray":
                         self.grays = versek
                     default:
                         break

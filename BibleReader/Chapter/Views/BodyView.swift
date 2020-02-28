@@ -58,7 +58,7 @@ struct BodyView: View {
                                                     .font(self.settings.fontType.value)
                                         }
                                         .frame(maxWidth: .infinity, alignment: Alignment.leading)
-                                        .background(self.getBackgroundColor(vers: self.viewModel.versek[index])?.opacity(0.6))
+                                        .background(self.getBackgroundColor(vers: self.viewModel.versek[index])?.opacity(0.4))
                                         .onTapGesture {
                                             withAnimation(.easeInOut) {
                                                 self.hideBars.toggle()
@@ -100,15 +100,15 @@ struct BodyView: View {
     
     func getBackgroundColor(vers: Versek) -> Color? {
         if self.viewModel.yellows.contains(vers) {
-            return Color("P_Yellow")
-        } else if self.viewModel.purples.contains(vers) {
-            return Color("P_Purple")
+            return Color("Yellow")
+        } else if self.viewModel.reds.contains(vers) {
+            return Color("Red")
         } else if self.viewModel.blues.contains(vers) {
-            return Color("P_Blue")
+            return Color("Blue")
         } else if self.viewModel.greens.contains(vers) {
-            return Color("P_Green")
+            return Color("Green")
         } else if self.viewModel.grays.contains(vers) {
-            return Color("P_Gray")
+            return Color("Gray")
         } else {
             return nil
         }

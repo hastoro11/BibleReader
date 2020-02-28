@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-var colors = ["yellow", "purple", "blue", "green", "gray"]
-
+//var colors = ["yellow", "purple", "blue", "green", "gray"]
+var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]
 struct ContextMenuView: View {
     @Binding var showContextMenu: Bool
     var vers: Versek!
@@ -37,7 +37,7 @@ struct ContextMenuView: View {
                         }
                     }, label: {
                         Circle()
-                            .fill(Color("P_\(color.capitalized)"))
+                            .fill(Color("\(color)"))
                     })
                     .frame(width: 44)
                 }
