@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SettingView: View {
     @ObservedObject var viewModel: BibleViewModel
-    @State var saveCurrent = false    
+    @State var saveCurrent = false
     var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]
     var body: some View {
         VStack {
@@ -26,7 +26,7 @@ struct SettingView: View {
                 }).padding(.horizontal)
             }
             .padding(.bottom, 50)
-            .background(TopRoundedShape(cornerRadius: 20).stroke(Color("Green"), lineWidth: 2).background(Color.white))
+            .background(TopRoundedShape(cornerRadius: 20).stroke(Color("Green"), lineWidth: 1).background(Color.white))
             
             
             VStack {
@@ -46,10 +46,10 @@ struct SettingView: View {
                 .padding(.horizontal)
             }
             .padding(.bottom, 50)
-            .background(TopRoundedShape(cornerRadius: 20).stroke(Color("Blue"), lineWidth: 2).background(Color.white))
+            .background(TopRoundedShape(cornerRadius: 20).stroke(Color("Blue"), lineWidth: 1).background(Color.white))
             .offset(x: 0, y: -30)
             
-            TopRoundedShape(cornerRadius: 20).stroke(Color("Yellow"), lineWidth: 2)
+            TopRoundedShape(cornerRadius: 20).stroke(Color("Yellow"), lineWidth: 1)
                 .background(Color.white)
                 .offset(x: 0, y: -60)
             

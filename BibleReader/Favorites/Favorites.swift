@@ -21,17 +21,29 @@ struct Favorites: View {
     var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]    
     @ObservedObject var viewModel: BibleViewModel
     var body: some View {
-        List {
-            
-            ForEach(colors.indices, id:\.self) { index in
-                self.createList(color: self.colors[index])
+        VStack(spacing: 0) {
+        
+            HStack {
+                Text("Kedvencek")
+                    .font(.secondaryTitle)
+                    .padding(.leading)
+                Spacer()
             }
+            .foregroundColor(.white)
+            .frame(height: 50)
+            .background(TopRoundedShape(cornerRadius: 12).fill(Color.black))
+            .padding(.top)
             
-        }
-        .listStyle(PlainListStyle())
-        .padding(.top)
-        .onAppear {
-            UITableView.appearance().separatorStyle = .none
+            List {
+                ForEach(colors.indices, id:\.self) { index in
+                    self.createList(color: self.colors[index])
+                }
+                
+            }
+            .listStyle(PlainListStyle())
+            .onAppear {
+                UITableView.appearance().separatorStyle = .none
+            }
         }
     }
     
@@ -52,13 +64,21 @@ struct Favorites: View {
                 return []
             }
         }
-        
+        var title: String {
+            if let index = colors.firstIndex(of: color) {
+                return viewModel.titles[index]
+            }
+            
+            return color
+        }
         return Group {
             if !list.isEmpty {
-                Section(header: Header(title: color, color: color)) {
+                Section(header: Header(title: title, color: color)) {
                     ForEach(list) { vers in
                         VersBody(vers: vers)
                     }
+                    .listRowBackground(Color(color).opacity(0.7))
+                    .listRowInsets(.none)
                 }
             }
         }
@@ -70,14 +90,21 @@ struct Header: View {
     var title: String
     var color: String
     var body: some View {
-        Text(title)
-            .font(.boldTitle)
-            .foregroundColor(.white)
-            .frame(width: UIScreen.main.bounds.width, height: 50, alignment: .center)
-            .background(TopRoundedShape(cornerRadius: 8).fill(Color(color)))
-            .padding([.top, .bottom])
+        VStack(spacing: 0) {
+            HStack {
+                Text(title)
+                    .font(.boldTitle)
+                    .foregroundColor(.white)
+                    .padding(.leading)
+                    .frame(height: 50)
+                Spacer()
+            }
+            .background(Color(color))
             .background(Color.white)
-        
+            Rectangle()
+                .fill(Color.black)
+                .frame(width: UIScreen.main.bounds.width, height: 1)
+        }
     }
 }
 
@@ -98,9 +125,13 @@ struct VersBody: View{
                         
                 }
                 .padding(.leading, 4)
+                Spacer()
             }
         }
+        .frame(maxWidth: .infinity)
+        .padding([.top, .bottom], 8)
     }
+    
 }
 
 struct Favorites_Previews: PreviewProvider {
