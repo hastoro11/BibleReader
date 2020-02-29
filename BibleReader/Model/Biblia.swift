@@ -53,11 +53,11 @@ enum Translation: String, CaseIterable, CustomStringConvertible{
     }
 }
 
-enum Covenant {
+enum Covenant: String, Codable {
     case old, new
 }
 
-struct Book {
+struct Book: Codable {
     var covenant: Covenant
     var name: String
     var shortName: String
@@ -212,7 +212,7 @@ struct Biblia {
     ]
     
     static var catholicBooks: [Book] = [
-        Book(covenant: .old, name: "Teremtés könyve", shortName: "Teremtér", abbreviation: "Ter", chapters: 50),
+        Book(covenant: .old, name: "Teremtés könyve", shortName: "Teremtés", abbreviation: "Ter", chapters: 50),
         Book(covenant: .old, name: "Kivonulás könyve", shortName: "Kivonulás", abbreviation: "Kiv", chapters: 40),
         Book(covenant: .old, name: "Leviták könyve", shortName: "Leviták", abbreviation: "Lev", chapters: 27),
         Book(covenant: .old, name: "Számok könyve", shortName: "Számok", abbreviation: "Szám", chapters: 36),

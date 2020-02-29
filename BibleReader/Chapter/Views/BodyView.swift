@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct BodyView: View {
-    @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var settings: ChapterSettings
     @ObservedObject var viewModel: BibleViewModel
     @Binding var hideBars: Bool
     @Binding var showContextMenu: Bool

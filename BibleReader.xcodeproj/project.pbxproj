@@ -30,7 +30,7 @@
 		8C8C014C23F3DA67005C2EB6 /* FiraSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C8C014823F3DA67005C2EB6 /* FiraSans-Medium.ttf */; };
 		8C8C014D23F3DA67005C2EB6 /* FiraSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C8C014923F3DA67005C2EB6 /* FiraSans-Light.ttf */; };
 		8C8C014F23F458D0005C2EB6 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C014E23F458D0005C2EB6 /* Font+Extension.swift */; };
-		8C8C015623F5B964005C2EB6 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C015523F5B964005C2EB6 /* UserSettings.swift */; };
+		8C8C015623F5B964005C2EB6 /* ChapterSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C015523F5B964005C2EB6 /* ChapterSettings.swift */; };
 		8C9F0C8723E9F40A00D40B83 /* Example.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C8623E9F40A00D40B83 /* Example.json */; };
 		8C9F0C8923E9F43700D40B83 /* CrimsonPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C8823E9F43700D40B83 /* CrimsonPro-Light.ttf */; };
 		8C9F0C8B23E9F45300D40B83 /* CormorantGaramond-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C8A23E9F45300D40B83 /* CormorantGaramond-Light.ttf */; };
@@ -41,6 +41,8 @@
 		8C9F0C9523E9FD1F00D40B83 /* CrimsonPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C9223E9F58400D40B83 /* CrimsonPro-Bold.ttf */; };
 		8CA7BB4F2408F10C00AF49F3 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA7BB4E2408F10C00AF49F3 /* Favorites.swift */; };
 		8CA7BB5124097B9300AF49F3 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA7BB5024097B9300AF49F3 /* FileService.swift */; };
+		8CA7BB542409823600AF49F3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA7BB532409823600AF49F3 /* SettingView.swift */; };
+		8CA7BB56240A498100AF49F3 /* UserSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA7BB55240A498100AF49F3 /* UserSettingsService.swift */; };
 		8CC8C66423FED69A00FEBE78 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8C66323FED69A00FEBE78 /* Response.swift */; };
 		8CC8C66623FED73700FEBE78 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8C66523FED73700FEBE78 /* Error.swift */; };
 		8CC8C66823FED74D00FEBE78 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8C66723FED74D00FEBE78 /* API.swift */; };
@@ -75,7 +77,7 @@
 		8C8C014823F3DA67005C2EB6 /* FiraSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Medium.ttf"; sourceTree = "<group>"; };
 		8C8C014923F3DA67005C2EB6 /* FiraSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Light.ttf"; sourceTree = "<group>"; };
 		8C8C014E23F458D0005C2EB6 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
-		8C8C015523F5B964005C2EB6 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		8C8C015523F5B964005C2EB6 /* ChapterSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterSettings.swift; sourceTree = "<group>"; };
 		8C9F0C8623E9F40A00D40B83 /* Example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Example.json; sourceTree = "<group>"; };
 		8C9F0C8823E9F43700D40B83 /* CrimsonPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CrimsonPro-Light.ttf"; sourceTree = "<group>"; };
 		8C9F0C8A23E9F45300D40B83 /* CormorantGaramond-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Light.ttf"; sourceTree = "<group>"; };
@@ -86,6 +88,8 @@
 		8C9F0C9323E9F65F00D40B83 /* ChapterSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterSettingView.swift; sourceTree = "<group>"; };
 		8CA7BB4E2408F10C00AF49F3 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		8CA7BB5024097B9300AF49F3 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
+		8CA7BB532409823600AF49F3 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		8CA7BB55240A498100AF49F3 /* UserSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsService.swift; sourceTree = "<group>"; };
 		8CC8C66323FED69A00FEBE78 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		8CC8C66523FED73700FEBE78 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		8CC8C66723FED74D00FEBE78 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -141,7 +145,9 @@
 				8CA7BB4B2408F0E000AF49F3 /* Favorites */,
 				8C8C00F823ED4C27005C2EB6 /* Books */,
 				8C116E8223E9ECF30010859D /* Chapter */,
+				8CA7BB522409821A00AF49F3 /* Settings */,
 				8C116E7023E9EC520010859D /* ContentView.swift */,
+				8CE64A202402649C00933D7C /* BibleViewModel.swift */,
 				8C116E6923E9EC520010859D /* AppDelegate.swift */,
 				8C116E6B23E9EC520010859D /* SceneDelegate.swift */,
 				8C116E7223E9EC5A0010859D /* Assets.xcassets */,
@@ -165,7 +171,6 @@
 		8C116E8223E9ECF30010859D /* Chapter */ = {
 			isa = PBXGroup;
 			children = (
-				8CE64A202402649C00933D7C /* BibleViewModel.swift */,
 				8CE64A212402649C00933D7C /* ChapterReaderView.swift */,
 				8C8C015723F5B9AF005C2EB6 /* Views */,
 				8C8C015023F5B8BE005C2EB6 /* Settings */,
@@ -221,7 +226,7 @@
 		8C8C015023F5B8BE005C2EB6 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				8C8C015523F5B964005C2EB6 /* UserSettings.swift */,
+				8C8C015523F5B964005C2EB6 /* ChapterSettings.swift */,
 				8C9F0C9323E9F65F00D40B83 /* ChapterSettingView.swift */,
 			);
 			path = Settings;
@@ -246,6 +251,14 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
+		8CA7BB522409821A00AF49F3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8CA7BB532409823600AF49F3 /* SettingView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		8CC8C66223FED66100FEBE78 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +266,7 @@
 				8CC8C66523FED73700FEBE78 /* Error.swift */,
 				8CC8C66723FED74D00FEBE78 /* API.swift */,
 				8CA7BB5024097B9300AF49F3 /* FileService.swift */,
+				8CA7BB55240A498100AF49F3 /* UserSettingsService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -343,6 +357,7 @@
 				8C66EAFF23FFD26400B6F0AB /* LoaderView.swift in Sources */,
 				8C09FF4D23F7026E003AD3DF /* TopRoundedShape.swift in Sources */,
 				8C116E6A23E9EC520010859D /* AppDelegate.swift in Sources */,
+				8CA7BB542409823600AF49F3 /* SettingView.swift in Sources */,
 				8CC8C66423FED69A00FEBE78 /* Response.swift in Sources */,
 				8C7C59E623F858DA00B85FCE /* ChapterNumberView.swift in Sources */,
 				8C09FF4923F67E12003AD3DF /* CommonViews.swift in Sources */,
@@ -359,9 +374,10 @@
 				8CE64A232402649C00933D7C /* ChapterReaderView.swift in Sources */,
 				8C116EC223E9EF430010859D /* TitleView.swift in Sources */,
 				8C116E6F23E9EC520010859D /* BibleReader.xcdatamodeld in Sources */,
+				8CA7BB56240A498100AF49F3 /* UserSettingsService.swift in Sources */,
 				8C8C014F23F458D0005C2EB6 /* Font+Extension.swift in Sources */,
 				8C116E7123E9EC520010859D /* ContentView.swift in Sources */,
-				8C8C015623F5B964005C2EB6 /* UserSettings.swift in Sources */,
+				8C8C015623F5B964005C2EB6 /* ChapterSettings.swift in Sources */,
 				8CE64A252404468500933D7C /* ContextMenuView.swift in Sources */,
 				8C116E6C23E9EC520010859D /* SceneDelegate.swift in Sources */,
 				8C9F0C9423E9F65F00D40B83 /* ChapterSettingView.swift in Sources */,

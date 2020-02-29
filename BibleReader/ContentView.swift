@@ -10,8 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     var viewModel: BibleViewModel
-    @State var selectedTab = 0
-    var body: some View {        
+    @State var selectedTab: Int = 0
+    var body: some View {
         TabView(selection: $selectedTab) {
             BooksView(viewModel: viewModel, selectedTab: $selectedTab).tabItem {
                 Image(systemName: "book")
@@ -32,15 +32,19 @@ struct ContentView: View {
             }
             .tag(2)
             
-            Text("Jegyzetek").tabItem {
-                Image(systemName: "doc.text")
-                Text("Jegyzetek")
+            SettingView(viewModel: viewModel).tabItem {
+                Image(systemName: "gauge")
+                Text("Beállítások")
             }
             .tag(3)
         }
-//        .edgesIgnoringSafeArea(.top)
         .accentColor(.black)
+        .onAppear {
+            self.selectedTab = self.viewModel.saveLastPosition ? 1 : 0
+        }
     }
+    
+    
 }
 
 //struct ContentView_Previews: PreviewProvider {

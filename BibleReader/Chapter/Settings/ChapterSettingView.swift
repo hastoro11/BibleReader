@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ChapterSettingView: View {
-    @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var settings: ChapterSettings
     @State var dragAmount: CGSize = .zero
     @Binding var showSettings: Bool
     
@@ -83,7 +83,7 @@ struct FontSizeSettingsView: View {
                     }
                 
                 Text("Aa")
-                .font(.body)
+                .font(.normal)
                 .padding(8)
                 .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(self.fontType == .medium ? 0.2 : 0.0)))
                 .overlay(RoundedRectangle(cornerRadius: 8).stroke(self.fontType == .medium ? Color.black : Color.gray, lineWidth: self.fontType == .medium ? 1 : 0.5))

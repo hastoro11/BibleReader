@@ -12,12 +12,26 @@ import Combine
 class BibleViewModel: ObservableObject {
     
     var api = API()
+    var fileService = FileService()
+    var userSettingService = UserSettingsService()
     
-    var book: Book = Biblia.books[0]
-    @Published var chapter: Int = 1
+    @Published var book: Book = Biblia.books[0] {
+        didSet {
+            userSettingService.setBook(book)
+        }
+    }
+    @Published var chapter: Int = 1 {
+        didSet {
+            userSettingService.setChapter(chapter)
+        }
+    }
     @Published var versek = [Versek]()
     @Published var isLoading = false
-    @Published var translation = Translation.RUF
+    @Published var translation = Translation.RUF {
+        didSet {
+            userSettingService.setTranslation(translation)
+        }
+    }
     @Published var error: BibleError?
         
     @Published var yellows = [Versek]()
@@ -26,13 +40,20 @@ class BibleViewModel: ObservableObject {
     @Published var greens = [Versek]()
     @Published var grays = [Versek]()
     
+    @Published var saveLastPosition = false {
+        didSet {
+            userSettingService.setSaveLastPosition(saveLastPosition)
+        }
+    }
+    
     var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]
     
-    var fileService = FileService()
+    
 
     var cancellables = Set<AnyCancellable>()
     
     init() {
+        
         $chapter
             .sink (receiveValue: { ch in
                 self.fetchChapter(forBook: self.book, andChapter: ch, translation: self.translation)
@@ -49,7 +70,19 @@ class BibleViewModel: ObservableObject {
                 }
             })
             .store(in: &cancellables)
+        
+        
         loadFiles()
+        saveLastPosition = userSettingService.getSaveLastPosition()
+        
+        if saveLastPosition {
+            self.translation = userSettingService.getTranslation()
+            self.book = userSettingService.getBook()
+            self.chapter = userSettingService.getChapter()
+            self.fetchChapter(forBook: self.book, andChapter: self.chapter, translation: self.translation)
+        }
+        
+        
     }
     
     func markVers(_ vers: Versek, color: String) {

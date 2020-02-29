@@ -94,7 +94,7 @@ struct VersBody: View{
                         .font(.secondaryTitle)
                     
                     Text(vers.szoveg)
-                        .font(.body)
+                        .font(.normal)
                         
                 }
                 .padding(.leading, 4)

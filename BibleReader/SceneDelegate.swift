@@ -34,7 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
         let bibleViewModel = BibleViewModel()
         let contentView = ContentView(viewModel: bibleViewModel).environment(\.managedObjectContext, context)
-            .environmentObject(UserSettings())
+            .environmentObject(ChapterSettings())
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ChapterView: View {
     
-    @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var settings: ChapterSettings
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @ObservedObject var viewModel: BibleViewModel
     @State var hideBars: Bool = false
