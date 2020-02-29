@@ -141,7 +141,7 @@
 				8C116E9123E9ED130010859D /* Fonts */,
 				8C8C00F523ED40F0005C2EB6 /* Model */,
 				8C8C00FD23ED6467005C2EB6 /* Extensions */,
-				8CC8C66223FED66100FEBE78 /* API */,
+				8CC8C66223FED66100FEBE78 /* Services */,
 				8CA7BB4B2408F0E000AF49F3 /* Favorites */,
 				8C8C00F823ED4C27005C2EB6 /* Books */,
 				8C116E8223E9ECF30010859D /* Chapter */,
@@ -259,7 +259,7 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		8CC8C66223FED66100FEBE78 /* API */ = {
+		8CC8C66223FED66100FEBE78 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				8CC8C66323FED69A00FEBE78 /* Response.swift */,
@@ -268,7 +268,7 @@
 				8CA7BB5024097B9300AF49F3 /* FileService.swift */,
 				8CA7BB55240A498100AF49F3 /* UserSettingsService.swift */,
 			);
-			path = API;
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

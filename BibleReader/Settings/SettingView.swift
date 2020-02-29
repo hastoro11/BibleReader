@@ -10,8 +10,7 @@ import SwiftUI
 
 struct SettingView: View {
     @ObservedObject var viewModel: BibleViewModel
-    @State var saveCurrent = false
-    @State var redTitle = ""
+    @State var saveCurrent = false    
     var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]
     var body: some View {
         VStack {
@@ -35,12 +34,12 @@ struct SettingView: View {
                     .font(.secondaryTitle)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
-                ForEach(colors, id:\.self) { color in
+                ForEach(colors.indices, id:\.self) { index in
                     HStack {
                         Circle()
-                            .fill(Color(color))
+                            .fill(Color(self.colors[index]))
                             .frame(width: 32, height: 32)
-                        TextField(color, text: self.$redTitle)
+                        TextField(self.colors[index], text: self.$viewModel.titles[index])
                             .padding()
                     }
                 }

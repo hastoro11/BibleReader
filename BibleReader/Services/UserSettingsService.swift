@@ -12,6 +12,7 @@ let kSaveLastPosition = "kSaveLastPosition"
 let kTranslation = "kTranslation"
 let kBook = "kBook"
 let kChapter = "kChapter"
+let kTitles = "kTitles"
 
 class UserSettingsService {
     
@@ -62,5 +63,13 @@ class UserSettingsService {
     func getChapter() -> Int {
         let chapter = UserDefaults.standard.integer(forKey: kChapter)
         return chapter == 0 ? 1 : chapter
+    }
+    
+    func setTitles(_ titles: [String]) {
+        UserDefaults.standard.set(titles, forKey: kTitles)
+    }
+    
+    func getTitles() -> [String] {
+        return UserDefaults.standard.array(forKey: kTitles) as? [String] ?? ["Yellow", "Red", "Blue", "Green", "Gray"]
     }
 }

@@ -11,10 +11,12 @@ import Combine
 
 class BibleViewModel: ObservableObject {
     
+    // MARK: - Services
     var api = API()
     var fileService = FileService()
     var userSettingService = UserSettingsService()
     
+    // MARK: - Reader Properties
     @Published var book: Book = Biblia.books[0] {
         didSet {
             userSettingService.setBook(book)
@@ -32,28 +34,34 @@ class BibleViewModel: ObservableObject {
             userSettingService.setTranslation(translation)
         }
     }
+    
+    // MARK: - Error
     @Published var error: BibleError?
         
+    // MARK: - Favorites
     @Published var yellows = [Versek]()
     @Published var reds = [Versek]()
     @Published var blues = [Versek]()
     @Published var greens = [Versek]()
     @Published var grays = [Versek]()
     
-    @Published var saveLastPosition = false {
+    // MARK: - App settings
+    @Published var saveLastPosition: Bool {
         didSet {
             userSettingService.setSaveLastPosition(saveLastPosition)
         }
     }
     
     var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]
+    @Published var titles: [String]
     
-    
-
+    // MARK: - Cancellables
     var cancellables = Set<AnyCancellable>()
     
+    // MARK: - Init
     init() {
-        
+        saveLastPosition = userSettingService.getSaveLastPosition()
+        titles = userSettingService.getTitles()
         $chapter
             .sink (receiveValue: { ch in
                 self.fetchChapter(forBook: self.book, andChapter: ch, translation: self.translation)
@@ -71,9 +79,15 @@ class BibleViewModel: ObservableObject {
             })
             .store(in: &cancellables)
         
+        $titles
+            .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
+            .sink(receiveValue: {value in
+                self.userSettingService.setTitles(value)
+            })
+            .store(in: &cancellables)
         
         loadFiles()
-        saveLastPosition = userSettingService.getSaveLastPosition()
+        
         
         if saveLastPosition {
             self.translation = userSettingService.getTranslation()
@@ -85,6 +99,7 @@ class BibleViewModel: ObservableObject {
         
     }
     
+    // MARK: - Marking
     func markVers(_ vers: Versek, color: String) {
         self.removeVersMarkingFromAll(vers: vers)
         switch color {
@@ -158,7 +173,8 @@ class BibleViewModel: ObservableObject {
         } 
         return true
     }
-    
+
+    // MARK: - Fetching
     func fetchChapter(forBook book: Book, andChapter chapter: Int, translation: Translation) {
         isLoading = true
         
