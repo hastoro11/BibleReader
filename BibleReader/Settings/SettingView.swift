@@ -13,51 +13,60 @@ struct SettingView: View {
     @State var saveCurrent = false
     var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             VStack(alignment: .leading) {
                 Text("Utolsóként olvasott szakasz")
                     .font(.secondaryTitle)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding([.horizontal, .top])
                 
+                Rectangle()
+                    .fill(Color.black)
+                    .frame(width: UIScreen.main.bounds.width, height: 1)
+                    
+                
                 Toggle(isOn: $viewModel.saveLastPosition, label: {
                     Text("Folytatás")
-                        .font(.normal)
+                        .font(.smallBody)
                 }).padding(.horizontal)
             }
             .padding(.bottom, 50)
-            .background(TopRoundedShape(cornerRadius: 20).stroke(Color("Green"), lineWidth: 1).background(Color.white))
+            .background(TopRoundedShape(cornerRadius: 20).stroke(Color.black, lineWidth: 0.5))
+            .background(TopRoundedShape(cornerRadius: 20).fill(Color("Opaque_Yellow").opacity(0.7)))
             
             
             VStack {
                 Text("Színkategóriák elnevezése")
                     .font(.secondaryTitle)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding()
+                    .padding([.horizontal, .top])
+                
+                Rectangle()
+                .fill(Color.black)
+                .frame(width: UIScreen.main.bounds.width, height: 1)
+                
                 ForEach(colors.indices, id:\.self) { index in
                     HStack {
                         Circle()
                             .fill(Color(self.colors[index]))
                             .frame(width: 32, height: 32)
                         TextField(self.colors[index], text: self.$viewModel.titles[index])
+                            .font(.smallBody)
                             .padding()
                     }
                 }
                 .padding(.horizontal)
             }
             .padding(.bottom, 50)
-            .background(TopRoundedShape(cornerRadius: 20).stroke(Color("Blue"), lineWidth: 1).background(Color.white))
-            .offset(x: 0, y: -30)
+            .background(TopRoundedShape(cornerRadius: 20).fill(Color("Opaque_Red")))
+            .background(TopRoundedShape(cornerRadius: 20).stroke(Color.black, lineWidth: 1))
+            .offset(x: 0, y: -25)
             
-            TopRoundedShape(cornerRadius: 20).stroke(Color("Yellow"), lineWidth: 1)
-                .background(Color.white)
-                .offset(x: 0, y: -60)
-            
-            Spacer()
-            Rectangle()
-                .fill(Color.white)
-                .edgesIgnoringSafeArea(.bottom)
-                .offset(x: 0, y: -80)
+            Color.white
+                .clipShape(TopRoundedShape(cornerRadius: 20))
+                .background(TopRoundedShape(cornerRadius: 20).stroke(Color.black, lineWidth: 1))
+                .padding(.top, -50)
+
         }
         .padding(.top)
         

@@ -61,7 +61,7 @@ class UserSettingsService {
     }
     
     func getChapter() -> Int {
-        let chapter = UserDefaults.standard.integer(forKey: kChapter)
+        let chapter = UserDefaults.standard.integer(forKey: kChapter)        
         return chapter == 0 ? 1 : chapter
     }
     
