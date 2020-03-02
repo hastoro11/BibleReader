@@ -24,108 +24,100 @@ struct FavoritesView: View {
     var body: some View {
         VStack(spacing: 0) {
         
-            HStack {
-                Text("Kedvencek")
-                    .font(.secondaryTitle)
-                    .padding(.leading)
-                Spacer()
-            }
-            .foregroundColor(.white)
-            .frame(height: 50)
-            .background(TopRoundedShape(cornerRadius: 12).fill(Color.black))
-            .padding(.top)
+            Text("Kedvencek")
+                .font(.secondaryTitle)
+                .padding(.bottom, 32)
             
             List {
                 ForEach(colors.indices, id:\.self) { index in
-                    self.createList(color: self.colors[index])
+                    self.createFavorites(index: index)
                 }
                 
             }
-            .listStyle(PlainListStyle())
             .onAppear {
-                UITableView.appearance().separatorStyle = .none
+//                UITableView.appearance().separatorStyle = .none
+                UITableView.appearance().backgroundColor = UIColor.white
+                UITableView.appearance().tableFooterView = UIView()
             }
         }
     }
     
     func createFavorites(index: Int) -> some View {
-        var favorites = [Favorite]
-    }
-    
-    func createList(color: String) -> some View {
-        var list: [Versek] {
-            switch color {
-            case "Yellow":
-                return viewModel.yellows
-            case "Red":
-                return viewModel.reds
-            case "Blue":
-                return viewModel.blues
-            case "Green":
-                return viewModel.greens
-            case "Gray":
-                return viewModel.grays
-            default:
-                return []
-            }
-        }
+        let favorites = viewModel.favorites[index]
         var title: String {
-            if let index = colors.firstIndex(of: color) {
-                return viewModel.titles[index]
-            }
-            
-            return color
+            return viewModel.titles[index]
         }
+        let color = colors[index]
         return Group {
-            if !list.isEmpty {
-                Section(header: Header(title: title, color: color)) {
-                    ForEach(list) { vers in
-                        VersBody(vers: vers)
+            if !favorites.isEmpty {
+                Section(header: VStack(spacing: 0) {
+                    HStack {
+                        Text(title)
+                            .font(.boldTitle)
+                        Spacer()
+                        Circle()
+                            .fill(Color(color))
+                            .frame(width: 32, height: 32)
+                            .padding(.trailing)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+                    .background(Color.white)
+                    .padding(.bottom, 0.5)
+                    }
+                ) {
+                    ForEach(favorites) { favorite in
+                        VersBody(vers: favorite.vers)
                         .contextMenu(menuItems: {
                             Button(action: {
-                                self.viewModel.jumpToChapter(vers)
+                                self.viewModel.jumpToChapter(favorite)
                                 self.selectedTab = 1
                             }, label: {
                                 Text("Ugrás a fejezethez")
                                 Image(systemName: "arrow.turn.right.up")
                             })
                             
-                            Button(action: {}, label: {
+                            Button(action: {
+                                self.viewModel.deleteFavorite(favorite)
+                            }, label: {
                                 Text("Törlés")
                                 Image(systemName: "trash")
                             })
                         })
                     }
-                    .listRowBackground(Color(color).opacity(0.7))
-                    .listRowInsets(.none)
+//                    .listRowBackground(Color(color).opacity(0.7))
+                    .listRowInsets(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
+                    
                 }
+                .listRowBackground(Color.white)
+                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                
             }
-        }
-        
-    }    
-}
-
-struct Header: View {
-    var title: String
-    var color: String
-    var body: some View {
-        VStack(spacing: 0) {
-            HStack {
-                Text(title)
-                    .font(.boldTitle)
-                    .foregroundColor(.white)
-                    .padding(.leading)
-                    .frame(height: 50)
-                Spacer()
-            }
-            .background(Color(color))
-            .background(Color.white)
-            Rectangle()
-                .fill(Color.black)
-                .frame(width: UIScreen.main.bounds.width, height: 1)
         }
     }
 }
+
+//struct Header: View {
+//    var title: String
+//    var color: String
+//    var body: some View {
+//        VStack(spacing: 0) {
+//            HStack {
+//                Text(title)
+//                    .font(.boldTitle)
+//                    .foregroundColor(.white)
+//                    .padding(.leading)
+//                    .frame(height: 50)
+//                Spacer()
+//            }
+//            .background(Color(color))
+//            .background(Color.white)
+//            Rectangle()
+//                .fill(Color.black)
+//                .frame(width: UIScreen.main.bounds.width, height: 1)
+//        }
+//    }
+//}
 
 struct VersBody: View{
     var vers: Versek
@@ -139,8 +131,8 @@ struct VersBody: View{
                     Text(vers.hely.szep)
                         .font(.secondaryTitle)
                     
-                    Text(vers.szoveg)
-                        .font(.normal)
+                    Text(vers.szoveg.removedHTMLTags)
+                        .font(.smallBody)
                         
                 }
                 .padding(.leading, 4)
@@ -148,7 +140,7 @@ struct VersBody: View{
             }
         }
         .frame(maxWidth: .infinity)
-        .padding([.top, .bottom], 8)
+        .padding([.top, .bottom], 12)
     }
     
 }

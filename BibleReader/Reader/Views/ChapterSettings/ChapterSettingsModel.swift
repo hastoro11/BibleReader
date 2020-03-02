@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-class ChapterSettings: ObservableObject {
+class ChapterSettingsModel: ObservableObject {
     @Published var fontType = FontType.medium
     @Published var fontsize: CGFloat = 24
     @Published var reading: Reading = .vers

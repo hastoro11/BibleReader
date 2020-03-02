@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ChapterSettingView: View {
-    @EnvironmentObject var settings: ChapterSettings
+    @EnvironmentObject var settings: ChapterSettingsModel
     @State var dragAmount: CGSize = .zero
     @Binding var showSettings: Bool
     

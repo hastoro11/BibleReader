@@ -12,65 +12,65 @@ struct SettingView: View {
     @ObservedObject var viewModel: BibleViewModel
     @State var saveCurrent = false
     var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]
+    
+    func sectionHeader(title: String, subTitle: String) -> some View {
+        VStack {
+            HStack {
+                Text(title)
+                    .font(.boldTitle)
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                Text(subTitle)
+                    .font(.smallBody)
+                    .padding(.trailing)
+            }.background(Color.white)
+                .padding(.bottom, 0.5)
+        }
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
-            VStack(alignment: .leading) {
-                Text("Utolsóként olvasott szakasz")
-                    .font(.secondaryTitle)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding([.horizontal, .top])
-                
-                Rectangle()
-                    .fill(Color.black)
-                    .frame(width: UIScreen.main.bounds.width, height: 1)
-                    
-                
-                Toggle(isOn: $viewModel.saveLastPosition, label: {
-                    Text("Folytatás")
-                        .font(.smallBody)
-                }).padding(.horizontal)
-            }
-            .padding(.bottom, 50)
-            .background(TopRoundedShape(cornerRadius: 20).stroke(Color.black, lineWidth: 0.5))
-            .background(TopRoundedShape(cornerRadius: 20).fill(Color("Opaque_Yellow").opacity(0.7)))
-            
-            
-            VStack {
-                Text("Színkategóriák elnevezése")
-                    .font(.secondaryTitle)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding([.horizontal, .top])
-                
-                Rectangle()
-                .fill(Color.black)
-                .frame(width: UIScreen.main.bounds.width, height: 1)
-                
-                ForEach(colors.indices, id:\.self) { index in
+            Text("Beállítások")
+                .font(.secondaryTitle)
+            List {
+                Section(header: sectionHeader(title: "Legutóbbi olvasás", subTitle: "")) {
                     HStack {
-                        Circle()
-                            .fill(Color(self.colors[index]))
-                            .frame(width: 32, height: 32)
-                        TextField(self.colors[index], text: self.$viewModel.titles[index])
-                            .font(.smallBody)
+                        Text("Folytatás")
+                            .font(.secondaryTitle)
+                        Toggle("", isOn: $viewModel.saveLastPosition)
+                    }
+                    .padding()
+                    Text("")
+                        .padding(0)
+                        
+                }
+                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                
+                Section(header: sectionHeader(title: "Színkategóriák", subTitle: "(Érintsd meg a nevet)")) {
+                    ForEach(colors.indices, id:\.self) { index in
+                        HStack {
+                            TextField(self.colors[index], text: self.$viewModel.titles[index])
+                            .font(.secondaryTitle)
                             .padding()
+                            Spacer()
+                            Circle()
+                                .fill(Color(self.colors[index]))
+                                .frame(width: 32, height: 32)
+                                .padding(.trailing)
+                            
+                        }
+                        
                     }
                 }
-                .padding(.horizontal)
+                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             }
-            .padding(.bottom, 50)
-            .background(TopRoundedShape(cornerRadius: 20).fill(Color("Opaque_Red")))
-            .background(TopRoundedShape(cornerRadius: 20).stroke(Color.black, lineWidth: 1))
-            .offset(x: 0, y: -25)
-            
-            Color.white
-                .clipShape(TopRoundedShape(cornerRadius: 20))
-                .background(TopRoundedShape(cornerRadius: 20).stroke(Color.black, lineWidth: 1))
-                .padding(.top, -50)
-
+            .padding(.top, 32)
         }
-        .padding(.top)
-        
-        
+        .onAppear {
+            UITableView.appearance().tableFooterView = UIView()
+//            UITableView.appearance().cellLayoutMarginsFollowReadableWidth = false
+        }
     }
 }
 

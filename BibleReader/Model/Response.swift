@@ -60,11 +60,13 @@ struct Versek: Codable {
     let szoveg: String
 //    let jegyzetek: [String]?
     let hely: Hely
+    var forditas: String?
 
     enum CodingKeys: String, CodingKey {
         case szoveg = "szoveg"
 //        case jegyzetek = "jegyzetek"
         case hely = "hely"
+        case forditas = "forditas"
     }
 }
 
@@ -91,5 +93,14 @@ struct Hely: Codable {
     }
 }
 
-
+// MARK: - Favorites
+struct Favorite: Codable, Identifiable {
+    var id: String {
+        return vers.szoveg
+    }
+    var vers: Versek
+    var book: String
+    var chapter: Int    
+    var forditas: String
+}
 

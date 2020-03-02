@@ -39,11 +39,7 @@ class BibleViewModel: ObservableObject {
     @Published var error: BibleError?
         
     // MARK: - Favorites
-    @Published var yellows = [Versek]()
-    @Published var reds = [Versek]()
-    @Published var blues = [Versek]()
-    @Published var greens = [Versek]()
-    @Published var grays = [Versek]()
+    @Published var favorites = Array(repeating: [Favorite](), count: 5)
     
     // MARK: - App settings
     @Published var saveLastPosition: Bool {
@@ -95,54 +91,35 @@ class BibleViewModel: ObservableObject {
             self.chapter = userSettingService.getChapter()
             self.fetchChapter(forBook: self.book, andChapter: self.chapter, translation: self.translation)
         }
-        
-        
     }
     
     // MARK: - Marking
-    func markVers(_ vers: Versek, color: String) {
-        self.removeVersMarkingFromAll(vers: vers)
-        switch color {
-        case "Yellow":
-            self.yellows.append(vers)
-        case "Red":
-            self.reds.append(vers)
-        case "Blue":
-            self.blues.append(vers)
-        case "Green":
-            self.greens.append(vers)
-        case "Gray":
-            self.grays.append(vers)
-        default:
-            break
-        }
+    func markVers(_ vers: Versek, index: Int) {
+        self.removeVersMarkingFromAll(vers)
+        let favorite = Favorite(vers: vers, book: self.book.abbreviation, chapter: self.chapter, forditas: self.translation.rawValue)
+        
+        self.favorites[index].append(favorite)
+        
         saveFiles()
     }
     
-   private func removeVersMarkingFromAll(vers: Versek) {
-        self.yellows.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
-        self.reds.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
-        self.blues.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
-        self.greens.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
-        self.grays.removeAll(where: {$0.hely.gepi == vers.hely.gepi})
+    private func removeVersMarkingFromAll(_ vers: Versek) {
+        for index in self.favorites.indices {
+            self.favorites[index] = self.favorites[index].filter({$0.vers.hely.szep != vers.hely.szep})
+        }
     }
     
-    func removeVersMarking(vers: Versek) {
-        self.removeVersMarkingFromAll(vers: vers)
+    func removeVersMarking(_ vers: Versek) {
+        self.removeVersMarkingFromAll(vers)
         saveFiles()
     }
     
     func saveFiles() {
-        fileService.saveFiles(lists: [self.yellows, self.reds, self.blues, self.greens, self.grays])
+        fileService.saveFiles(self.favorites)
     }
     
     func loadFiles() {
-        let lists = fileService.loadFiles()
-        self.yellows = lists[0]
-        self.reds = lists[1]
-        self.blues = lists[2]
-        self.greens = lists[3]
-        self.grays = lists[4]
+        self.favorites = fileService.loadFiles()
     }
     
     private func checkTranslationAndBook(tr: Translation, book: Book) -> Bool {
@@ -196,5 +173,50 @@ class BibleViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+    // MARK: - Jump to chapter
+    func jumpToChapter(_ favorite: Favorite) {
+         
+        guard let translation = Translation(rawValue: favorite.forditas) else {
+            fatalError("Error getting translation from favorite")
+        }
+        self.translation = translation
+        self.book = getBookFromName(favorite.book, translationName: favorite.forditas)
+        self.chapter = favorite.chapter
+        
+        
+//        let szep = favorite.vers.hely.szep
+//        let pattern = #"(\w+)\s+(\d+),\d+"#
+//        guard let regex = try? NSRegularExpression(pattern: pattern, options: []),
+//            let matches = regex.firstMatch(in: szep, options: [], range: NSRange(location: 0, length: szep.utf16.count))else {return}
+//        if let bookRange = Range(matches.range(at: 1), in: szep) {
+//            let bookName = String(szep[bookRange])
+//            if let book = self.getBookFromName(bookName, translationName: favorite.forditas) {
+//                self.book = book
+//            }
+//        }
+//        if let chapterRange = Range(matches.range(at: 2), in: szep), let chapter = Int(szep[chapterRange]), let translation = Translation(rawValue: favorite.forditas) {
+//            self.translation = translation
+//            self.chapter = chapter
+//        }
+    }
+    
+    private func getBookFromName(_ name: String, translationName: String) -> Book {
+        guard let translation = Translation(rawValue: translationName) else {
+            fatalError("Error getting translation from saved vers")
+        }
+        if translation == .KG || translation == .RUF {
+            return Biblia.books.first(where: {$0.abbreviation == name})!
+        } else {
+            return Biblia.catholicBooks.first(where: {$0.abbreviation == name})!
+        }
+    }
+    
+    // MARK: - Delete favorite
+    func deleteFavorite(_ favorite: Favorite) {
+        for index in colors.indices {
+            favorites[index].removeAll(where: {$0.vers.hely.gepi == favorite.vers.hely.gepi})
+        }
+        saveFiles()
+    }
 }
     

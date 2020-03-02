@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct BodyView: View {
-    @EnvironmentObject var settings: ChapterSettings
+    @EnvironmentObject var settings: ChapterSettingsModel
     @ObservedObject var viewModel: BibleViewModel
     @Binding var hideBars: Bool
     @Binding var showContextMenu: Bool
     
     @State var selectedVers: Versek?
-    
+    var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]
     var ContinuousText: Text {
         var resultText = Text("")            
         for index in viewModel.versek.enumerated() {
@@ -64,8 +64,11 @@ struct BodyView: View {
                                                 self.hideBars.toggle()
                                             }
                                         }
-                                        .onLongPressGesture {                                    withAnimation(.easeInOut) {
-                                                self.selectedVers = self.viewModel.versek[index]
+                                        .onLongPressGesture {
+                                            withAnimation(.easeInOut) {
+                                                var vers = self.viewModel.versek[index]
+                                                vers.forditas = self.viewModel.translation.rawValue
+                                                self.selectedVers = vers
                                                 self.showContextMenu.toggle()
                                             }
                                         }
@@ -99,19 +102,13 @@ struct BodyView: View {
     }
     
     func getBackgroundColor(vers: Versek) -> Color? {
-        if self.viewModel.yellows.contains(vers) {
-            return Color("Yellow")
-        } else if self.viewModel.reds.contains(vers) {
-            return Color("Red")
-        } else if self.viewModel.blues.contains(vers) {
-            return Color("Blue")
-        } else if self.viewModel.greens.contains(vers) {
-            return Color("Green")
-        } else if self.viewModel.grays.contains(vers) {
-            return Color("Gray")
-        } else {
-            return nil
+        for index in colors.indices {
+            if self.viewModel.favorites[index].contains(where: {$0.vers.hely.gepi == vers.hely.gepi}) {
+                return Color(colors[index])
+            }
         }
+        
+        return nil
     }
     
     func getContinuous() -> NSMutableAttributedString {

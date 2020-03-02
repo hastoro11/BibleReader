@@ -11,11 +11,12 @@ import Foundation
 class FileService {
     var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]
     
-    func saveFiles(lists: [[Versek]]) {
+    func saveFiles(_ favorites: [[Favorite]]) {
+        
         for index in colors.indices {
             guard let fileUrl = self.getUrl(forFile: colors[index]) else {return}
             do {
-                let data = try JSONEncoder().encode(lists[index])
+                let data = try JSONEncoder().encode(favorites[index])
                 try data.write(to: fileUrl)
             } catch {
                 fatalError("Error saving \(colors[index]): \(error.localizedDescription)")
@@ -23,24 +24,24 @@ class FileService {
         }
     }
     
-    func loadFiles() -> [[Versek]] {
-        var lists = [[Versek]]()
+    func loadFiles() -> [[Favorite]] {
+        var favorites = [[Favorite]]()
         for index in colors.indices {
             guard let fileUrl = self.getUrl(forFile: colors[index]) else {return [[]]}
             do {
                 let data = try Data(contentsOf: fileUrl)
                 if !data.isEmpty {
-                    let versek = try JSONDecoder().decode([Versek].self, from: data)
-                    lists.insert(versek, at: index)
+                    let favorite = try JSONDecoder().decode([Favorite].self, from: data)
+                    favorites.insert(favorite, at: index)
                 } else {
-                    lists.insert([], at: index)
+                    favorites.insert([], at: index)
                 }
                  
             } catch {
                 fatalError("Error loading \(colors[index]): \(error.localizedDescription)")
             }
         }
-        return lists
+        return favorites
     }
     
     private func getUrl(forFile file: String) -> URL? {
