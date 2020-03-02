@@ -43,7 +43,7 @@ struct ChapterView: View {
                         
                         Spacer()
                         if self.showTranslation {
-                            TranslationView(showTranslation: self.$showTranslation, viewModel: self.viewModel)
+                            TranslationView(showTranslation: self.$showTranslation, viewModel: self.viewModel, selectedTab: self.selectedTab)
                                 .frame(width: geo.size.width, height: self.horizontalSizeClass == .compact ? 220 : 220)                                
                                 .transition(.move(edge: .bottom))
                         }
@@ -63,6 +63,7 @@ struct ChapterView: View {
             .background(Color.black.opacity(self.showSettings || self.showTranslation || self.showContextMenu ? 0.2 : 0.0).edgesIgnoringSafeArea(.all))
             .alert(item: self.$viewModel.error) { (error) -> Alert in
                 Alert(title: Text("Error"), message: Text(error.description), dismissButton: .default(Text("OK")))
+                
             }            
         }
         

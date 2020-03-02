@@ -57,7 +57,7 @@ struct Forditas: Codable {
 
 // MARK: - Versek
 struct Versek: Codable {
-    let szoveg: String
+    let szoveg: String?
 //    let jegyzetek: [String]?
     let hely: Hely
     var forditas: String?
@@ -71,8 +71,8 @@ struct Versek: Codable {
 }
 
 extension Versek: Identifiable {
-    var id: String {
-        self.szoveg
+    var id: Int {
+        self.hely.gepi
     }
 }
 
@@ -95,8 +95,8 @@ struct Hely: Codable {
 
 // MARK: - Favorites
 struct Favorite: Codable, Identifiable {
-    var id: String {
-        return vers.szoveg
+    var id: Int {
+        return vers.hely.gepi
     }
     var vers: Versek
     var book: String

@@ -50,6 +50,12 @@ class BibleViewModel: ObservableObject {
     
     var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]
     @Published var titles: [String]
+    var isFavoritesEmpty: Bool {
+        for fav in self.favorites {
+            if !fav.isEmpty { return false }
+        }
+        return true
+    }
     
     // MARK: - Cancellables
     var cancellables = Set<AnyCancellable>()
@@ -58,20 +64,15 @@ class BibleViewModel: ObservableObject {
     init() {
         saveLastPosition = userSettingService.getSaveLastPosition()
         titles = userSettingService.getTitles()
-        $chapter
-            .sink (receiveValue: { ch in
-                self.fetchChapter(forBook: self.book, andChapter: ch, translation: self.translation)
-            })
-            .store(in: &cancellables)
-        
-        $translation
-            .sink (receiveValue: { tr in
-                if self.checkTranslationAndBook(tr: tr, book: self.book) {
-                    self.fetchChapter(forBook: self.book, andChapter: self.chapter, translation: tr)
+        Publishers.CombineLatest($chapter, $translation)
+            .sink(receiveValue: {(chapter, translation) in
+                if self.checkTranslationAndBook(tr: translation, book: self.book) {
+                    self.fetchChapter(forBook: self.book, andChapter: chapter, translation: translation)
                 } else {
                     self.error = BibleError.translating(self.book.name)
                     self.versek = []
                 }
+                
             })
             .store(in: &cancellables)
         

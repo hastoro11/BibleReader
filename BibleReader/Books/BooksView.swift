@@ -60,7 +60,7 @@ struct BooksView: View {
                 VStack {
                     Spacer()
                     if self.showTranslation {
-                        TranslationView(showTranslation: self.$showTranslation, viewModel: self.viewModel)
+                        TranslationView(showTranslation: self.$showTranslation, viewModel: self.viewModel, selectedTab: self.selectedTab)
                             .frame(width: geo.size.width, height: self.horizontalSizeClass == .compact ? 250 : 250)
                             .transition(.move(edge: .bottom))
                     }

@@ -18,17 +18,19 @@ struct BodyView: View {
     var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]
     var ContinuousText: Text {
         var resultText = Text("")            
-        for index in viewModel.versek.enumerated() {
-            let indexText = Text("\(index.offset + 1) ")
-                .font(self.settings.fontType.value)
-                .fontWeight(.bold)
-            if settings.showVerses {
-                resultText = resultText + indexText
-            }
-            let szovegText = Text("\(viewModel.versek[index.offset].szoveg.removedHTMLTags) ")
-                .font(self.settings.fontType.value)
+        for index in viewModel.versek.indices{
+            if self.viewModel.versek[index].szoveg != nil {
+                let indexText = Text("\(index + 1) ")
+                    .font(self.settings.fontType.value)
+                    .fontWeight(.bold)
+                if settings.showVerses {
+                    resultText = resultText + indexText
+                }
+                let szovegText = Text("\(viewModel.versek[index].szoveg!.removedHTMLTags) ")
+                    .font(self.settings.fontType.value)
                 
-            resultText = resultText + szovegText
+                resultText = resultText + szovegText
+            }
         }
         return resultText
             
@@ -51,11 +53,13 @@ struct BodyView: View {
                                 if settings.reading == .vers {
                                     ForEach(0..<self.viewModel.versek.count, id:\.self) { index in
                                         Group {
-                                            Text(self.settings.showVerses ? "\(index + 1) " : "")
-                                                .font(self.settings.fontType.value)
-                                                .fontWeight(.bold)
-                                                    + Text(self.viewModel.versek[index].szoveg.removedHTMLTags)
+                                            if self.viewModel.versek[index].szoveg != nil {
+                                                Text(self.settings.showVerses ? "\(index + 1) " : "")
                                                     .font(self.settings.fontType.value)
+                                                    .fontWeight(.bold)
+                                                    + Text(self.viewModel.versek[index].szoveg!.removedHTMLTags)
+                                                        .font(self.settings.fontType.value)
+                                            }
                                         }
                                         .frame(maxWidth: .infinity, alignment: Alignment.leading)
                                         .background(self.getBackgroundColor(vers: self.viewModel.versek[index])?.opacity(0.4))
@@ -118,7 +122,7 @@ struct BodyView: View {
             indexFontDescriptor.withSymbolicTraits(.traitBold)
             let szovegFontDescriptor = UIFontDescriptor(fontAttributes: [UIFontDescriptor.AttributeName.family : "Fira Sans Regular"])
             attributedString.append(NSAttributedString(string: "\(index.offset )", attributes: [NSAttributedString.Key.font : UIFont(descriptor: indexFontDescriptor, size: settings.fontsize)]))
-            attributedString.append(NSAttributedString(string: "\(self.viewModel.versek[index.offset].szoveg) ", attributes: [NSAttributedString.Key.font : UIFont(descriptor: szovegFontDescriptor, size: settings.fontsize)]))
+            attributedString.append(NSAttributedString(string: "\(self.viewModel.versek[index.offset].szoveg ?? "") ", attributes: [NSAttributedString.Key.font : UIFont(descriptor: szovegFontDescriptor, size: settings.fontsize)]))
         }
         
         return attributedString

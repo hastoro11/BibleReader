@@ -23,22 +23,28 @@ struct FavoritesView: View {
     @Binding var selectedTab: Int
     var body: some View {
         VStack(spacing: 0) {
-        
+            
             Text("Kedvencek")
                 .font(.secondaryTitle)
                 .padding(.bottom, 32)
-            
-            List {
-                ForEach(colors.indices, id:\.self) { index in
-                    self.createFavorites(index: index)
+            if !self.viewModel.isFavoritesEmpty {
+                List {
+                    ForEach(colors.indices, id:\.self) { index in
+                        Group {
+                            self.createFavorites(index: index)
+                        }
+                    }
                 }
-                
+                .onAppear {
+                    //                UITableView.appearance().separatorStyle = .none
+                    UITableView.appearance().backgroundColor = UIColor.white
+                    UITableView.appearance().tableFooterView = UIView()
+                }
+            } else {
+                Text("Nincs elmentett kedvenced!")
+                    .font(.tallBody)
             }
-            .onAppear {
-//                UITableView.appearance().separatorStyle = .none
-                UITableView.appearance().backgroundColor = UIColor.white
-                UITableView.appearance().tableFooterView = UIView()
-            }
+            Spacer()
         }
     }
     
@@ -67,7 +73,7 @@ struct FavoritesView: View {
                     }
                 ) {
                     ForEach(favorites) { favorite in
-                        VersBody(vers: favorite.vers)
+                        VersBody(vers: favorite.vers, color: color)
                         .contextMenu(menuItems: {
                             Button(action: {
                                 self.viewModel.jumpToChapter(favorite)
@@ -97,41 +103,20 @@ struct FavoritesView: View {
     }
 }
 
-//struct Header: View {
-//    var title: String
-//    var color: String
-//    var body: some View {
-//        VStack(spacing: 0) {
-//            HStack {
-//                Text(title)
-//                    .font(.boldTitle)
-//                    .foregroundColor(.white)
-//                    .padding(.leading)
-//                    .frame(height: 50)
-//                Spacer()
-//            }
-//            .background(Color(color))
-//            .background(Color.white)
-//            Rectangle()
-//                .fill(Color.black)
-//                .frame(width: UIScreen.main.bounds.width, height: 1)
-//        }
-//    }
-//}
-
 struct VersBody: View{
     var vers: Versek
+    var color: String
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            HStack(alignment: .top) {
+            HStack(alignment: .firstTextBaseline) {
                 Circle()
-                    .fill(Color("LightGray"))
-                    .frame(width: 16, height: 16)
+                    .fill(Color(color))
+                    .frame(width: 12, height: 12)
                 VStack(alignment: .leading) {
                     Text(vers.hely.szep)
                         .font(.secondaryTitle)
                     
-                    Text(vers.szoveg.removedHTMLTags)
+                    Text(vers.szoveg?.removedHTMLTags ?? "")
                         .font(.smallBody)
                         
                 }
