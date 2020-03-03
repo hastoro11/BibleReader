@@ -52,9 +52,6 @@ enum Translation: String, CaseIterable, CustomStringConvertible{
         return self.books.contains(where: {$0.abbreviation == book})
     }
     
-    func hasBook(_ book: Book) -> Bool {
-        return self.books.contains(where: {$0 == book})
-    }
 }
 
 enum Covenant: String, Codable {
@@ -220,7 +217,7 @@ struct Biblia {
         Book(covenant: .new, name: "Jelenések könyve", shortName: "Jelenések", abbreviation: "Jel", chapters: 22),
     ]
     
-    static var catholic = ["Ter", "Kiv", "Lev", "Szám", "MTörv", "Józs", "Rut", "Bír", "1Sám", "2Sám", "1Kir", "2Kir", "1Krón", "2Krón", "Ezd", "Neh", "Tób", "Judit", "Esz", "Jób", "Zsolt", "Péld", "Préd", "Én", "Bölcs", "Sirák", "Iz", "Jer", "Siral", "Ez", "Dán", "Oz", "Jo", "Ám", "Abd", "Jón", "Mik", "Náh", "Hab", "Szof", "Ag", "Zak", "Mal", "1Mak", "2Mak", "Mt", "Mk", "Lk", "Jn", "ApCsel", "Róm", "1Kor", "2Kor", "Gal", "Ef", "Fil", "Kol", "1Tesz", "2Tesz", "1Tim", "2Tim", "Tit", "Filem", "Zsid", "Jak", "1Pt", "2Pt", "1Jn", "2Jn", "3Jn", "Júd", "Jel"]
-    static var protestant = ["1Móz", "2Móz", "3Móz", "4Móz", "5Móz", "Józs", "Bírák", "Ruth", "1Sám", "2Sám", "1Kir", "2Kir", "1Krón", "2Krón", "Ezsdr", "Neh", "", "", "Eszt", "Jób", "Zsolt", "Péld", "Préd", "Énekek", "", "", "Ézs", "Jer", "JSir", "Ez", "Dán", "Hós", "Jóel", "Ám", "Abd", "Jón", "Mik", "Náh", "Hab", "Zof", "Hag", "Zak", "Mal", "", "", "Máté", "Márk", "Luk", "Ján", "ApCsel", "Róm", "1Kor", "2Kor", "Gal", "Ef", "Fil", "Kol", "1Thessz", "2Thessz", "1Tim", "2Tim", "Tit", "Filem", "Zsid", "Jak", "1Pt", "2Pt", "1Jn", "2Jn", "3Jn", "Júd", "Jel"]
+    static var catholic = ["Ter", "Kiv", "Lev", "Szám", "MTörv", "Józs", "Bír", "Rut", "1Sám", "2Sám", "1Kir", "2Kir", "1Krón", "2Krón", "Ezd", "Neh", "Tób", "Judit", "Esz", "Jób", "Zsolt", "Péld", "Préd", "Én", "Bölcs", "Sirák", "Iz", "Jer", "Siral", "Bár", "Ez", "Dán", "Oz", "Jo", "Ám", "Abd", "Jón", "Mik", "Náh", "Hab", "Szof", "Ag", "Zak", "Mal", "1Mak", "2Mak", "Mt", "Mk", "Lk", "Jn", "ApCsel", "Róm", "1Kor", "2Kor", "Gal", "Ef", "Fil", "Kol", "1Tesz", "2Tesz", "1Tim", "2Tim", "Tit", "Filem", "Zsid", "Jak", "1Pt", "2Pt", "1Jn", "2Jn", "3Jn", "Júd", "Jel"]
+    static var protestant = ["1Móz", "2Móz", "3Móz", "4Móz", "5Móz", "Józs", "Bírák", "Ruth", "1Sám", "2Sám", "1Kir", "2Kir", "1Krón", "2Krón", "Ezsdr", "Neh", "", "", "Eszt", "Jób", "Zsolt", "Péld", "Préd", "Énekek", "", "", "Ézs", "Jer", "JSir", "", "Ez", "Dán", "Hós", "Jóel", "Ám", "Abd", "Jón", "Mik", "Náh", "Hab", "Zof", "Hag", "Zak", "Mal", "", "", "Máté", "Márk", "Luk", "Ján", "ApCsel", "Róm", "1Kor", "2Kor", "Gal", "Ef", "Fil", "Kol", "1Thessz", "2Thessz", "1Tim", "2Tim", "Tit", "Filem", "Zsid", "Jak", "1Pt", "2Pt", "1Jn", "2Jn", "3Jn", "Júd", "Jel"]
 }
 

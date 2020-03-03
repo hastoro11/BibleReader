@@ -17,7 +17,7 @@ class BibleViewModel: ObservableObject {
     var userSettingService = UserSettingsService()
     
     // MARK: - Reader Properties
-    @Published var book: Book = Biblia.books[0] {
+    var book: Book = Biblia.books[0] {
         didSet {
             userSettingService.setBook(book)
         }
@@ -64,9 +64,19 @@ class BibleViewModel: ObservableObject {
     init() {
         saveLastPosition = userSettingService.getSaveLastPosition()
         titles = userSettingService.getTitles()
+        
+        if saveLastPosition {
+            self.translation = userSettingService.getTranslation()
+            self.book = userSettingService.getBook()
+            self.chapter = userSettingService.getChapter()
+            self.fetchChapter(forBook: self.book, andChapter: self.chapter, translation: self.translation)
+        }
+        
         Publishers.CombineLatest($chapter, $translation)
             .sink(receiveValue: {(chapter, translation) in
+                
                 if self.checkTranslationAndBook(tr: translation, book: self.book) {
+                    
                     self.fetchChapter(forBook: self.book, andChapter: chapter, translation: translation)
                 } else {
                     self.error = BibleError.translating(self.book.name)
@@ -85,13 +95,6 @@ class BibleViewModel: ObservableObject {
         
         loadFiles()
         
-        
-        if saveLastPosition {
-            self.translation = userSettingService.getTranslation()
-            self.book = userSettingService.getBook()
-            self.chapter = userSettingService.getChapter()
-            self.fetchChapter(forBook: self.book, andChapter: self.chapter, translation: self.translation)
-        }
     }
     
     // MARK: - Marking
@@ -176,29 +179,12 @@ class BibleViewModel: ObservableObject {
     
     // MARK: - Jump to chapter
     func jumpToChapter(_ favorite: Favorite) {
-         
         guard let translation = Translation(rawValue: favorite.forditas) else {
             fatalError("Error getting translation from favorite")
         }
         self.translation = translation
         self.book = getBookFromName(favorite.book, translationName: favorite.forditas)
         self.chapter = favorite.chapter
-        
-        
-//        let szep = favorite.vers.hely.szep
-//        let pattern = #"(\w+)\s+(\d+),\d+"#
-//        guard let regex = try? NSRegularExpression(pattern: pattern, options: []),
-//            let matches = regex.firstMatch(in: szep, options: [], range: NSRange(location: 0, length: szep.utf16.count))else {return}
-//        if let bookRange = Range(matches.range(at: 1), in: szep) {
-//            let bookName = String(szep[bookRange])
-//            if let book = self.getBookFromName(bookName, translationName: favorite.forditas) {
-//                self.book = book
-//            }
-//        }
-//        if let chapterRange = Range(matches.range(at: 2), in: szep), let chapter = Int(szep[chapterRange]), let translation = Translation(rawValue: favorite.forditas) {
-//            self.translation = translation
-//            self.chapter = chapter
-//        }
     }
     
     private func getBookFromName(_ name: String, translationName: String) -> Book {
