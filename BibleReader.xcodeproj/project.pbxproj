@@ -534,7 +534,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sornyei.BibleReader;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BibleReader;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -554,7 +554,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sornyei.BibleReader;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BibleReader;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

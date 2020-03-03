@@ -18,34 +18,48 @@ import SwiftUI
 //]
 
 struct FavoritesView: View {
-    var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]    
+    var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     @ObservedObject var viewModel: BibleViewModel
     @Binding var selectedTab: Int
     var body: some View {
-        VStack(spacing: 0) {
-            
-            Text("Kedvencek")
-                .font(.secondaryTitle)
-                .padding(.bottom, 32)
-            if !self.viewModel.isFavoritesEmpty {
-                List {
-                    ForEach(colors.indices, id:\.self) { index in
-                        Group {
-                            self.createFavorites(index: index)
+        GeometryReader { geo in
+            VStack(spacing: 0) {
+                Text("Kedvencek")
+                    .font(.secondaryTitle)
+                    .padding(.bottom, 32)
+                    
+                if !self.viewModel.isFavoritesEmpty {
+                    List {
+                        ForEach(self.colors.indices, id:\.self) { index in
+                            Group {
+                                self.createFavorites(index: index)
+                            }
                         }
                     }
+                    .onAppear {
+                        //                UITableView.appearance().separatorStyle = .none
+                        UITableView.appearance().backgroundColor = UIColor.white
+                        UITableView.appearance().tableFooterView = UIView()
+                    }
+                } else {
+                    Text("Nincs elmentett kedvenced!")
+                        .font(.tallBody)
                 }
-                .onAppear {
-                    //                UITableView.appearance().separatorStyle = .none
-                    UITableView.appearance().backgroundColor = UIColor.white
-                    UITableView.appearance().tableFooterView = UIView()
-                }
-            } else {
-                Text("Nincs elmentett kedvenced!")
-                    .font(.tallBody)
+                Spacer()
             }
-            Spacer()
+            .frame(width: self.calculateSize(width: geo.size.width))
+            .padding(.top)
         }
+    }
+    
+    func calculateSize(width: CGFloat) -> CGFloat {
+        if horizontalSizeClass == .regular {
+            return width * 0.8
+        }
+        
+        return width
     }
     
     func createFavorites(index: Int) -> some View {

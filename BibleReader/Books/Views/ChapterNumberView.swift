@@ -26,6 +26,8 @@ struct ChapterNumberView: View {
         
         GeometryReader { geo in
             VStack {
+                Text("Fejezetek")
+                    .font(.secondaryTitle)
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .leading) {
                         HStack {

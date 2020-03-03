@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct SettingView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     @ObservedObject var viewModel: BibleViewModel
     @State var saveCurrent = false
     var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]
@@ -20,7 +22,7 @@ struct SettingView: View {
                     .font(.boldTitle)
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    
+                
                 Text(subTitle)
                     .font(.smallBody)
                     .padding(.trailing)
@@ -30,47 +32,60 @@ struct SettingView: View {
     }
     
     var body: some View {
-        VStack(spacing: 0) {
-            Text("Beállítások")
-                .font(.secondaryTitle)
-            List {
-                Section(header: sectionHeader(title: "Legutóbbi olvasás", subTitle: "")) {
-                    HStack {
-                        Text("Folytatás")
-                            .font(.secondaryTitle)
-                        Toggle("", isOn: $viewModel.saveLastPosition)
-                    }
-                    .padding()
-                    Text("")
-                        .padding(0)
-                        
-                }
-                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                
-                Section(header: sectionHeader(title: "Színkategóriák", subTitle: "(Érintsd meg a nevet)")) {
-                    ForEach(colors.indices, id:\.self) { index in
+        GeometryReader { geo in
+            VStack(spacing: 0) {
+                Text("Beállítások")
+                    .font(.secondaryTitle)
+                    
+                List {
+                    Section(header: self.sectionHeader(title: "Legutóbbi olvasás", subTitle: "")) {
                         HStack {
-                            TextField(self.colors[index], text: self.$viewModel.titles[index])
-                            .font(.secondaryTitle)
-                            .padding()
-                            Spacer()
-                            Circle()
-                                .fill(Color(self.colors[index]))
-                                .frame(width: 32, height: 32)
-                                .padding(.trailing)
+                            Text("Folytatás")
+                                .font(.secondaryTitle)
+                            Toggle("", isOn: self.$viewModel.saveLastPosition)
+                        }
+                        .padding()
+                        Text("")
+                            .padding(0)
+                            
+                    }
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    
+                    Section(header: self.sectionHeader(title: "Színkategóriák", subTitle: "(Érintsd meg a nevet)")) {
+                        ForEach(self.colors.indices, id:\.self) { index in
+                            HStack {
+                                TextField(self.colors[index], text: self.$viewModel.titles[index])
+                                .font(.secondaryTitle)
+                                .padding()
+                                Spacer()
+                                Circle()
+                                    .fill(Color(self.colors[index]))
+                                    .frame(width: 32, height: 32)
+                                    .padding(.trailing)
+                                
+                            }
                             
                         }
-                        
                     }
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 }
-                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                .frame(width: self.calculateSize(width: geo.size.width))
+                .padding(.top, 32)
             }
-            .padding(.top, 32)
+            .padding(.top)
+            .onAppear {
+                UITableView.appearance().tableFooterView = UIView()
+    //            UITableView.appearance().cellLayoutMarginsFollowReadableWidth = false
+            }
         }
-        .onAppear {
-            UITableView.appearance().tableFooterView = UIView()
-//            UITableView.appearance().cellLayoutMarginsFollowReadableWidth = false
+    }
+    
+    func calculateSize(width: CGFloat) -> CGFloat {
+        if horizontalSizeClass == .regular {
+            return width * 0.8
         }
+        
+        return width
     }
 }
 

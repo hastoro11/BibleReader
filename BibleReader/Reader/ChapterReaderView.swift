@@ -12,6 +12,7 @@ struct ChapterView: View {
     
     @EnvironmentObject var settings: ChapterSettingsModel
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     @ObservedObject var viewModel: BibleViewModel
     @State var hideBars: Bool = false
     @State var showSettings = false
@@ -25,7 +26,7 @@ struct ChapterView: View {
             VStack {
                 if !self.hideBars {
                     TitleView(showSettings: self.$showSettings,showTranslations: self.$showTranslation, selectedTab: self.$selectedTab, viewModel: self.viewModel)
-                }
+                        .frame(width: self.calculateSize(width: geo.size.width))                }
                 ZStack {
                     BodyView(viewModel: self.viewModel, hideBars: self.$hideBars, showContextMenu: self.$showContextMenu)
                         .padding(.top, self.hideBars ? 10 : 0)                        
@@ -67,5 +68,13 @@ struct ChapterView: View {
             }            
         }
         
-    }    
+    }
+    
+    func calculateSize(width: CGFloat) -> CGFloat {
+        if horizontalSizeClass == .regular && verticalSizeClass == .regular {
+            return width * 0.8
+        }
+        
+        return width
+    }
 }
