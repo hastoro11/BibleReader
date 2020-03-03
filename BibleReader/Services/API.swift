@@ -38,7 +38,7 @@ class API {
                 }
                 throw BibleError.network
             })
-            .decode(type: ChapterResponse.self, decoder: JSONDecoder())
+            .decode(type: ChapterResponse.self, decoder: JSONDecoder())        
             .mapError({error -> BibleError in
                 switch error {
                 case is URLError:

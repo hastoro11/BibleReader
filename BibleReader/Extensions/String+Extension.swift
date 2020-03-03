@@ -10,6 +10,7 @@ import Foundation
 
 extension String {
     var removedHTMLTags: String {
+        
         let pattern = #"<.*>"#
         let range = NSRange(location: 0, length: self.utf16.count)
         let regex = try! NSRegularExpression(pattern: pattern, options: [])

@@ -57,14 +57,28 @@ struct Forditas: Codable {
 
 // MARK: - Versek
 struct Versek: Codable {
-    let szoveg: String
+    let szoveg: String?
 //    let jegyzetek: [String]?
     let hely: Hely
+    var forditas: String?
 
     enum CodingKeys: String, CodingKey {
         case szoveg = "szoveg"
 //        case jegyzetek = "jegyzetek"
         case hely = "hely"
+        case forditas = "forditas"
+    }
+}
+
+extension Versek: Identifiable {
+    var id: Int {
+        self.hely.gepi
+    }
+}
+
+extension Versek: Equatable {
+    static func == (lhs: Versek, rhs: Versek) -> Bool {
+        return lhs.hely.gepi == rhs.hely.gepi
     }
 }
 
@@ -79,5 +93,14 @@ struct Hely: Codable {
     }
 }
 
-
+// MARK: - Favorites
+struct Favorite: Codable, Identifiable {
+    var id: Int {
+        return vers.hely.gepi
+    }
+    var vers: Versek
+    var book: String
+    var chapter: Int    
+    var forditas: String
+}
 

@@ -11,6 +11,7 @@ import SwiftUI
 struct TranslationView: View {
     @Binding var showTranslation: Bool
     var viewModel: BibleViewModel
+    var selectedTab: Int
     @State var dragAmount: CGSize = .zero
     var body: some View {
         
@@ -42,25 +43,27 @@ struct TranslationView: View {
                 .gesture(dragGesture)
                 
                 ForEach(Translation.allCases, id:\.self) { tr in
-                    Button(action: {
-                        self.viewModel.translation = tr                        
-                        withAnimation(.easeInOut) {
-                            self.showTranslation = false
+                    Group {
+                        if !self.viewModel.book.isCatholicBook() || !(tr == .RUF || tr == .KG) || self.selectedTab == 0 {
+                            Button(action: {
+                                self.viewModel.translation = tr
+                                withAnimation(.easeInOut) {
+                                    self.showTranslation = false
+                                }
+                            }, label: {
+                                HStack {
+                                    InitialView(char: tr.rawValue, color: tr.color, size: 36)
+                                    Text(tr.description)
+                                        .font(.secondaryTitle)
+                                    Spacer()
+                                }
+                            })
+                                .padding(.horizontal)
+                                .padding(.vertical, 4)
                         }
-                    }, label: {
-                        HStack {
-                            InitialView(char: tr.rawValue, color: tr.color, size: 36)
-                            Text(tr.description)
-                                .font(.secondaryTitle)
-                            Spacer()
-                        }
-                    })
-                        .padding(.horizontal)
-                        .padding(.vertical, 4)
+                    }
+                    
                 }
-                
-                
-                
             }
         }
         .offset(x: 0, y: self.dragAmount.height)

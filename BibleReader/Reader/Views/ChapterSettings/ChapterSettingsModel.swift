@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-class UserSettings: ObservableObject {
+class ChapterSettingsModel: ObservableObject {
     @Published var fontType = FontType.medium
     @Published var fontsize: CGFloat = 24
     @Published var reading: Reading = .vers
@@ -24,7 +24,7 @@ enum FontType {
         case .small:
             return Font.smallBody
         case .medium:
-            return Font.body
+            return Font.normal
         case .big:
             return Font.bigBody
         case .tall:
