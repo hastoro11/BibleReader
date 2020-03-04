@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ChapterSettingView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @EnvironmentObject var settings: ChapterSettingsModel
     @State var dragAmount: CGSize = .zero
     @Binding var showSettings: Bool
@@ -52,12 +53,14 @@ struct ChapterSettingView: View {
                     VersIndexSettingsView(showVerses: self.$settings.showVerses)
                         .padding(10)
                 }
+                .frame(width: geo.size.width * (self.horizontalSizeClass == .regular ? 0.8 : 1.0))
                 .padding(.leading)
             }
+            
             .offset(x: 0, y: self.dragAmount.height)
             .animation(.spring())
         }
-        
+     
         
     }
 }
