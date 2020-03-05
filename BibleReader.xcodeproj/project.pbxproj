@@ -17,8 +17,8 @@
 		8C116E7323E9EC5A0010859D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C116E7223E9EC5A0010859D /* Assets.xcassets */; };
 		8C116E7623E9EC5A0010859D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C116E7523E9EC5A0010859D /* Preview Assets.xcassets */; };
 		8C116E7923E9EC5A0010859D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C116E7723E9EC5A0010859D /* LaunchScreen.storyboard */; };
-		8C116EC223E9EF430010859D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116EC123E9EF430010859D /* TitleView.swift */; };
 		8C116EC423E9EF4C0010859D /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116EC323E9EF4C0010859D /* BodyView.swift */; };
+		8C339FD92410EDEA009D1CD2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C339FD82410EDEA009D1CD2 /* Constants.swift */; };
 		8C59042D24005AD900C78DA9 /* TranslationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59042C24005AD900C78DA9 /* TranslationView.swift */; };
 		8C66EAFF23FFD26400B6F0AB /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C66EAFE23FFD26400B6F0AB /* LoaderView.swift */; };
 		8C7C59E623F858DA00B85FCE /* ChapterNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C59E523F858DA00B85FCE /* ChapterNumberView.swift */; };
@@ -48,14 +48,13 @@
 		8CC8C66823FED74D00FEBE78 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC8C66723FED74D00FEBE78 /* API.swift */; };
 		8CE64A222402649C00933D7C /* BibleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE64A202402649C00933D7C /* BibleViewModel.swift */; };
 		8CE64A232402649C00933D7C /* ChapterReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE64A212402649C00933D7C /* ChapterReaderView.swift */; };
-		8CE64A252404468500933D7C /* ContextMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE64A242404468500933D7C /* ContextMenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8C09FF4823F67E12003AD3DF /* CommonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViews.swift; sourceTree = "<group>"; };
 		8C09FF4A23F6DA08003AD3DF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		8C09FF4C23F7026E003AD3DF /* TopRoundedShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRoundedShape.swift; sourceTree = "<group>"; };
-		8C116E6623E9EC520010859D /* BibleReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BibleReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C116E6623E9EC520010859D /* Szentírás.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Szentírás.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C116E6923E9EC520010859D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C116E6B23E9EC520010859D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8C116E6E23E9EC520010859D /* BibleReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BibleReader.xcdatamodel; sourceTree = "<group>"; };
@@ -64,8 +63,8 @@
 		8C116E7523E9EC5A0010859D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8C116E7823E9EC5A0010859D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C116E7A23E9EC5A0010859D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C116EC123E9EF430010859D /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		8C116EC323E9EF4C0010859D /* BodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
+		8C339FD82410EDEA009D1CD2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8C59042C24005AD900C78DA9 /* TranslationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationView.swift; sourceTree = "<group>"; };
 		8C66EAFE23FFD26400B6F0AB /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		8C7C59E523F858DA00B85FCE /* ChapterNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterNumberView.swift; sourceTree = "<group>"; };
@@ -95,7 +94,6 @@
 		8CC8C66723FED74D00FEBE78 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		8CE64A202402649C00933D7C /* BibleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleViewModel.swift; sourceTree = "<group>"; };
 		8CE64A212402649C00933D7C /* ChapterReaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterReaderView.swift; sourceTree = "<group>"; };
-		8CE64A242404468500933D7C /* ContextMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +129,7 @@
 		8C116E6723E9EC520010859D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C116E6623E9EC520010859D /* BibleReader.app */,
+				8C116E6623E9EC520010859D /* Szentírás.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,6 +137,7 @@
 		8C116E6823E9EC520010859D /* BibleReader */ = {
 			isa = PBXGroup;
 			children = (
+				8C339FD72410EDD9009D1CD2 /* Constants */,
 				8C116E9123E9ED130010859D /* Fonts */,
 				8C8C00FD23ED6467005C2EB6 /* Extensions */,
 				8C8C00F523ED40F0005C2EB6 /* Model */,
@@ -190,6 +189,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		8C339FD72410EDD9009D1CD2 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				8C339FD82410EDEA009D1CD2 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		8C8C00F523ED40F0005C2EB6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,23 +226,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		8C8C015023F5B8BE005C2EB6 /* ChapterSettings */ = {
+		8C8C015723F5B9AF005C2EB6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				8C8C015523F5B964005C2EB6 /* ChapterSettingsModel.swift */,
 				8C9F0C9323E9F65F00D40B83 /* ChapterSettingView.swift */,
-			);
-			path = ChapterSettings;
-			sourceTree = "<group>";
-		};
-		8C8C015723F5B9AF005C2EB6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8C8C015023F5B8BE005C2EB6 /* ChapterSettings */,
-				8C116EC123E9EF430010859D /* TitleView.swift */,
 				8C116EC323E9EF4C0010859D /* BodyView.swift */,
 				8C59042C24005AD900C78DA9 /* TranslationView.swift */,
-				8CE64A242404468500933D7C /* ContextMenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,7 +293,7 @@
 			);
 			name = BibleReader;
 			productName = BibleReader;
-			productReference = 8C116E6623E9EC520010859D /* BibleReader.app */;
+			productReference = 8C116E6623E9EC520010859D /* Szentírás.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -372,6 +369,7 @@
 				8C59042D24005AD900C78DA9 /* TranslationView.swift in Sources */,
 				8CA7BB4F2408F10C00AF49F3 /* FavoritesView.swift in Sources */,
 				8C8C00FA23ED4C3C005C2EB6 /* BooksView.swift in Sources */,
+				8C339FD92410EDEA009D1CD2 /* Constants.swift in Sources */,
 				8CC8C66623FED73700FEBE78 /* Error.swift in Sources */,
 				8CA7BB5124097B9300AF49F3 /* FileService.swift in Sources */,
 				8C8C00FF23ED647A005C2EB6 /* Array+Extension.swift in Sources */,
@@ -380,13 +378,11 @@
 				8C09FF4B23F6DA08003AD3DF /* String+Extension.swift in Sources */,
 				8CC8C66823FED74D00FEBE78 /* API.swift in Sources */,
 				8CE64A232402649C00933D7C /* ChapterReaderView.swift in Sources */,
-				8C116EC223E9EF430010859D /* TitleView.swift in Sources */,
 				8C116E6F23E9EC520010859D /* BibleReader.xcdatamodeld in Sources */,
 				8CA7BB56240A498100AF49F3 /* UserSettingsService.swift in Sources */,
 				8C8C014F23F458D0005C2EB6 /* Font+Extension.swift in Sources */,
 				8C116E7123E9EC520010859D /* ContentView.swift in Sources */,
 				8C8C015623F5B964005C2EB6 /* ChapterSettingsModel.swift in Sources */,
-				8CE64A252404468500933D7C /* ContextMenuView.swift in Sources */,
 				8C116E6C23E9EC520010859D /* SceneDelegate.swift in Sources */,
 				8C9F0C9423E9F65F00D40B83 /* ChapterSettingView.swift in Sources */,
 			);
@@ -534,7 +530,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sornyei.BibleReader;
-				PRODUCT_NAME = BibleReader;
+				PRODUCT_NAME = "Szentírás";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -554,7 +550,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sornyei.BibleReader;
-				PRODUCT_NAME = BibleReader;
+				PRODUCT_NAME = "Szentírás";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
