@@ -38,36 +38,9 @@ struct SettingView: View {
                     .font(.secondaryTitle)
                     
                 List {
-                    Section(header: self.sectionHeader(title: "Legutóbbi olvasás", subTitle: "")) {
-                        HStack {
-                            Text("Folytatás")
-                                .font(.secondaryTitle)
-                            Toggle("", isOn: self.$viewModel.saveLastPosition)
-                        }
-                        .padding()
-                        Text("")
-                            .padding(0)
-                            
-                    }
-                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    self.saveLastPosition
                     
-                    Section(header: self.sectionHeader(title: "Színkategóriák", subTitle: "(Érintsd meg a nevet)")) {
-                        ForEach(self.colors.indices, id:\.self) { index in
-                            HStack {
-                                TextField(self.colors[index], text: self.$viewModel.titles[index])
-                                .font(.secondaryTitle)
-                                .padding()
-                                Spacer()
-                                Circle()
-                                    .fill(Color(self.colors[index]))
-                                    .frame(width: 32, height: 32)
-                                    .padding(.trailing)
-                                
-                            }
-                            
-                        }
-                    }
-                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    self.categories
                 }
                 .frame(width: self.calculateSize(width: geo.size.width))
                 .padding(.top, 32)
@@ -75,16 +48,55 @@ struct SettingView: View {
             .padding(.top)
             .onAppear {
                 UITableView.appearance().tableFooterView = UIView()
-    //            UITableView.appearance().cellLayoutMarginsFollowReadableWidth = false
             }
         }
     }
+}
+
+// MARK: - Subviews
+extension SettingView {
+    var saveLastPosition: some View {
+        Section(header: self.sectionHeader(title: "Legutóbbi olvasás", subTitle: "")) {
+            HStack {
+                Text("Folytatás")
+                    .font(.secondaryTitle)
+                Toggle("", isOn: self.$viewModel.saveLastPosition)
+            }
+            .padding()
+            Text("")
+                .padding(0)
+                
+        }
+        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+    }
     
+    var categories: some View {
+        Section(header: self.sectionHeader(title: "Színkategóriák", subTitle: "(Érintsd meg a nevet)")) {
+            ForEach(self.colors.indices, id:\.self) { index in
+                HStack {
+                    TextField(self.colors[index], text: self.$viewModel.titles[index])
+                    .font(.secondaryTitle)
+                    .padding()
+                    Spacer()
+                    Circle()
+                        .fill(Color(self.colors[index]))
+                        .frame(width: 32, height: 32)
+                        .padding(.trailing)
+                    
+                }
+                
+            }
+        }
+        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+    }
+}
+
+// MARK: - Helpers
+extension SettingView {
     func calculateSize(width: CGFloat) -> CGFloat {
         if horizontalSizeClass == .regular {
             return width * 0.8
         }
-        
         return width
     }
 }
