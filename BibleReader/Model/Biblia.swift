@@ -35,7 +35,7 @@ enum Translation: String, CaseIterable, CustomStringConvertible{
         case .KNB:
             return Color("Red")
         case .SZIT:
-            return Color("Yellow")
+            return Color("Gray")
         }
     }
     

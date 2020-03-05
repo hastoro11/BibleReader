@@ -97,7 +97,7 @@ extension ChapterView {
             Button(action: {
                 self.showNumbersView = true
             }, label: {
-                InitialView(char: "\(viewModel.chapter)", color: Color("Green"), size: 44)
+                InitialView(char: "\(viewModel.chapter)", color: Color("Yellow"), size: 44)
             })
            
             Spacer()
@@ -123,7 +123,7 @@ extension ChapterView {
                     }
                 }
             }, label: {
-                ButtonView(icon: "gear", color: Color.gray)
+                ButtonView(icon: "gear", color: Color("Green"))
             })
         }
         .padding(.top, 10)
