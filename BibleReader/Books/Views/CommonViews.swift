@@ -35,3 +35,19 @@ struct ButtonView: View {
                .background(Circle().fill(color))
        }
 }
+
+struct BookButton: View {
+    var text: String
+    var width: CGFloat
+    var color: Color
+    var body: some View {
+        Text(String(text.prefix(6)))
+            .font(.secondaryTitle)
+            .frame(width: (width - 100) / 6, height: 44)
+            .foregroundColor(.black)
+            
+            .background(RoundedRectangle(cornerRadius: 2).stroke(color, lineWidth: 3))
+            .background(Color("LightGray"))
+            .cornerRadius(2)
+    }
+}

@@ -35,10 +35,7 @@ extension Font {
     }
     
     static var boldTitle: Font {
-        return self.custom("Fira Sans Bold", size: 18)
+        return self.custom("Fira Sans Bold", size: 24)
     }
-    
-    static var bigTitle: Font {
-        return self.custom("Fira Sans Bold", size: 26)
-    }
+
 }

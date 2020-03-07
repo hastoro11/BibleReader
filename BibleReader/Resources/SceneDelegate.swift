@@ -21,15 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Get the managed object context from the shared persistent container.
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//        let chapterView = ChapterView()
-//            .environmentObject(ChapterViewModel())
-//            .environmentObject(UserSettings())
-                
-//        for fontFamily in UIFont.familyNames {
-//            for fontName in UIFont.fontNames(forFamilyName: fontFamily) {
-//                print("\(fontName)")
-//            }
-//        }
+
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
         let bibleViewModel = BibleViewModel()

@@ -29,13 +29,13 @@ enum Translation: String, CaseIterable, CustomStringConvertible{
     var color: Color {
         switch self {
         case .RUF:
-            return Color("Blue")
-        case .KG:
-            return .black
-        case .KNB:
             return Color("Red")
+        case .KG:
+            return Color("Blue")
+        case .KNB:
+            return Color.black
         case .SZIT:
-            return Color("Yellow")
+            return Color("Gray")
         }
     }
     
