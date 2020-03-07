@@ -19,31 +19,37 @@ struct FavoritesView: View {
     
     var body: some View {
         GeometryReader { geo in
-            VStack(spacing: 0) {
-                Text("Kedvencek")
-                    .font(.secondaryTitle)
-                    .padding(.bottom, 32)
-                    
-                if !self.viewModel.isFavoritesEmpty {
-                    List {
-                        ForEach(self.colors.indices, id:\.self) { index in
-                            Group {
-                                self.favorites(index: index)
+            ZStack {
+                
+                VStack(spacing: 0) {
+                    Text("Kedvencek")
+                        .font(.secondaryTitle)
+                        .padding(.bottom, 32)
+                        .padding(.top)
+                        
+                    if !self.viewModel.isFavoritesEmpty {
+                        List {
+                            ForEach(self.colors.indices, id:\.self) { index in
+                                Group {
+                                    self.favorites(index: index)
+                                }
                             }
                         }
+                        .padding()
+                        
+                        .onAppear {
+                            UITableView.appearance().backgroundColor = UIColor.white
+                            UITableView.appearance().tableFooterView = UIView()
+                        }
+                    } else {
+                        Text("Nincs elmentett kedvenced!")
+                            .font(.tallBody)
                     }
-                    .onAppear {
-                        UITableView.appearance().backgroundColor = UIColor.white
-                        UITableView.appearance().tableFooterView = UIView()
-                    }
-                } else {
-                    Text("Nincs elmentett kedvenced!")
-                        .font(.tallBody)
+                    Spacer()
                 }
-                Spacer()
+                .frame(width: self.calculateSize(width: geo.size.width))
             }
-            .frame(width: self.calculateSize(width: geo.size.width))
-            .padding(.top)
+            
         }
     }
 }

@@ -29,6 +29,8 @@ struct BooksView: View {
     var body: some View {
         GeometryReader { geo in
             ZStack {
+                Color("LightGray")
+                    .edgesIgnoringSafeArea(.all)
                 VStack {
                     ScrollView(.vertical, showsIndicators: false){
                         VStack {
@@ -40,13 +42,15 @@ struct BooksView: View {
                                                    color: Color("Green"),
                                                    width: self.calculateSize(width: geo.size.width),
                                                    books: self.oldTestament,
-                                                   background: Color("Yellow"))
+                                                   background: Color("Yellow"),
+                                                   image: "beach-water-steps-sand")
                                     
                                     self.booksList(text: "Újszövetség",
-                                                   color: Color("Red"),
+                                                   color: Color("Yellow"),
                                                    width: self.calculateSize(width: geo.size.width),
                                                    books: self.newTestament,
-                                                   background: Color("Yellow"))
+                                                   background: Color("Green"),
+                                                   image: "wave")
                                     
                                 }
                                 .padding()
@@ -56,9 +60,9 @@ struct BooksView: View {
                         }
                     }
                     .frame(width: geo.size.width)
-                    .padding(.top)
+
                     
-                }
+                }.padding(.top, 2)
                 
                 VStack {
                     Spacer()
@@ -78,35 +82,39 @@ struct BooksView: View {
 
 // MARK: - Subviews
 extension BooksView {
-    func booksList(text: String, color: Color, width: CGFloat, books: [[Book]], background: Color) -> some View {
-        VStack {
-            HStack {
-                InitialView(char: String(text.prefix(1)), color: color, size: 36)
-                Text(text)
-                    .font(.secondaryTitle)
-                Spacer()
-            }
-            .frame(width: width - 40)
-            .padding([.leading, .bottom, .top])
+    func booksList(text: String, color: Color, width: CGFloat, books: [[Book]], background: Color, image: String) -> some View {
+        ZStack {
             
-            VStack(alignment: .leading, spacing: 10) {
-                ForEach(books.indices, id:\.self) { chunk in
-                    HStack {
-                        ForEach(books[chunk], id:\.name) { book in
-                            Button(action: {
-                                self.viewModel.book = book
-                                self.showNumbersView = true
-                            }, label: {
-                                self.bookButtonText(text: book.abbreviation, width: width, color: color)
-                            })
+            VStack {
+                HStack {
+                    InitialView(char: String(text.prefix(1)), color: color, size: 36)
+                    Text(text)
+                        .font(.secondaryTitle)
+                    Spacer()
+                }
+                .frame(width: width - 40)
+                .padding([.leading, .bottom, .top])
+                
+                VStack(alignment: .leading, spacing: 10) {
+                    ForEach(books.indices, id:\.self) { chunk in
+                        HStack {
+                            ForEach(books[chunk], id:\.name) { book in
+                                Button(action: {
+                                    self.viewModel.book = book
+                                    self.showNumbersView = true
+                                }, label: {
+                                    self.bookButtonText(text: book.abbreviation, width: width, color: color)
+                                })
+                            }
                         }
                     }
                 }
+                .padding(.bottom)
             }
+            .background(background)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
             .padding(.bottom)
         }
-        .background(RoundedRectangle(cornerRadius: 8).fill(background))
-        .padding(.bottom)
     }
     
     func bookButtonText(text: String, width: CGFloat, color: Color) -> some View {
