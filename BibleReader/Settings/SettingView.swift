@@ -13,6 +13,7 @@ struct SettingView: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @ObservedObject var viewModel: BibleViewModel
     @State var saveCurrent = false
+    @Binding var showTutorial: Bool
     var colors = ["Yellow", "Red", "Blue", "Green", "Gray"]
     
     func sectionHeader(title: String, subTitle: String) -> some View {
@@ -41,6 +42,8 @@ struct SettingView: View {
                     self.saveLastPosition
                     
                     self.categories
+                    
+                    self.showTutorialView
                 }
                 .frame(width: self.calculateSize(width: geo.size.width))
                 .padding(.top, 32)
@@ -91,6 +94,25 @@ extension SettingView {
     }
 }
 
+extension SettingView {
+    var showTutorialView: some View {
+        Section(header: self.sectionHeader(title: "Ismertető", subTitle: "")) {
+            HStack {
+                Button(action: {
+                    self.showTutorial = true
+                }, label: {
+                    Text("Indítás")
+                    .font(.secondaryTitle)
+                })
+            }
+            .padding()
+            
+                
+        }
+        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+    }
+}
+
 // MARK: - Helpers
 extension SettingView {
     func calculateSize(width: CGFloat) -> CGFloat {
@@ -103,6 +125,6 @@ extension SettingView {
 
 struct UserSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView(viewModel: BibleViewModel())
+        SettingView(viewModel: BibleViewModel(), showTutorial: .constant(false))
     }
 }

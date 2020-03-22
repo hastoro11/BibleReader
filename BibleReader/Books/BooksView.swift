@@ -46,7 +46,7 @@ struct BooksView: View {
                                                    image: "beach-water-steps-sand")
                                     
                                     self.booksList(text: "Újszövetség",
-                                                   color: Color("Yellow"),
+                                                   color: Color("Red"),
                                                    width: self.calculateSize(width: geo.size.width),
                                                    books: self.newTestament,
                                                    background: Color("Green"),

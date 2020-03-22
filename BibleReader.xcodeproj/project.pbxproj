@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C0305982423893D00144EBB /* PageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0305972423893D00144EBB /* PageScrollView.swift */; };
 		8C09FF4923F67E12003AD3DF /* CommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09FF4823F67E12003AD3DF /* CommonViews.swift */; };
 		8C09FF4B23F6DA08003AD3DF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09FF4A23F6DA08003AD3DF /* String+Extension.swift */; };
 		8C116E6A23E9EC520010859D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C116E6923E9EC520010859D /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 		8C339FD92410EDEA009D1CD2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C339FD82410EDEA009D1CD2 /* Constants.swift */; };
 		8C59042D24005AD900C78DA9 /* TranslationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59042C24005AD900C78DA9 /* TranslationView.swift */; };
 		8C66EAFF23FFD26400B6F0AB /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C66EAFE23FFD26400B6F0AB /* LoaderView.swift */; };
+		8C723C252427931800ECC6D5 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C723C242427931800ECC6D5 /* SwipeView.swift */; };
 		8C7C59E623F858DA00B85FCE /* ChapterNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7C59E523F858DA00B85FCE /* ChapterNumberView.swift */; };
 		8C8C00F723ED420B005C2EB6 /* Biblia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C00F623ED420B005C2EB6 /* Biblia.swift */; };
 		8C8C00FA23ED4C3C005C2EB6 /* BooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C00F923ED4C3C005C2EB6 /* BooksView.swift */; };
@@ -50,9 +52,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C0305972423893D00144EBB /* PageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageScrollView.swift; sourceTree = "<group>"; };
 		8C09FF4823F67E12003AD3DF /* CommonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViews.swift; sourceTree = "<group>"; };
 		8C09FF4A23F6DA08003AD3DF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		8C116E6623E9EC520010859D /* Szentírás.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Szentírás.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C116E6623E9EC520010859D /* Szentiras.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Szentiras.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C116E6923E9EC520010859D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C116E6B23E9EC520010859D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8C116E6E23E9EC520010859D /* BibleReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BibleReader.xcdatamodel; sourceTree = "<group>"; };
@@ -65,6 +68,7 @@
 		8C339FD82410EDEA009D1CD2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8C59042C24005AD900C78DA9 /* TranslationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationView.swift; sourceTree = "<group>"; };
 		8C66EAFE23FFD26400B6F0AB /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		8C723C242427931800ECC6D5 /* SwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
 		8C7C59E523F858DA00B85FCE /* ChapterNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterNumberView.swift; sourceTree = "<group>"; };
 		8C8C00F623ED420B005C2EB6 /* Biblia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biblia.swift; sourceTree = "<group>"; };
 		8C8C00F923ED4C3C005C2EB6 /* BooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksView.swift; sourceTree = "<group>"; };
@@ -105,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C0305942423889B00144EBB /* PageController */ = {
+			isa = PBXGroup;
+			children = (
+				8C0305972423893D00144EBB /* PageScrollView.swift */,
+				8C723C242427931800ECC6D5 /* SwipeView.swift */,
+			);
+			path = PageController;
+			sourceTree = "<group>";
+		};
 		8C09FF4723F67DFC003AD3DF /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,7 +139,7 @@
 		8C116E6723E9EC520010859D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C116E6623E9EC520010859D /* Szentírás.app */,
+				8C116E6623E9EC520010859D /* Szentiras.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,6 +156,7 @@
 				8C8C00F823ED4C27005C2EB6 /* Books */,
 				8C116E8223E9ECF30010859D /* Reader */,
 				8CA7BB522409821A00AF49F3 /* Settings */,
+				8C0305942423889B00144EBB /* PageController */,
 				8C116E7023E9EC520010859D /* ContentView.swift */,
 				8CE64A202402649C00933D7C /* BibleViewModel.swift */,
 				8C971545240C261C00DDF17C /* Resources */,
@@ -290,7 +304,7 @@
 			);
 			name = BibleReader;
 			productName = BibleReader;
-			productReference = 8C116E6623E9EC520010859D /* Szentírás.app */;
+			productReference = 8C116E6623E9EC520010859D /* Szentiras.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -362,8 +376,10 @@
 				8CC8C66423FED69A00FEBE78 /* Response.swift in Sources */,
 				8C7C59E623F858DA00B85FCE /* ChapterNumberView.swift in Sources */,
 				8C09FF4923F67E12003AD3DF /* CommonViews.swift in Sources */,
+				8C0305982423893D00144EBB /* PageScrollView.swift in Sources */,
 				8C59042D24005AD900C78DA9 /* TranslationView.swift in Sources */,
 				8CA7BB4F2408F10C00AF49F3 /* FavoritesView.swift in Sources */,
+				8C723C252427931800ECC6D5 /* SwipeView.swift in Sources */,
 				8C8C00FA23ED4C3C005C2EB6 /* BooksView.swift in Sources */,
 				8C339FD92410EDEA009D1CD2 /* Constants.swift in Sources */,
 				8CC8C66623FED73700FEBE78 /* Error.swift in Sources */,
@@ -526,7 +542,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sornyei.BibleReader;
-				PRODUCT_NAME = "Szentírás";
+				PRODUCT_NAME = Szentiras;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -546,7 +562,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sornyei.BibleReader;
-				PRODUCT_NAME = "Szentírás";
+				PRODUCT_NAME = Szentiras;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

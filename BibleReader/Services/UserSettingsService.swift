@@ -13,6 +13,7 @@ let kTranslation = "kTranslation"
 let kBook = "kBook"
 let kChapter = "kChapter"
 let kTitles = "kTitles"
+let kShowTutorial = "kShowTutorial"
 
 class UserSettingsService {
     
@@ -71,5 +72,13 @@ class UserSettingsService {
     
     func getTitles() -> [String] {
         return UserDefaults.standard.array(forKey: kTitles) as? [String] ?? ["Yellow", "Red", "Blue", "Green", "Gray"]
+    }
+    
+    func getShowTutorialAtTheBeginning() -> Bool {
+        return UserDefaults.standard.bool(forKey: kShowTutorial)
+    }
+    
+    func setShowTutorialAtTheBeginning(value: Bool) {
+        UserDefaults.standard.set(value, forKey: kShowTutorial)
     }
 }
