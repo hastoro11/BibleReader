@@ -47,7 +47,7 @@ class FileService {
     private func getUrl(forFile file: String) -> URL? {
            
            let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-           print(documents)
+//           print(documents)
            let fileUrl = documents
                .appendingPathComponent(file.capitalized)
                .appendingPathExtension("json")

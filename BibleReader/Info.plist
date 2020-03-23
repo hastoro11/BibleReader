@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,17 +19,11 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Maitree-Light.ttf</string>
-		<string>Maitree-Bold.ttf</string>
-		<string>CormorantGaramond-Light.ttf</string>
-		<string>CormorantGaramond-Bold.ttf</string>
-		<string>CrimsonPro-Light.ttf</string>
-		<string>CrimsonPro-Bold.ttf</string>
 		<string>FiraSans-Bold.ttf</string>
 		<string>FiraSans-Light.ttf</string>
 		<string>FiraSans-Medium.ttf</string>

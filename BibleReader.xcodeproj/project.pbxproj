@@ -33,13 +33,7 @@
 		8C8C014F23F458D0005C2EB6 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C014E23F458D0005C2EB6 /* Font+Extension.swift */; };
 		8C8C015623F5B964005C2EB6 /* ChapterSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C015523F5B964005C2EB6 /* ChapterSettingsModel.swift */; };
 		8C9F0C8723E9F40A00D40B83 /* Example.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C8623E9F40A00D40B83 /* Example.json */; };
-		8C9F0C8923E9F43700D40B83 /* CrimsonPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C8823E9F43700D40B83 /* CrimsonPro-Light.ttf */; };
-		8C9F0C8B23E9F45300D40B83 /* CormorantGaramond-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C8A23E9F45300D40B83 /* CormorantGaramond-Light.ttf */; };
-		8C9F0C8D23E9F45F00D40B83 /* Maitree-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C8C23E9F45F00D40B83 /* Maitree-Light.ttf */; };
-		8C9F0C8F23E9F56D00D40B83 /* CormorantGaramond-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C8E23E9F56D00D40B83 /* CormorantGaramond-Bold.ttf */; };
-		8C9F0C9123E9F57900D40B83 /* Maitree-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C9023E9F57900D40B83 /* Maitree-Bold.ttf */; };
 		8C9F0C9423E9F65F00D40B83 /* ChapterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F0C9323E9F65F00D40B83 /* ChapterSettingView.swift */; };
-		8C9F0C9523E9FD1F00D40B83 /* CrimsonPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F0C9223E9F58400D40B83 /* CrimsonPro-Bold.ttf */; };
 		8CA7BB4F2408F10C00AF49F3 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA7BB4E2408F10C00AF49F3 /* FavoritesView.swift */; };
 		8CA7BB5124097B9300AF49F3 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA7BB5024097B9300AF49F3 /* FileService.swift */; };
 		8CA7BB542409823600AF49F3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA7BB532409823600AF49F3 /* SettingView.swift */; };
@@ -55,7 +49,7 @@
 		8C0305972423893D00144EBB /* PageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageScrollView.swift; sourceTree = "<group>"; };
 		8C09FF4823F67E12003AD3DF /* CommonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViews.swift; sourceTree = "<group>"; };
 		8C09FF4A23F6DA08003AD3DF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		8C116E6623E9EC520010859D /* Szentiras.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Szentiras.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C116E6623E9EC520010859D /* Szentírás.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Szentírás.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C116E6923E9EC520010859D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C116E6B23E9EC520010859D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8C116E6E23E9EC520010859D /* BibleReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BibleReader.xcdatamodel; sourceTree = "<group>"; };
@@ -80,12 +74,6 @@
 		8C8C014E23F458D0005C2EB6 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		8C8C015523F5B964005C2EB6 /* ChapterSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterSettingsModel.swift; sourceTree = "<group>"; };
 		8C9F0C8623E9F40A00D40B83 /* Example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Example.json; sourceTree = "<group>"; };
-		8C9F0C8823E9F43700D40B83 /* CrimsonPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CrimsonPro-Light.ttf"; sourceTree = "<group>"; };
-		8C9F0C8A23E9F45300D40B83 /* CormorantGaramond-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Light.ttf"; sourceTree = "<group>"; };
-		8C9F0C8C23E9F45F00D40B83 /* Maitree-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Maitree-Light.ttf"; sourceTree = "<group>"; };
-		8C9F0C8E23E9F56D00D40B83 /* CormorantGaramond-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CormorantGaramond-Bold.ttf"; sourceTree = "<group>"; };
-		8C9F0C9023E9F57900D40B83 /* Maitree-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Maitree-Bold.ttf"; sourceTree = "<group>"; };
-		8C9F0C9223E9F58400D40B83 /* CrimsonPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CrimsonPro-Bold.ttf"; sourceTree = "<group>"; };
 		8C9F0C9323E9F65F00D40B83 /* ChapterSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterSettingView.swift; sourceTree = "<group>"; };
 		8CA7BB4E2408F10C00AF49F3 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		8CA7BB5024097B9300AF49F3 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
@@ -139,7 +127,7 @@
 		8C116E6723E9EC520010859D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C116E6623E9EC520010859D /* Szentiras.app */,
+				8C116E6623E9EC520010859D /* Szentírás.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,12 +178,6 @@
 				8C8C014923F3DA67005C2EB6 /* FiraSans-Light.ttf */,
 				8C8C014823F3DA67005C2EB6 /* FiraSans-Medium.ttf */,
 				8C8C014623F3DA66005C2EB6 /* FiraSans-Regular.ttf */,
-				8C9F0C8C23E9F45F00D40B83 /* Maitree-Light.ttf */,
-				8C9F0C9023E9F57900D40B83 /* Maitree-Bold.ttf */,
-				8C9F0C8A23E9F45300D40B83 /* CormorantGaramond-Light.ttf */,
-				8C9F0C8E23E9F56D00D40B83 /* CormorantGaramond-Bold.ttf */,
-				8C9F0C8823E9F43700D40B83 /* CrimsonPro-Light.ttf */,
-				8C9F0C9223E9F58400D40B83 /* CrimsonPro-Bold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -304,7 +286,7 @@
 			);
 			name = BibleReader;
 			productName = BibleReader;
-			productReference = 8C116E6623E9EC520010859D /* Szentiras.app */;
+			productReference = 8C116E6623E9EC520010859D /* Szentírás.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -350,15 +332,9 @@
 				8C116E7923E9EC5A0010859D /* LaunchScreen.storyboard in Resources */,
 				8C8C014A23F3DA67005C2EB6 /* FiraSans-Regular.ttf in Resources */,
 				8C8C014D23F3DA67005C2EB6 /* FiraSans-Light.ttf in Resources */,
-				8C9F0C8F23E9F56D00D40B83 /* CormorantGaramond-Bold.ttf in Resources */,
-				8C9F0C8B23E9F45300D40B83 /* CormorantGaramond-Light.ttf in Resources */,
 				8C116E7623E9EC5A0010859D /* Preview Assets.xcassets in Resources */,
 				8C8C014B23F3DA67005C2EB6 /* FiraSans-Bold.ttf in Resources */,
-				8C9F0C8923E9F43700D40B83 /* CrimsonPro-Light.ttf in Resources */,
 				8C116E7323E9EC5A0010859D /* Assets.xcassets in Resources */,
-				8C9F0C9123E9F57900D40B83 /* Maitree-Bold.ttf in Resources */,
-				8C9F0C8D23E9F45F00D40B83 /* Maitree-Light.ttf in Resources */,
-				8C9F0C9523E9FD1F00D40B83 /* CrimsonPro-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +509,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"BibleReader/Preview Content\"";
 				DEVELOPMENT_TEAM = 8YE8M3UNR3;
 				ENABLE_PREVIEWS = YES;
@@ -542,7 +519,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sornyei.BibleReader;
-				PRODUCT_NAME = Szentiras;
+				PRODUCT_NAME = "Szentírás";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -553,6 +530,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"BibleReader/Preview Content\"";
 				DEVELOPMENT_TEAM = 8YE8M3UNR3;
 				ENABLE_PREVIEWS = YES;
@@ -562,7 +540,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sornyei.BibleReader;
-				PRODUCT_NAME = Szentiras;
+				PRODUCT_NAME = "Szentírás";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
